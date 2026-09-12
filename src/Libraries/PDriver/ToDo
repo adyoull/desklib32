@@ -1,0 +1,2 @@
+Change the void* (pointer to draw path) in PDriver_InsertIllustration to
+something more meaningful.
