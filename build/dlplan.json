@@ -5,22 +5,22 @@
  ],
  "compiles": [
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.GetDepth -o o.BackTrace_GetDepth",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.GetDepth -o o.BackTrace_GetDepth",
    "out": "o.BackTrace_GetDepth",
    "name": "BackTrace_GetDepth"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.GetFns -o o.BackTrace_GetFns",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.GetFns -o o.BackTrace_GetFns",
    "out": "o.BackTrace_GetFns",
    "name": "BackTrace_GetFns"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.ToF -o o.BackTrace_ToF",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.ToF -o o.BackTrace_ToF",
    "out": "o.BackTrace_ToF",
    "name": "BackTrace_ToF"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.backtrace -o o.BackTrace_backtrace",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.backtrace -o o.BackTrace_backtrace",
    "out": "o.BackTrace_backtrace",
    "name": "BackTrace_backtrace"
   },
@@ -50,37 +50,37 @@
    "name": "BackTrace_backtr_sup"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Create -o o.Clear_Create",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Create -o o.Clear_Create",
    "out": "o.Clear_Create",
    "name": "Clear_Create"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Free -o o.Clear_Free",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Free -o o.Clear_Free",
    "out": "o.Clear_Free",
    "name": "Clear_Free"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Init -o o.Clear_Init",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Init -o o.Clear_Init",
    "out": "o.Clear_Init",
    "name": "Clear_Init"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Load -o o.Clear_Load",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Load -o o.Clear_Load",
    "out": "o.Clear_Load",
    "name": "Clear_Load"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Save -o o.Clear_Save",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Save -o o.Clear_Save",
    "out": "o.Clear_Save",
    "name": "Clear_Save"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clipboard.c.Clipboard -o o.Clipboard_Clipboard",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clipboard.c.Clipboard -o o.Clipboard_Clipboard",
    "out": "o.Clipboard_Clipboard",
    "name": "Clipboard_Clipboard"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.ColourMenu.c.Colourmenu -o o.ColourMenu_Colourmenu",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.ColourMenu.c.Colourmenu -o o.ColourMenu_Colourmenu",
    "out": "o.ColourMenu_Colourmenu",
    "name": "ColourMenu_Colourmenu"
   },
@@ -115,127 +115,127 @@
    "name": "ColourTran_SetGCOL"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert1 -o o.Coord_Convert1",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert1 -o o.Coord_Convert1",
    "out": "o.Coord_Convert1",
    "name": "Coord_Convert1"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert2 -o o.Coord_Convert2",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert2 -o o.Coord_Convert2",
    "out": "o.Coord_Convert2",
    "name": "Coord_Convert2"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert3 -o o.Coord_Convert3",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert3 -o o.Coord_Convert3",
    "out": "o.Coord_Convert3",
    "name": "Coord_Convert3"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert4 -o o.Coord_Convert4",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.Convert4 -o o.Coord_Convert4",
    "out": "o.Coord_Convert4",
    "name": "Coord_Convert4"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.PtInRect -o o.Coord_PtInRect",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.PtInRect -o o.Coord_PtInRect",
    "out": "o.Coord_PtInRect",
    "name": "Coord_PtInRect"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectCntain -o o.Coord_RectCntain",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectCntain -o o.Coord_RectCntain",
    "out": "o.Coord_RectCntain",
    "name": "Coord_RectCntain"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectUnion -o o.Coord_RectUnion",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectUnion -o o.Coord_RectUnion",
    "out": "o.Coord_RectUnion",
    "name": "Coord_RectUnion"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectsOvlap -o o.Coord_RectsOvlap",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.RectsOvlap -o o.Coord_RectsOvlap",
    "out": "o.Coord_RectsOvlap",
    "name": "Coord_RectsOvlap"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.WOrigin -o o.Coord_WOrigin",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.WOrigin -o o.Coord_WOrigin",
    "out": "o.Coord_WOrigin",
    "name": "Coord_WOrigin"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.CreatDstry -o o.Dialog_CreatDstry",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.CreatDstry -o o.Dialog_CreatDstry",
    "out": "o.Dialog_CreatDstry",
    "name": "Dialog_CreatDstry"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Hide -o o.Dialog_Hide",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Hide -o o.Dialog_Hide",
    "out": "o.Dialog_Hide",
    "name": "Dialog_Hide"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Show -o o.Dialog_Show",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Show -o o.Dialog_Show",
    "out": "o.Dialog_Show",
    "name": "Dialog_Show"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.ShowAt -o o.Dialog_ShowAt",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.ShowAt -o o.Dialog_ShowAt",
    "out": "o.Dialog_ShowAt",
    "name": "Dialog_ShowAt"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.ShowStatic -o o.Dialog_ShowStatic",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.ShowStatic -o o.Dialog_ShowStatic",
    "out": "o.Dialog_ShowStatic",
    "name": "Dialog_ShowStatic"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Wait4Click -o o.Dialog_Wait4Click",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.Wait4Click -o o.Dialog_Wait4Click",
    "out": "o.Dialog_Wait4Click",
    "name": "Dialog_Wait4Click"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.Create -o o.Dialog2_Create",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.Create -o o.Dialog2_Create",
    "out": "o.Dialog2_Create",
    "name": "Dialog2_Create"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.Delete -o o.Dialog2_Delete",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.Delete -o o.Dialog2_Delete",
    "out": "o.Dialog2_Delete",
    "name": "Dialog2_Delete"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.EnsureWind -o o.Dialog2_EnsureWind",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.EnsureWind -o o.Dialog2_EnsureWind",
    "out": "o.Dialog2_EnsureWind",
    "name": "Dialog2_EnsureWind"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenClose -o o.Dialog2_OpenClose",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenClose -o o.Dialog2_OpenClose",
    "out": "o.Dialog2_OpenClose",
    "name": "Dialog2_OpenClose"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenLeaf -o o.Dialog2_OpenLeaf",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenLeaf -o o.Dialog2_OpenLeaf",
    "out": "o.Dialog2_OpenLeaf",
    "name": "Dialog2_OpenLeaf"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenMenu -o o.Dialog2_OpenMenu",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenMenu -o o.Dialog2_OpenMenu",
    "out": "o.Dialog2_OpenMenu",
    "name": "Dialog2_OpenMenu"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenPos -o o.Dialog2_OpenPos",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenPos -o o.Dialog2_OpenPos",
    "out": "o.Dialog2_OpenPos",
    "name": "Dialog2_OpenPos"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenStatic -o o.Dialog2_OpenStatic",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog2.c.OpenStatic -o o.Dialog2_OpenStatic",
    "out": "o.Dialog2_OpenStatic",
    "name": "Dialog2_OpenStatic"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Drag.c.DragInit -o o.Drag_DragInit",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Drag.c.DragInit -o o.Drag_DragInit",
    "out": "o.Drag_DragInit",
    "name": "Drag_DragInit"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Drag.c.SetHandler -o o.Drag_SetHandler",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Drag.c.SetHandler -o o.Drag_SetHandler",
    "out": "o.Drag_SetHandler",
    "name": "Drag_SetHandler"
   },
@@ -255,82 +255,82 @@
    "name": "DragASpr_Stop"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Error.c.Error -o o.Error_Error",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Error.c.Error -o o.Error_Error",
    "out": "o.Error_Error",
    "name": "Error_Error"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Error.c.global -o o.Error_global",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Error.c.global -o o.Error_global",
    "out": "o.Error_global",
    "name": "Error_global"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.Event -o o.Event_Event",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.Event -o o.Event_Event",
    "out": "o.Event_Event",
    "name": "Event_Event"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MClaimInit -o o.Event_MClaimInit",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MClaimInit -o o.Event_MClaimInit",
    "out": "o.Event_MClaimInit",
    "name": "Event_MClaimInit"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelMsg -o o.Event_MRelMsg",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelMsg -o o.Event_MRelMsg",
    "out": "o.Event_MRelMsg",
    "name": "Event_MRelMsg"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelWindow -o o.Event_MRelWindow",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelWindow -o o.Event_MRelWindow",
    "out": "o.Event_MRelWindow",
    "name": "Event_MRelWindow"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelease -o o.Event_MRelease",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MRelease -o o.Event_MRelease",
    "out": "o.Event_MRelease",
    "name": "Event_MRelease"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MReleaseS -o o.Event_MReleaseS",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.MReleaseS -o o.Event_MReleaseS",
    "out": "o.Event_MReleaseS",
    "name": "Event_MReleaseS"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.taskname -o o.Event_taskname",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Event.c.taskname -o o.Event_taskname",
    "out": "o.Event_taskname",
    "name": "Event_taskname"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.AllocLoad -o o.File_AllocLoad",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.AllocLoad -o o.File_AllocLoad",
    "out": "o.File_AllocLoad",
    "name": "File_AllocLoad"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.Exists -o o.File_Exists",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.Exists -o o.File_Exists",
    "out": "o.File_Exists",
    "name": "File_Exists"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.IsDir -o o.File_IsDir",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.IsDir -o o.File_IsDir",
    "out": "o.File_IsDir",
    "name": "File_IsDir"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.LoadTo -o o.File_LoadTo",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.LoadTo -o o.File_LoadTo",
    "out": "o.File_LoadTo",
    "name": "File_LoadTo"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.SetType -o o.File_SetType",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.SetType -o o.File_SetType",
    "out": "o.File_SetType",
    "name": "File_SetType"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.Size -o o.File_Size",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.Size -o o.File_Size",
    "out": "o.File_Size",
    "name": "File_Size"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.printf -o o.File_printf",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.printf -o o.File_printf",
    "out": "o.File_printf",
    "name": "File_printf"
   },
@@ -355,32 +355,32 @@
    "name": "File_GetType"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Filenames -o o.Filing_Filenames",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Filenames -o o.Filing_Filenames",
    "out": "o.Filing_Filenames",
    "name": "Filing_Filenames"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ReadDir -o o.Filing_ReadDir",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ReadDir -o o.Filing_ReadDir",
    "out": "o.Filing_ReadDir",
    "name": "Filing_ReadDir"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDir -o o.Filing_ScanDir",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDir -o o.Filing_ScanDir",
    "out": "o.Filing_ScanDir",
    "name": "Filing_ScanDir"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDirDir -o o.Filing_ScanDirDir",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDirDir -o o.Filing_ScanDirDir",
    "out": "o.Filing_ScanDirDir",
    "name": "Filing_ScanDirDir"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Single -o o.Filing_Single",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Single -o o.Filing_Single",
    "out": "o.Filing_Single",
    "name": "Filing_Single"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.SingleFull -o o.Filing_SingleFull",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.SingleFull -o o.Filing_SingleFull",
    "out": "o.Filing_SingleFull",
    "name": "Filing_SingleFull"
   },
@@ -445,17 +445,17 @@
    "name": "Filter_RegPre"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.FontPaint3 -o o.Font_FontPaint3",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.FontPaint3 -o o.Font_FontPaint3",
    "out": "o.Font_FontPaint3",
    "name": "Font_FontPaint3"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.LoseAll -o o.Font_LoseAll",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.LoseAll -o o.Font_LoseAll",
    "out": "o.Font_LoseAll",
    "name": "Font_LoseAll"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.ScanString -o o.Font_ScanString",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.ScanString -o o.Font_ScanString",
    "out": "o.Font_ScanString",
    "name": "Font_ScanString"
   },
@@ -585,17 +585,17 @@
    "name": "Font_FontWimp"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font2.c.Font2 -o o.Font2_Font2",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font2.c.Font2 -o o.Font2_Font2",
    "out": "o.Font2_Font2",
    "name": "Font2_Font2"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.ReadPoint -o o.GFX_ReadPoint",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.ReadPoint -o o.GFX_ReadPoint",
    "out": "o.GFX_ReadPoint",
    "name": "GFX_ReadPoint"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.Rectangle -o o.GFX_Rectangle",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.Rectangle -o o.GFX_Rectangle",
    "out": "o.GFX_Rectangle",
    "name": "GFX_Rectangle"
   },
@@ -645,52 +645,52 @@
    "name": "GFX_WriteN"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.ClickOK -o o.Handler_ClickOK",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.ClickOK -o o.Handler_ClickOK",
    "out": "o.Handler_ClickOK",
    "name": "Handler_ClickOK"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.CloseW -o o.Handler_CloseW",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.CloseW -o o.Handler_CloseW",
    "out": "o.Handler_CloseW",
    "name": "Handler_CloseW"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DeleteW -o o.Handler_DeleteW",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DeleteW -o o.Handler_DeleteW",
    "out": "o.Handler_DeleteW",
    "name": "Handler_DeleteW"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DragFinish -o o.Handler_DragFinish",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DragFinish -o o.Handler_DragFinish",
    "out": "o.Handler_DragFinish",
    "name": "Handler_DragFinish"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DragNULL -o o.Handler_DragNULL",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.DragNULL -o o.Handler_DragNULL",
    "out": "o.Handler_DragNULL",
    "name": "Handler_DragNULL"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.HtchRedraw -o o.Handler_HtchRedraw",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.HtchRedraw -o o.Handler_HtchRedraw",
    "out": "o.Handler_HtchRedraw",
    "name": "Handler_HtchRedraw"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.Key -o o.Handler_Key",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.Key -o o.Handler_Key",
    "out": "o.Handler_Key",
    "name": "Handler_Key"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.ModeChange -o o.Handler_ModeChange",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.ModeChange -o o.Handler_ModeChange",
    "out": "o.Handler_ModeChange",
    "name": "Handler_ModeChange"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.NullRedraw -o o.Handler_NullRedraw",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.NullRedraw -o o.Handler_NullRedraw",
    "out": "o.Handler_NullRedraw",
    "name": "Handler_NullRedraw"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.OpenW -o o.Handler_OpenW",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Handler.c.OpenW -o o.Handler_OpenW",
    "out": "o.Handler_OpenW",
    "name": "Handler_OpenW"
   },
@@ -720,207 +720,207 @@
    "name": "Hourglass_Start"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.AlterValid -o o.Icon_AlterValid",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.AlterValid -o o.Icon_AlterValid",
    "out": "o.Icon_AlterValid",
    "name": "Icon_AlterValid"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.BarIcon -o o.Icon_BarIcon",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.BarIcon -o o.Icon_BarIcon",
    "out": "o.Icon_BarIcon",
    "name": "Icon_BarIcon"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.BarIconUse -o o.Icon_BarIconUse",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.BarIconUse -o o.Icon_BarIconUse",
    "out": "o.Icon_BarIconUse",
    "name": "Icon_BarIconUse"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ButtIsHeld -o o.Icon_ButtIsHeld",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ButtIsHeld -o o.Icon_ButtIsHeld",
    "out": "o.Icon_ButtIsHeld",
    "name": "Icon_ButtIsHeld"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ClickWait -o o.Icon_ClickWait",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ClickWait -o o.Icon_ClickWait",
    "out": "o.Icon_ClickWait",
    "name": "Icon_ClickWait"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Deselect -o o.Icon_Deselect",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Deselect -o o.Icon_Deselect",
    "out": "o.Icon_Deselect",
    "name": "Icon_Deselect"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.DisposeInd -o o.Icon_DisposeInd",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.DisposeInd -o o.Icon_DisposeInd",
    "out": "o.Icon_DisposeInd",
    "name": "Icon_DisposeInd"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.FileIcon -o o.Icon_FileIcon",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.FileIcon -o o.Icon_FileIcon",
    "out": "o.Icon_FileIcon",
    "name": "Icon_FileIcon"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ForceWR -o o.Icon_ForceWR",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ForceWR -o o.Icon_ForceWR",
    "out": "o.Icon_ForceWR",
    "name": "Icon_ForceWR"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetBgCol -o o.Icon_GetBgCol",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetBgCol -o o.Icon_GetBgCol",
    "out": "o.Icon_GetBgCol",
    "name": "Icon_GetBgCol"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetDouble -o o.Icon_GetDouble",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetDouble -o o.Icon_GetDouble",
    "out": "o.Icon_GetDouble",
    "name": "Icon_GetDouble"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetFgCol -o o.Icon_GetFgCol",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetFgCol -o o.Icon_GetFgCol",
    "out": "o.Icon_GetFgCol",
    "name": "Icon_GetFgCol"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetInteger -o o.Icon_GetInteger",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetInteger -o o.Icon_GetInteger",
    "out": "o.Icon_GetInteger",
    "name": "Icon_GetInteger"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetSelect -o o.Icon_GetSelect",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetSelect -o o.Icon_GetSelect",
    "out": "o.Icon_GetSelect",
    "name": "Icon_GetSelect"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetShade -o o.Icon_GetShade",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetShade -o o.Icon_GetShade",
    "out": "o.Icon_GetShade",
    "name": "Icon_GetShade"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetText -o o.Icon_GetText",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetText -o o.Icon_GetText",
    "out": "o.Icon_GetText",
    "name": "Icon_GetText"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetTextPtr -o o.Icon_GetTextPtr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.GetTextPtr -o o.Icon_GetTextPtr",
    "out": "o.Icon_GetTextPtr",
    "name": "Icon_GetTextPtr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.IncDec -o o.Icon_IncDec",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.IncDec -o o.Icon_IncDec",
    "out": "o.Icon_IncDec",
    "name": "Icon_IncDec"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.LoseCaret -o o.Icon_LoseCaret",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.LoseCaret -o o.Icon_LoseCaret",
    "out": "o.Icon_LoseCaret",
    "name": "Icon_LoseCaret"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.RadioInEsg -o o.Icon_RadioInEsg",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.RadioInEsg -o o.Icon_RadioInEsg",
    "out": "o.Icon_RadioInEsg",
    "name": "Icon_RadioInEsg"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ScreenPos -o o.Icon_ScreenPos",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ScreenPos -o o.Icon_ScreenPos",
    "out": "o.Icon_ScreenPos",
    "name": "Icon_ScreenPos"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SelctGroup -o o.Icon_SelctGroup",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SelctGroup -o o.Icon_SelctGroup",
    "out": "o.Icon_SelctGroup",
    "name": "Icon_SelctGroup"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Select -o o.Icon_Select",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Select -o o.Icon_Select",
    "out": "o.Icon_Select",
    "name": "Icon_Select"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetCaret -o o.Icon_SetCaret",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetCaret -o o.Icon_SetCaret",
    "out": "o.Icon_SetCaret",
    "name": "Icon_SetCaret"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetCol -o o.Icon_SetCol",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetCol -o o.Icon_SetCol",
    "out": "o.Icon_SetCol",
    "name": "Icon_SetCol"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetDelete -o o.Icon_SetDelete",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetDelete -o o.Icon_SetDelete",
    "out": "o.Icon_SetDelete",
    "name": "Icon_SetDelete"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetDouble -o o.Icon_SetDouble",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetDouble -o o.Icon_SetDouble",
    "out": "o.Icon_SetDouble",
    "name": "Icon_SetDouble"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetInteger -o o.Icon_SetInteger",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetInteger -o o.Icon_SetInteger",
    "out": "o.Icon_SetInteger",
    "name": "Icon_SetInteger"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetRadios -o o.Icon_SetRadios",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetRadios -o o.Icon_SetRadios",
    "out": "o.Icon_SetRadios",
    "name": "Icon_SetRadios"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetSelect -o o.Icon_SetSelect",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetSelect -o o.Icon_SetSelect",
    "out": "o.Icon_SetSelect",
    "name": "Icon_SetSelect"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetShade -o o.Icon_SetShade",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetShade -o o.Icon_SetShade",
    "out": "o.Icon_SetShade",
    "name": "Icon_SetShade"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetText -o o.Icon_SetText",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetText -o o.Icon_SetText",
    "out": "o.Icon_SetText",
    "name": "Icon_SetText"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetTextRJ -o o.Icon_SetTextRJ",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.SetTextRJ -o o.Icon_SetTextRJ",
    "out": "o.Icon_SetTextRJ",
    "name": "Icon_SetTextRJ"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Shade -o o.Icon_Shade",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Shade -o o.Icon_Shade",
    "out": "o.Icon_Shade",
    "name": "Icon_Shade"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ShadeGroup -o o.Icon_ShadeGroup",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.ShadeGroup -o o.Icon_ShadeGroup",
    "out": "o.Icon_ShadeGroup",
    "name": "Icon_ShadeGroup"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Slider -o o.Icon_Slider",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Slider -o o.Icon_Slider",
    "out": "o.Icon_Slider",
    "name": "Icon_Slider"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.StartDrag -o o.Icon_StartDrag",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.StartDrag -o o.Icon_StartDrag",
    "out": "o.Icon_StartDrag",
    "name": "Icon_StartDrag"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Unshade -o o.Icon_Unshade",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Unshade -o o.Icon_Unshade",
    "out": "o.Icon_Unshade",
    "name": "Icon_Unshade"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.WhichRadio -o o.Icon_WhichRadio",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.WhichRadio -o o.Icon_WhichRadio",
    "out": "o.Icon_WhichRadio",
    "name": "Icon_WhichRadio"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.printf -o o.Icon_printf",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.printf -o o.Icon_printf",
    "out": "o.Icon_printf",
    "name": "Icon_printf"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Kbd.c.GetMods -o o.Kbd_GetMods",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Kbd.c.GetMods -o o.Kbd_GetMods",
    "out": "o.Kbd_GetMods",
    "name": "Kbd_GetMods"
   },
@@ -935,7 +935,7 @@
    "name": "Kbd_KeyDown"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.KernelSWIs.c.ReadVarVal -o o.KernelSWIs_ReadVarVal",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.KernelSWIs.c.ReadVarVal -o o.KernelSWIs_ReadVarVal",
    "out": "o.KernelSWIs_ReadVarVal",
    "name": "KernelSWIs_ReadVarVal"
   },
@@ -970,162 +970,162 @@
    "name": "KernelSWIs_SWINumStr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.AddToHead -o o.LinkList_AddToHead",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.AddToHead -o o.LinkList_AddToHead",
    "out": "o.LinkList_AddToHead",
    "name": "LinkList_AddToHead"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.AddToTail -o o.LinkList_AddToTail",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.AddToTail -o o.LinkList_AddToTail",
    "out": "o.LinkList_AddToTail",
    "name": "LinkList_AddToTail"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InList -o o.LinkList_InList",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InList -o o.LinkList_InList",
    "out": "o.LinkList_InList",
    "name": "LinkList_InList"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InsertA -o o.LinkList_InsertA",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InsertA -o o.LinkList_InsertA",
    "out": "o.LinkList_InsertA",
    "name": "LinkList_InsertA"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InsertB -o o.LinkList_InsertB",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.InsertB -o o.LinkList_InsertB",
    "out": "o.LinkList_InsertB",
    "name": "LinkList_InsertB"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.ListLength -o o.LinkList_ListLength",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.ListLength -o o.LinkList_ListLength",
    "out": "o.LinkList_ListLength",
    "name": "LinkList_ListLength"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.Unlink -o o.LinkList_Unlink",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.Unlink -o o.LinkList_Unlink",
    "out": "o.LinkList_Unlink",
    "name": "LinkList_Unlink"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.CheckHeap -o o.Mem_CheckHeap",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.CheckHeap -o o.Mem_CheckHeap",
    "out": "o.Mem_CheckHeap",
    "name": "Mem_CheckHeap"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Compact -o o.Mem_Compact",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Compact -o o.Mem_Compact",
    "out": "o.Mem_Compact",
    "name": "Mem_Compact"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Mem -o o.Mem_Mem",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Mem -o o.Mem_Mem",
    "out": "o.Mem_Mem",
    "name": "Mem_Mem"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.MidExtend -o o.Mem_MidExtend",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.MidExtend -o o.Mem_MidExtend",
    "out": "o.Mem_MidExtend",
    "name": "Mem_MidExtend"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.MoveAnchor -o o.Mem_MoveAnchor",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.MoveAnchor -o o.Mem_MoveAnchor",
    "out": "o.Mem_MoveAnchor",
    "name": "Mem_MoveAnchor"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Size -o o.Mem_Size",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Mem.c.Size -o o.Mem_Size",
    "out": "o.Mem_Size",
    "name": "Mem_Size"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.AddSubMenu -o o.Menu_AddSubMenu",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.AddSubMenu -o o.Menu_AddSubMenu",
    "out": "o.Menu_AddSubMenu",
    "name": "Menu_AddSubMenu"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.AddSubWin -o o.Menu_AddSubWin",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.AddSubWin -o o.Menu_AddSubWin",
    "out": "o.Menu_AddSubWin",
    "name": "Menu_AddSubWin"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Extend -o o.Menu_Extend",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Extend -o o.Menu_Extend",
    "out": "o.Menu_Extend",
    "name": "Menu_Extend"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FontMenu -o o.Menu_FontMenu",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FontMenu -o o.Menu_FontMenu",
    "out": "o.Menu_FontMenu",
    "name": "Menu_FontMenu"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FullDispos -o o.Menu_FullDispos",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FullDispos -o o.Menu_FullDispos",
    "out": "o.Menu_FullDispos",
    "name": "Menu_FullDispos"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.GetFlags -o o.Menu_GetFlags",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.GetFlags -o o.Menu_GetFlags",
    "out": "o.Menu_GetFlags",
    "name": "Menu_GetFlags"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.GetText -o o.Menu_GetText",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.GetText -o o.Menu_GetText",
    "out": "o.Menu_GetText",
    "name": "Menu_GetText"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.MakeIndrct -o o.Menu_MakeIndrct",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.MakeIndrct -o o.Menu_MakeIndrct",
    "out": "o.Menu_MakeIndrct",
    "name": "Menu_MakeIndrct"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.MakeWrite -o o.Menu_MakeWrite",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.MakeWrite -o o.Menu_MakeWrite",
    "out": "o.Menu_MakeWrite",
    "name": "Menu_MakeWrite"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.NewEmpty -o o.Menu_NewEmpty",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.NewEmpty -o o.Menu_NewEmpty",
    "out": "o.Menu_NewEmpty",
    "name": "Menu_NewEmpty"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.NewMenu -o o.Menu_NewMenu",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.NewMenu -o o.Menu_NewMenu",
    "out": "o.Menu_NewMenu",
    "name": "Menu_NewMenu"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.PopUp -o o.Menu_PopUp",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.PopUp -o o.Menu_PopUp",
    "out": "o.Menu_PopUp",
    "name": "Menu_PopUp"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.PopUpAuto -o o.Menu_PopUpAuto",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.PopUpAuto -o o.Menu_PopUpAuto",
    "out": "o.Menu_PopUpAuto",
    "name": "Menu_PopUpAuto"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.RemItem -o o.Menu_RemItem",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.RemItem -o o.Menu_RemItem",
    "out": "o.Menu_RemItem",
    "name": "Menu_RemItem"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.ReviseWdth -o o.Menu_ReviseWdth",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.ReviseWdth -o o.Menu_ReviseWdth",
    "out": "o.Menu_ReviseWdth",
    "name": "Menu_ReviseWdth"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.SetFlags -o o.Menu_SetFlags",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.SetFlags -o o.Menu_SetFlags",
    "out": "o.Menu_SetFlags",
    "name": "Menu_SetFlags"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.SetText -o o.Menu_SetText",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.SetText -o o.Menu_SetText",
    "out": "o.Menu_SetText",
    "name": "Menu_SetText"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Show -o o.Menu_Show",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Show -o o.Menu_Show",
    "out": "o.Menu_Show",
    "name": "Menu_Show"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Warn -o o.Menu_Warn",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Warn -o o.Menu_Warn",
    "out": "o.Menu_Warn",
    "name": "Menu_Warn"
   },
@@ -1135,32 +1135,32 @@
    "name": "Menu_FontMenu3"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Attach -o o.Menu2_Attach",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Attach -o o.Menu2_Attach",
    "out": "o.Menu2_Attach",
    "name": "Menu2_Attach"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Menu2 -o o.Menu2_Menu2",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Menu2 -o o.Menu2_Menu2",
    "out": "o.Menu2_Menu2",
    "name": "Menu2_Menu2"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Msgs -o o.Menu2_Msgs",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Msgs -o o.Menu2_Msgs",
    "out": "o.Menu2_Msgs",
    "name": "Menu2_Msgs"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.SWI -o o.Misc_SWI",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.SWI -o o.Misc_SWI",
    "out": "o.Misc_SWI",
    "name": "Misc_SWI"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Screen -o o.Misc_Screen",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Screen -o o.Misc_Screen",
    "out": "o.Misc_Screen",
    "name": "Misc_Screen"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Validation -o o.Misc_Validation",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Validation -o o.Misc_Validation",
    "out": "o.Misc_Validation",
    "name": "Misc_Validation"
   },
@@ -1180,22 +1180,22 @@
    "name": "Module_07Free"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoadFile -o o.MsgTrans_LoadFile",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoadFile -o o.MsgTrans_LoadFile",
    "out": "o.MsgTrans_LoadFile",
    "name": "MsgTrans_LoadFile"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LookupPS -o o.MsgTrans_LookupPS",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LookupPS -o o.MsgTrans_LookupPS",
    "out": "o.MsgTrans_LookupPS",
    "name": "MsgTrans_LookupPS"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoseFile -o o.MsgTrans_LoseFile",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoseFile -o o.MsgTrans_LoseFile",
    "out": "o.MsgTrans_LoseFile",
    "name": "MsgTrans_LoseFile"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.ReportPS -o o.MsgTrans_ReportPS",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.ReportPS -o o.MsgTrans_ReportPS",
    "out": "o.MsgTrans_ReportPS",
    "name": "MsgTrans_ReportPS"
   },
@@ -1220,22 +1220,22 @@
    "name": "MsgTrans_OpenFile"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.Drop -o o.Msgs_Drop",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.Drop -o o.Msgs_Drop",
    "out": "o.Msgs_Drop",
    "name": "Msgs_Drop"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.LoadFind -o o.Msgs_LoadFind",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.LoadFind -o o.Msgs_LoadFind",
    "out": "o.Msgs_LoadFind",
    "name": "Msgs_LoadFind"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.Report -o o.Msgs_Report",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.Report -o o.Msgs_Report",
    "out": "o.Msgs_Report",
    "name": "Msgs_Report"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.printf -o o.Msgs_printf",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.printf -o o.Msgs_printf",
    "out": "o.Msgs_printf",
    "name": "Msgs_printf"
   },
@@ -1325,157 +1325,157 @@
    "name": "PDriver_SelectJob"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane.c.Other -o o.Pane_Other",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane.c.Other -o o.Pane_Other",
    "out": "o.Pane_Other",
    "name": "Pane_Other"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane.c.Pane -o o.Pane_Pane",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane.c.Pane -o o.Pane_Pane",
    "out": "o.Pane_Pane",
    "name": "Pane_Pane"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.AddMain -o o.Pane2_AddMain",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.AddMain -o o.Pane2_AddMain",
    "out": "o.Pane2_AddMain",
    "name": "Pane2_AddMain"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.AddPane -o o.Pane2_AddPane",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.AddPane -o o.Pane2_AddPane",
    "out": "o.Pane2_AddPane",
    "name": "Pane2_AddPane"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.CAddMain -o o.Pane2_CAddMain",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.CAddMain -o o.Pane2_CAddMain",
    "out": "o.Pane2_CAddMain",
    "name": "Pane2_CAddMain"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.CAddPane -o o.Pane2_CAddPane",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.CAddPane -o o.Pane2_CAddPane",
    "out": "o.Pane2_CAddPane",
    "name": "Pane2_CAddPane"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Delete -o o.Pane2_Delete",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Delete -o o.Pane2_Delete",
    "out": "o.Pane2_Delete",
    "name": "Pane2_Delete"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.DeletePane -o o.Pane2_DeletePane",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.DeletePane -o o.Pane2_DeletePane",
    "out": "o.Pane2_DeletePane",
    "name": "Pane2_DeletePane"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.FindMain -o o.Pane2_FindMain",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.FindMain -o o.Pane2_FindMain",
    "out": "o.Pane2_FindMain",
    "name": "Pane2_FindMain"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.FindPane -o o.Pane2_FindPane",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.FindPane -o o.Pane2_FindPane",
    "out": "o.Pane2_FindPane",
    "name": "Pane2_FindPane"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetMHandle -o o.Pane2_GetMHandle",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetMHandle -o o.Pane2_GetMHandle",
    "out": "o.Pane2_GetMHandle",
    "name": "Pane2_GetMHandle"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetPHandle -o o.Pane2_GetPHandle",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetPHandle -o o.Pane2_GetPHandle",
    "out": "o.Pane2_GetPHandle",
    "name": "Pane2_GetPHandle"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetPNumber -o o.Pane2_GetPNumber",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.GetPNumber -o o.Pane2_GetPNumber",
    "out": "o.Pane2_GetPNumber",
    "name": "Pane2_GetPNumber"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Hide -o o.Pane2_Hide",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Hide -o o.Pane2_Hide",
    "out": "o.Pane2_Hide",
    "name": "Pane2_Hide"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.OpenWindow -o o.Pane2_OpenWindow",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.OpenWindow -o o.Pane2_OpenWindow",
    "out": "o.Pane2_OpenWindow",
    "name": "Pane2_OpenWindow"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Pane2 -o o.Pane2_Pane2",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Pane2 -o o.Pane2_Pane2",
    "out": "o.Pane2_Pane2",
    "name": "Pane2_Pane2"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.PaneOpenH -o o.Pane2_PaneOpenH",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.PaneOpenH -o o.Pane2_PaneOpenH",
    "out": "o.Pane2_PaneOpenH",
    "name": "Pane2_PaneOpenH"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.ReadIcon -o o.Pane2_ReadIcon",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.ReadIcon -o o.Pane2_ReadIcon",
    "out": "o.Pane2_ReadIcon",
    "name": "Pane2_ReadIcon"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.ReadVars -o o.Pane2_ReadVars",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.ReadVars -o o.Pane2_ReadVars",
    "out": "o.Pane2_ReadVars",
    "name": "Pane2_ReadVars"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.SetFlags -o o.Pane2_SetFlags",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.SetFlags -o o.Pane2_SetFlags",
    "out": "o.Pane2_SetFlags",
    "name": "Pane2_SetFlags"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.SetVars -o o.Pane2_SetVars",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.SetVars -o o.Pane2_SetVars",
    "out": "o.Pane2_SetVars",
    "name": "Pane2_SetVars"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Show -o o.Pane2_Show",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pane2.c.Show -o o.Pane2_Show",
    "out": "o.Pane2_Show",
    "name": "Pane2_Show"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pointer.c.Restrict -o o.Pointer_Restrict",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pointer.c.Restrict -o o.Pointer_Restrict",
    "out": "o.Pointer_Restrict",
    "name": "Pointer_Restrict"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Print.c.Print -o o.Print_Print",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Print.c.Print -o o.Print_Print",
    "out": "o.Print_Print",
    "name": "Print_Print"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Choices -o o.Resource_Choices",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Choices -o o.Resource_Choices",
    "out": "o.Resource_Choices",
    "name": "Resource_Choices"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Init -o o.Resource_Init",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Init -o o.Resource_Init",
    "out": "o.Resource_Init",
    "name": "Resource_Init"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.InitPath -o o.Resource_InitPath",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.InitPath -o o.Resource_InitPath",
    "out": "o.Resource_InitPath",
    "name": "Resource_InitPath"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.LoadSprite -o o.Resource_LoadSprite",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.LoadSprite -o o.Resource_LoadSprite",
    "out": "o.Resource_LoadSprite",
    "name": "Resource_LoadSprite"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Pathname -o o.Resource_Pathname",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.Pathname -o o.Resource_Pathname",
    "out": "o.Resource_Pathname",
    "name": "Resource_Pathname"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Save.c.Save -o o.Save_Save",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Save.c.Save -o o.Save_Save",
    "out": "o.Save_Save",
    "name": "Save_Save"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Serial.c.NZPWOnRec -o o.Serial_NZPWOnRec",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Serial.c.NZPWOnRec -o o.Serial_NZPWOnRec",
    "out": "o.Serial_NZPWOnRec",
    "name": "Serial_NZPWOnRec"
   },
@@ -1545,7 +1545,7 @@
    "name": "Serial_SetTxRate"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Slider.c.Slider -o o.Slider_Slider",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Slider.c.Slider -o o.Slider_Slider",
    "out": "o.Slider_Slider",
    "name": "Slider_Slider"
   },
@@ -1555,22 +1555,22 @@
    "name": "Sound_SysBeep"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFile -o o.Sprite_LoadFile",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFile -o o.Sprite_LoadFile",
    "out": "o.Sprite_LoadFile",
    "name": "Sprite_LoadFile"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFiles -o o.Sprite_LoadFiles",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFiles -o o.Sprite_LoadFiles",
    "out": "o.Sprite_LoadFiles",
    "name": "Sprite_LoadFiles"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSize -o o.Sprite_MemSize",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSize -o o.Sprite_MemSize",
    "out": "o.Sprite_MemSize",
    "name": "Sprite_MemSize"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSizeIcn -o o.Sprite_MemSizeIcn",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSizeIcn -o o.Sprite_MemSizeIcn",
    "out": "o.Sprite_MemSizeIcn",
    "name": "Sprite_MemSizeIcn"
   },
@@ -1930,67 +1930,67 @@
    "name": "Sprite_WimpPlot"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.DecodeHex -o o.Str_DecodeHex",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.DecodeHex -o o.Str_DecodeHex",
    "out": "o.Str_DecodeHex",
    "name": "Str_DecodeHex"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.LeafName -o o.Str_LeafName",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.LeafName -o o.Str_LeafName",
    "out": "o.Str_LeafName",
    "name": "Str_LeafName"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeASCIIZ -o o.Str_MakeASCIIZ",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeASCIIZ -o o.Str_MakeASCIIZ",
    "out": "o.Str_MakeASCIIZ",
    "name": "Str_MakeASCIIZ"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeCR -o o.Str_MakeCR",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeCR -o o.Str_MakeCR",
    "out": "o.Str_MakeCR",
    "name": "Str_MakeCR"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeHex -o o.Str_MakeHex",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.MakeHex -o o.Str_MakeHex",
    "out": "o.Str_MakeHex",
    "name": "Str_MakeHex"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strcmpcr -o o.Str_strcmpcr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strcmpcr -o o.Str_strcmpcr",
    "out": "o.Str_strcmpcr",
    "name": "Str_strcmpcr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strdup -o o.Str_strdup",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strdup -o o.Str_strdup",
    "out": "o.Str_strdup",
    "name": "Str_strdup"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.stricmp -o o.Str_stricmp",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.stricmp -o o.Str_stricmp",
    "out": "o.Str_stricmp",
    "name": "Str_stricmp"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.stricmpcr -o o.Str_stricmpcr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.stricmpcr -o o.Str_stricmpcr",
    "out": "o.Str_stricmpcr",
    "name": "Str_stricmpcr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strlencr -o o.Str_strlencr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strlencr -o o.Str_strlencr",
    "out": "o.Str_strlencr",
    "name": "Str_strlencr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strncpycr -o o.Str_strncpycr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strncpycr -o o.Str_strncpycr",
    "out": "o.Str_strncpycr",
    "name": "Str_strncpycr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strnicmp -o o.Str_strnicmp",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strnicmp -o o.Str_strnicmp",
    "out": "o.Str_strnicmp",
    "name": "Str_strnicmp"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strnicmpcr -o o.Str_strnicmpcr",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strnicmpcr -o o.Str_strnicmpcr",
    "out": "o.Str_strnicmpcr",
    "name": "Str_strnicmpcr"
   },
@@ -2005,27 +2005,27 @@
    "name": "Str_strcpycr"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Kill -o o.TaskWindow_Kill",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Kill -o o.TaskWindow_Kill",
    "out": "o.TaskWindow_Kill",
    "name": "TaskWindow_Kill"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Resume -o o.TaskWindow_Resume",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Resume -o o.TaskWindow_Resume",
    "out": "o.TaskWindow_Resume",
    "name": "TaskWindow_Resume"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.SendInput -o o.TaskWindow_SendInput",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.SendInput -o o.TaskWindow_SendInput",
    "out": "o.TaskWindow_SendInput",
    "name": "TaskWindow_SendInput"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Start -o o.TaskWindow_Start",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Start -o o.TaskWindow_Start",
    "out": "o.TaskWindow_Start",
    "name": "TaskWindow_Start"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Suspend -o o.TaskWindow_Suspend",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Suspend -o o.TaskWindow_Suspend",
    "out": "o.TaskWindow_Suspend",
    "name": "TaskWindow_Suspend"
   },
@@ -2035,62 +2035,62 @@
    "name": "TaskWindow_Check"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.ClearAll -o o.Template_ClearAll",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.ClearAll -o o.Template_ClearAll",
    "out": "o.Template_ClearAll",
    "name": "Template_ClearAll"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Clone -o o.Template_Clone",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Clone -o o.Template_Clone",
    "out": "o.Template_Clone",
    "name": "Template_Clone"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Delete -o o.Template_Delete",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Delete -o o.Template_Delete",
    "out": "o.Template_Delete",
    "name": "Template_Delete"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Find -o o.Template_Find",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Find -o o.Template_Find",
    "out": "o.Template_Find",
    "name": "Template_Find"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Free -o o.Template_Free",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Free -o o.Template_Free",
    "out": "o.Template_Free",
    "name": "Template_Free"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Init -o o.Template_Init",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.Init -o o.Template_Init",
    "out": "o.Template_Init",
    "name": "Template_Init"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.LinkSprite -o o.Template_LinkSprite",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.LinkSprite -o o.Template_LinkSprite",
    "out": "o.Template_LinkSprite",
    "name": "Template_LinkSprite"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.LoadFile -o o.Template_LoadFile",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.LoadFile -o o.Template_LoadFile",
    "out": "o.Template_LoadFile",
    "name": "Template_LoadFile"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.UseOutFont -o o.Template_UseOutFont",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.UseOutFont -o o.Template_UseOutFont",
    "out": "o.Template_UseOutFont",
    "name": "Template_UseOutFont"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.UseSprite -o o.Template_UseSprite",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.UseSprite -o o.Template_UseSprite",
    "out": "o.Template_UseSprite",
    "name": "Template_UseSprite"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TextFile.c.ReadToD -o o.TextFile_ReadToD",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TextFile.c.ReadToD -o o.TextFile_ReadToD",
    "out": "o.TextFile_ReadToD",
    "name": "TextFile_ReadToD"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.TextFile.c.SkipBlanks -o o.TextFile_SkipBlanks",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TextFile.c.SkipBlanks -o o.TextFile_SkipBlanks",
    "out": "o.TextFile_SkipBlanks",
    "name": "TextFile_SkipBlanks"
   },
@@ -2165,42 +2165,42 @@
    "name": "Tinct_PlotScaledAlpha"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Encode -o o.Url_Encode",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Encode -o o.Url_Encode",
    "out": "o.Url_Encode",
    "name": "Url_Encode"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Launch -o o.Url_Launch",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Launch -o o.Url_Launch",
    "out": "o.Url_Launch",
    "name": "Url_Launch"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Receive -o o.Url_Receive",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Url.c.Receive -o o.Url_Receive",
    "out": "o.Url_Receive",
    "name": "Url_Receive"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.WAssert.c.WAssert -o o.WAssert_WAssert",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.WAssert.c.WAssert -o o.WAssert_WAssert",
    "out": "o.WAssert_WAssert",
    "name": "WAssert_WAssert"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Ack -o o.WimpMsg_Ack",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Ack -o o.WimpMsg_Ack",
    "out": "o.WimpMsg_Ack",
    "name": "WimpMsg_Ack"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.GetTaskH -o o.WimpMsg_GetTaskH",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.GetTaskH -o o.WimpMsg_GetTaskH",
    "out": "o.WimpMsg_GetTaskH",
    "name": "WimpMsg_GetTaskH"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Reply -o o.WimpMsg_Reply",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Reply -o o.WimpMsg_Reply",
    "out": "o.WimpMsg_Reply",
    "name": "WimpMsg_Reply"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Send -o o.WimpMsg_Send",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.WimpMsg.c.Send -o o.WimpMsg_Send",
    "out": "o.WimpMsg_Send",
    "name": "WimpMsg_Send"
   },
@@ -2485,102 +2485,102 @@
    "name": "WimpSWIs_53RmvMsgs"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.AutoHelp -o o.Window_AutoHelp",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.AutoHelp -o o.Window_AutoHelp",
    "out": "o.Window_AutoHelp",
    "name": "Window_AutoHelp"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Create -o o.Window_Create",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Create -o o.Window_Create",
    "out": "o.Window_Create",
    "name": "Window_Create"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.CreateOrig -o o.Window_CreateOrig",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.CreateOrig -o o.Window_CreateOrig",
    "out": "o.Window_CreateOrig",
    "name": "Window_CreateOrig"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.CreateShow -o o.Window_CreateShow",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.CreateShow -o o.Window_CreateShow",
    "out": "o.Window_CreateShow",
    "name": "Window_CreateShow"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Delete -o o.Window_Delete",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Delete -o o.Window_Delete",
    "out": "o.Window_Delete",
    "name": "Window_Delete"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.DeleteOrig -o o.Window_DeleteOrig",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.DeleteOrig -o o.Window_DeleteOrig",
    "out": "o.Window_DeleteOrig",
    "name": "Window_DeleteOrig"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ForceRedrw -o o.Window_ForceRedrw",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ForceRedrw -o o.Window_ForceRedrw",
    "out": "o.Window_ForceRedrw",
    "name": "Window_ForceRedrw"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GainCaret -o o.Window_GainCaret",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GainCaret -o o.Window_GainCaret",
    "out": "o.Window_GainCaret",
    "name": "Window_GainCaret"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GetCoords -o o.Window_GetCoords",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GetCoords -o o.Window_GetCoords",
    "out": "o.Window_GetCoords",
    "name": "Window_GetCoords"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GetInfo -o o.Window_GetInfo",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.GetInfo -o o.Window_GetInfo",
    "out": "o.Window_GetInfo",
    "name": "Window_GetInfo"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Help -o o.Window_Help",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Help -o o.Window_Help",
    "out": "o.Window_Help",
    "name": "Window_Help"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.IsOpen -o o.Window_IsOpen",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.IsOpen -o o.Window_IsOpen",
    "out": "o.Window_IsOpen",
    "name": "Window_IsOpen"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ModeChange -o o.Window_ModeChange",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ModeChange -o o.Window_ModeChange",
    "out": "o.Window_ModeChange",
    "name": "Window_ModeChange"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.MoveWindow -o o.Window_MoveWindow",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.MoveWindow -o o.Window_MoveWindow",
    "out": "o.Window_MoveWindow",
    "name": "Window_MoveWindow"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ParentName -o o.Window_ParentName",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ParentName -o o.Window_ParentName",
    "out": "o.Window_ParentName",
    "name": "Window_ParentName"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.SetExtent -o o.Window_SetExtent",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.SetExtent -o o.Window_SetExtent",
    "out": "o.Window_SetExtent",
    "name": "Window_SetExtent"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.SetTitle -o o.Window_SetTitle",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.SetTitle -o o.Window_SetTitle",
    "out": "o.Window_SetTitle",
    "name": "Window_SetTitle"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Show -o o.Window_Show",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.Show -o o.Window_Show",
    "out": "o.Window_Show",
    "name": "Window_Show"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ToFront -o o.Window_ToFront",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.ToFront -o o.Window_ToFront",
    "out": "o.Window_ToFront",
    "name": "Window_ToFront"
   },
   {
-   "cmd": "cc -c -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.WholeRedrw -o o.Window_WholeRedrw",
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Window.c.WholeRedrw -o o.Window_WholeRedrw",
    "out": "o.Window_WholeRedrw",
    "name": "Window_WholeRedrw"
   }

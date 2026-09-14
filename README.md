@@ -61,7 +61,9 @@ python3 builddesklib.py                     # compile + libfile on the service
 ```
 
 `builddesklib.py` compiles all ~516 DeskLib objects (C + assembler) with
-`-apcs 3/32bit` in wall-clock-capped slices, carrying the object directory
+`-apcs 3/32bit` (C objects additionally `-za1`, for alignment-safe codegen so
+the library runs with CPU alignment checking ON — see CHANGELOG) in
+wall-clock-capped slices, carrying the object directory
 (`build/deskwork/o`) forward between runs, then `libfile`s them into the final
 library and writes **`build/DeskLib32`**. It is resumable - re-run to continue;
 delete `build/deskwork/` to start clean.

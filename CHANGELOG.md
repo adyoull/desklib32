@@ -6,6 +6,19 @@ debugging toolkit. Dates are ISO (YYYY-MM-DD).
 
 ---
 
+## 2026-09-14
+
+### Changed
+- **Whole-program alignment-safe build (`-za1`).** All 256 C compiles in
+  `build/dlplan.json` now pass `-za1`, disabling the compiler's use of unaligned
+  word loads/stores (it emits `LDRB`/`LDRH` sequences instead). This is the
+  accepted equivalent of `-memaccess -L22-S22-L41`, which the online Norcroft
+  5.18 rejects, and keeps the library safe to run with CPU alignment checking ON
+  (the RISC OS / ARMv7 default). The `objasm` (assembler) compiles are unchanged
+  (`-za` is a C-compiler option). Rebuilt clean (516 objects, cc rc=0, libfile
+  rc=0) and the committed `DeskLib32` regenerated. Separate from the `Wimp.h`
+  struct-layout fix below (a different bug; still required).
+
 ## 2026-09-12
 
 ### Added

@@ -11,3 +11,6 @@ build/out/
 # OS junk
 .DS_Store
 **/.DS_Store
+
+# Freshly-built library output (the committed copy is the repo-root DeskLib32)
+build/DeskLib32
