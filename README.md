@@ -39,10 +39,8 @@ cannot read), 8 files are modified, and 1 file is added:
 Build flags (`-apcs 3/32bit`, `-za1`, and the C1 `-D` redirection, on top of upstream's own Norcroft flags)
 live in `build/dlplan.json`, not in the source; see MODIFICATIONS.md section 4.
 
-**History:** earlier DeskLib32 releases were based on DeskLib 2.80 (2007) and
-replaced the named colour flags with a single `extflags` byte. That broke the
-API for other programs (e.g. WinEd) and has been withdrawn. Programs that used
-`cols.extflags` should use `vals.extra`.
+**History:** earlier DeskLib32 releases were based on DeskLib 2.80 (2007). They
+have been withdrawn in favour of this rebase.
 
 ## Repository layout
 

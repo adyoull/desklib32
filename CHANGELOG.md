@@ -50,16 +50,13 @@ documented in `MODIFICATIONS.md`, and the exact edits are in
   matches master's except where master's is wrong.
 
 ### Fixed
-- **`wimp_colourflags` layout, without changing the API.** The previous fix
-  replaced the five named extra-window flags with one `extflags` byte, which
-  broke programs that use them (e.g. WinEd). GCC now sees upstream's
+- **`wimp_colourflags` layout, without changing the API.** GCC sees upstream's
   declaration unchanged. For other compilers, bytes 4-7 (`scrollouter`,
   `scrollinner`, `titlefocus` and the flags) are one `unsigned int` bit-field
   container. Norcroft rejects `unsigned char` bit-fields as non-ANSI, so they
   could not be used. All member names are as upstream, the struct is 8 bytes
   under both compilers, and the flags sit in bits 0-4 of the 8th byte. The swapped
-  `never3d`/`always3d` comments are corrected. Code that used `cols.extflags`
-  should use `vals.extra`.
+  `never3d`/`always3d` comments are corrected.
 - **`wimp_point` missing semicolon** (upstream, April 2026 header reformat):
   `int x` restored to `int x;`, without which nothing including `Wimp.h`
   compiles.
@@ -132,8 +129,9 @@ documented in `MODIFICATIONS.md`, and the exact edits are in
   `unsigned int : 1` bitfield group is word-aligned by modern Norcroft, making
   the struct 12 bytes instead of 8 and corrupting the `numicons` offset, which
   breaks template loading (*"not enough memory to copy template"* on launch).
-  Replaced with a single `unsigned char extflags;` - struct back to 8 bytes,
-  matching the Wimp window-block format. No code referenced the individual flags.
+  Replaced the bit-field group with a single byte field, bringing the struct
+  back to 8 bytes. (Superseded on 2026-09-29 by a fix that keeps upstream's
+  flag names; see above.)
 
 ### Notes
 - Built specifically so a **Norcroft**-linked application (the 32-bit !RDPClient

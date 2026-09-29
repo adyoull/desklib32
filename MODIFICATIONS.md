@@ -95,18 +95,14 @@ bytes, templates load correctly.
 - The comments on `never3d` and `always3d` were swapped upstream. They are
   corrected in both branches.
 
-**Why this way.** Three approaches were tried or considered:
+**Why this way.** Two approaches were tried:
 
-1. *Replace the five flags with one `unsigned char extflags`.* This was the
-   original DeskLib32 fix (2026-09-12). It fixed the layout but **removed
-   public member names**, which breaks programs such as WinEd that use
-   `cols.fullcolour` and the other flags. It has been **withdrawn**.
-2. *Declare the flags as `unsigned char` bit-fields.* This is the neatest fix:
+1. *Declare the flags as `unsigned char` bit-fields.* This is the neatest fix:
    the names stay the same and the struct is 8 bytes under GCC. Norcroft 5.18
    rejects it, though: `Error: ANSI C forbids bit field type 'char'`
    (Wimp.h, all six flag lines; build of 2026-09-29). ANSI C only allows `int`
    bit-fields.
-3. *One `unsigned int` container for bytes 4-7* (**chosen**). It is valid ANSI
+2. *One `unsigned int` container for bytes 4-7* (**chosen**). It is valid ANSI
    C, keeps every member name and gives 8 bytes on both compilers. It is only
    applied to non-GCC compilers, so GCC users see exactly upstream's
    declaration and nothing changes for them.
@@ -117,8 +113,7 @@ bytes, templates load correctly.
 - Under Norcroft only, `scrollouter`, `scrollinner` and `titlefocus` are now
   8-bit bit-fields, so a program cannot take their address
   (`&w->colours.cols.titlefocus`). Nothing in DeskLib does this.
-- The `vals` view (`vals.colours[7]`, `vals.extra`) is unchanged. Programs that
-  used the withdrawn `cols.extflags` should use `vals.extra`.
+- The `vals` view (`vals.colours[7]`, `vals.extra`) is unchanged.
 
 **Verification.**
 - With GCC in 32-bit mode, both branches were compiled (the non-GCC one by
@@ -451,7 +446,8 @@ Until 2026-09-29, DeskLib32 was based on **DeskLib 2.80** (2007), the copy that
 came with the original RDPClient source. That version had problems which a
 forum reviewer rightly pointed out:
 
-- the `extflags` change described in M1 option 1, which broke the API;
+- a `Wimp.h` layout fix that removed the named colour flags, which broke the
+  API;
 - headers 19 years behind upstream (for example no Ursula `numeric` icon flag);
 - debugging text left in `Template/Clone.c` in place of the library's normal
   "not enough memory" errors;
