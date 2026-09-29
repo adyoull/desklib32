@@ -1,5 +1,6 @@
 
-.equ	XOS_Bit, 0x020000
+XOS_Bit                    EQU &020000
 
-.equ	SWI_OS_Module, 0x00001e
+SWI_OS_Module              EQU &00001e
 
+        END

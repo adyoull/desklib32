@@ -1,17 +1,16 @@
-@ Author Copyright 1993 Shaun Blackmore
+; Author: Copyright 1993 Shaun Blackmore
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-@os_error *Font_ConvertTopoints(int x, int y, int *xout, int *yout)
+;os_error *Font_Converttopoints(int x, int y, int *xout, int *yout)
 
 
 
-        
-        .global Font_ConvertTopoints
-Font_ConvertTopoints:
-@
+        PREAMBLE
+        STARTCODE Font_ConvertToPoints
+;
         STMFD   sp!, {r4,lr}
         MOV     r4,r3
         MOV     r3,r2
@@ -22,4 +21,5 @@ Font_ConvertTopoints:
         STR     r2,[r4,#0]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,pc}
-@
+;
+        END

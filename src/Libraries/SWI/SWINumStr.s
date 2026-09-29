@@ -1,27 +1,27 @@
-@   ####             #    #     # #
-@   #   #            #    #       #          The FreeWare C library for
-@   #   #  ##   ###  #  # #     # ###             RISC OS machines
-@   #   # #  # #     # #  #     # #  #   ___________________________________
-@   #   # ####  ###  ##   #     # #  #
-@   #   # #        # # #  #     # #  #    Please refer to the accompanying
-@   ####   ### ####  #  # ##### # ###    documentation for conditions of use
-@   ________________________________________________________________________
-@
-@   File:    SWI/SWINumStr.s
-@   Author:  Copyright © 1994, 1995 Sergio Monesi
-@   Version: 1.01 (13 Jul 1995)
-@            1.02 (10 Oct 2007) Moved to SWI module, changed names
-@   Purpose: Veneers for OS_SWINumber(To|From)String
+;   ####             #    #     # #
+;   #   #            #    #       #          The FreeWare C library for
+;   #   #  ##   ###  #  # #     # ###             RISC OS machines
+;   #   # #  # #     # #  #     # #  #   ___________________________________
+;   #   # ####  ###  ##   #     # #  #
+;   #   # #        # # #  #     # #  #    Please refer to the accompanying
+;   ####   ### ####  #  # ##### # ###    documentation for conditions of use
+;   ________________________________________________________________________
+;
+;   File:    KernelSWIs.s.SWINumStr
+;   Author:  Copyright © 1994, 1995 Sergio Monesi
+;   Version: 1.01 (13 Jul 1995)
+;            1.02 (10 Oct 2007) Moved to SWI module, changed names
+;   Purpose: Veneers for OS_SWINumber(To|From)String
 
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        PREAMBLE
 
-@ os_error *SWI_SWINumberToString(int number, char *buffer, int size);
+; os_error *OS_SWINumberToString(int number, char *buffer, int size);
 
-        .global SWI_SWINumberToString
-SWI_SWINumberToString:
+        STARTCODE SWI_SWINumberToString
 
         MOV     ip, lr
         SWI     SWI_OS_SWINumberToString + XOS_Bit
@@ -29,10 +29,9 @@ SWI_SWINumberToString:
         MOV     pc, ip
 
 
-@ os_error *SWI_SWINumberFromString(char *string, int *number);
+; os_error *OS_SWINumberFromString(char *string, int *number);
 
-        .global SWI_SWINumberFromString
-SWI_SWINumberFromString:
+        STARTCODE SWI_SWINumberFromString
 
         MOV     ip, lr
         MOV     r2, r1
@@ -45,5 +44,4 @@ SWI_SWINumberFromString:
         MOV     pc, ip
 
 
-
-
+        END

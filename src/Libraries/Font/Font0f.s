@@ -1,15 +1,14 @@
-@ Author Copyright 1993 Shaun Blackmore
+; Author: Copyright 1993 Shaun Blackmore
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-@os_error *Font_ReadScaleFactor(int *xscale, int *yscale);
+;os_error *Font_ReadScaleFactor(int *xscale, int *yscale);
 
-        
-        .global Font_ReadScaleFactor
-Font_ReadScaleFactor:
-@
+        PREAMBLE
+        STARTCODE Font_ReadScaleFactor
+;
         STMFD   sp!, {r4,lr}
         MOV     r3,r0
         MOV     r4,r1
@@ -18,4 +17,5 @@ Font_ReadScaleFactor:
         STR     r2,[r4,#0]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,pc}
-@
+;
+        END

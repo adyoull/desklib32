@@ -15,37 +15,39 @@ a Norcroft application cleanly.
 
 ## Changes from upstream DeskLib
 
-1. **`src/include/Wimp.h` - `wimp_colourflags` layout.** Upstream declares the
-   extra window flags (`fullcolour`, `extendedscroll`, `never3d`, `always3d`,
-   `returnshaded`, `padding`) as `unsigned int` bit-fields after seven `char`
-   fields. GCC packs them into the 8th byte, but Norcroft 5.x starts a new word
-   at offset 8, making the struct **12 bytes instead of 8** and shifting
-   `numicons`/`icons` in `window_block` by 4 - template loading then fails
-   (*"not enough memory to copy template"*). They are now declared as
-   `unsigned char` bit-fields: **every member name is unchanged**, the struct is
-   8 bytes on both compilers, and the flags sit in bits 0-4 of the 8th byte as
-   the Wimp expects. (The never3d/always3d comments, which were swapped, are
-   corrected.)
-2. **`src/include/Wimp.h` - `wimp_point`.** Upstream's April 2026 header
-   reformat left `int x` without its semicolon, so any file including `Wimp.h`
-   fails to compile. Restored to `int x;`.
-3. **`src/Libraries/Template/Clone.c` - compile-time layout guard.** Two
-   `typedef`s that fail the build if `wimp_colourflags` is not 8 bytes or
-   `window_block` is not 88 bytes, so a layout regression cannot slip through
-   silently. No runtime code change.
+**Every change, with the problem, evidence, reasoning, compatibility impact and
+verification, is documented in [MODIFICATIONS.md](MODIFICATIONS.md).** The
+exact edits are in [patches/desklib32-vs-upstream.diff](patches/desklib32-vs-upstream.diff).
 
-Everything else is upstream, byte for byte. Build-plan choices (`-apcs 3/32bit`,
-`-za1`) live in `build/dlplan.json`, not in the source.
+In summary, `src/` is upstream DeskLib master `f7469f4`: 348 files are
+byte-identical to it, 281 assembler files and their includes are byte-identical
+to upstream's `aof` branch (master's are in GNU `as` syntax, which `objasm`
+cannot read), 8 files are modified, and 1 file is added:
+
+| | File | Change |
+|---|---|---|
+| M1 | `include/Wimp.h` | `wimp_colourflags`: for non-GCC compilers, bytes 4-7 are one `unsigned int` bit-field container, so the struct is 8 bytes under Norcroft (12 before). All member names are unchanged, and GCC sees upstream's declaration |
+| M2 | `include/Wimp.h` | missing `;` after `int x` in `wimp_point` restored |
+| M3 | `Libraries/Template/Clone.c` | compile-time check that `wimp_colourflags` is 8 bytes and `window_block` is 88 |
+| M4 | `Libraries/Debug/DebugDefs.h` | `static` prototype removed from a shared header (a Norcroft error) |
+| M5 | `include/Environment.h` | trailing comma after the last `sysvar_type` value removed (not allowed in C89) |
+| A1 | `Libraries/Environment/OSCLI.s` | exports `Environment__OS_CLI`, as the header declares (ported from master) |
+| A2 | `Libraries/Tinct/PlotScaled.s`, `PlotScaledAlpha.s` | argument registers fixed; `PlotScaledAlpha` now has its own name and SWI (ported from master) |
+| A3 | `Libraries/BackTrace/GetPC2.s` | also exports `BackTrace_GetPC2`, the name the header declares |
+| C1 | `Libraries/Compat/Printf.c` (new) | bounded `snprintf`/`vsnprintf` built from C89 calls; DeskLib's own calls are redirected to it with `-D` flags, so programs don't need SharedCLibrary stub chunk 5 (avoids "SWI &5DC34 not known" at start-up, seen on a Pi with the Norcroft 5.18 build) |
+
+Build flags (`-apcs 3/32bit`, `-za1`, and the C1 `-D` redirection, on top of upstream's own Norcroft flags)
+live in `build/dlplan.json`, not in the source; see MODIFICATIONS.md section 4.
 
 **History:** earlier DeskLib32 releases were based on DeskLib 2.80 (2007) and
 replaced the named colour flags with a single `extflags` byte. That broke the
-API for other programs (e.g. WinEd) and has been withdrawn in favour of the
-fix above. Programs that used `cols.extflags` should use `vals.extra`.
+API for other programs (e.g. WinEd) and has been withdrawn. Programs that used
+`cols.extflags` should use `vals.extra`.
 
 ## Repository layout
 
 ```
-src/            Upstream DeskLib source plus the fixes above (source of truth):
+src/            Upstream DeskLib source plus the changes in MODIFICATIONS.md:
                   include/    DeskLib public headers
                   oldinclude/ compatibility headers (on DeskLib$Path, as upstream)
                   Libraries/  the library sources (C + ARM assembler)
@@ -56,7 +58,10 @@ build/          Reproducible build kit:
                   package.py        regenerates desklib_src.zip from ../src
 DeskLib32       The prebuilt 32-bit library (drop-in; RISC OS type Data)
 debug/          The RISC OS 5 / Norcroft debugging toolkit (see debug/README.md)
-NOTICE.md       FreeWare attribution and conditions of use
+MODIFICATIONS.md  Every change from upstream and the reason for it
+patches/        The same changes as a unified diff against upstream
+LICENCE         DeskLib's licence, credits and contact (verbatim from upstream)
+NOTICE.md       What the licence means for this repository
 CHANGELOG.md    Change history for this 32-bit build
 ```
 
@@ -77,7 +82,7 @@ python3 package.py                          # ../src -> desklib_src.zip (if you 
 python3 builddesklib.py                     # compile + libfile on the service
 ```
 
-`builddesklib.py` compiles all 529 DeskLib objects (C + assembler) with
+`builddesklib.py` compiles all 530 DeskLib objects (C + assembler) with
 `-apcs 3/32bit` (C objects additionally `-za1`, for alignment-safe codegen so
 the library runs with CPU alignment checking ON — see CHANGELOG) in
 wall-clock-capped slices, carrying the object directory
@@ -99,11 +104,15 @@ See **[DEBUGGING.md](DEBUGGING.md)** for a field guide to diagnosing Norcroft
 
 ## Licence
 
-DeskLib is general-purpose **FreeWare**, (C) its original authors (John Winters,
-Jason Williams, Tim Browse, Cy Booker, Sergio Monesi, Julian Smith, John Tytgat
-and the DeskLib contributors). There is no single licence file upstream; each
-source file carries its authors' copyright and the banner *"Please refer to the
-accompanying documentation for conditions of use."* The canonical source is the
-DeskLib project at https://www.riscos.info/index.php/DeskLib . The 32-bit build
-fixes here are offered under the same FreeWare terms, preserving the original
-authors' copyright. See `NOTICE.md`.
+DeskLib is under **its own licence**, not the GPL. It is reproduced verbatim in
+[`LICENCE`](LICENCE), taken from upstream's `!DeskLib/Docs/TextHelp`.
+Copyright remains with DeskLib's authors, and each source file carries their
+notices. The licence's conditions are:
+
+- distribute the copyright messages and conditions intact;
+- distribute unaltered copies, and send alterations to the moderator;
+- make no profit from distribution;
+- acknowledge DeskLib in the distribution of any software built with it.
+
+See [`NOTICE.md`](NOTICE.md) for how this repository relates to those
+conditions.

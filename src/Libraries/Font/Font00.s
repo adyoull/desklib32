@@ -1,15 +1,14 @@
-@ Author Copyright 1993 Shaun Blackmore
+; Author: Copyright 1993 Shaun Blackmore
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-@ os_error *Font_CacheAddr(int *version, int *cacheused, int *cachesize);
+; os_error *Font_CacheAddr(int *version, int *cacheused, int *cachesize);
 
-        
-        .global Font_CacheAddr
-Font_CacheAddr:
-@
+        PREAMBLE
+        STARTCODE Font_CacheAddr
+;
         STMFD   sp!, {v1,v2,v3,lr}
         MOV     v1,a1
         MOV     v2,a2
@@ -20,4 +19,5 @@ Font_CacheAddr:
         STR     r2,[v3]
         MOVVC   a1,#0
         LDMFD   sp!, {v1,v2,v3,pc}
-@
+;
+        END

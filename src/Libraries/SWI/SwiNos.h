@@ -1,4 +1,7 @@
-.equ	XOS_Bit, 0x020000
 
-.equ	SWI_OS_SWINumberToString, 0x000038
-.equ	SWI_OS_SWINumberFromString, 0x000039
+XOS_Bit                         EQU &020000
+
+SWI_OS_SWINumberToString        EQU &000038
+SWI_OS_SWINumberFromString      EQU &000039
+
+         END

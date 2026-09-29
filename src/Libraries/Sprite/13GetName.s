@@ -1,42 +1,41 @@
-@
-@       Title                  : Get Name
-@       System                 : Sprite Library
-@       Version                : 1.0
-@       Copyright              : (C) Ainsley Pereira
-@       Date                   : Sun 27th February 94
-@       Author                 : Ainsley M. Pereira
-@
-@       Function               : Gets sprite name
-@
-@
-@       Modification history.
-@
-@       Version                : (Reflect in header IDENT)
-@       Date                   :
-@       Author                 :
-@       Changes                :
-@
-@
-@============================================================================
-@
-@  Include files.
-@
-@============================================================================
-@
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
-@
-@============================================================================
-@
-@  Code.
-@
-@============================================================================
-@
-        
-        .global Sprite_GetName
-Sprite_GetName:
-@
+;
+;       Title                  : Get Name
+;       System                 : Sprite Library
+;       Version                : 1.0
+;       Copyright              : (C) Ainsley Pereira
+;       Date                   : Sun 27th February 94
+;       Author                 : Ainsley M. Pereira
+;
+;       Function               : Gets sprite name
+;
+;
+;       Modification history.
+;
+;       Version                : (Reflect in header IDENT)
+;       Date                   :
+;       Author                 :
+;       Changes                :
+;
+;
+;============================================================================
+;
+;  Include files.
+;
+;============================================================================
+;
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
+;
+;============================================================================
+;
+;  Code.
+;
+;============================================================================
+;
+        PREAMBLE
+        STARTCODE Sprite_GetName
+;
         STMFD     sp!, {v1,lr}
         MOV       v1, a3
         MOV       a4, #13
@@ -48,4 +47,5 @@ Sprite_GetName:
         MOVVC     a1, a4
         MOVVS     a1, #0
         LDMFD     sp!, {v1,pc}
-@
+;
+	END

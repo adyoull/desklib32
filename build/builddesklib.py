@@ -6,7 +6,7 @@ ABI/runtime-compatible with the app build (the official prebuilt DeskLib is
 GCC-built and references __divsi3/__ctype_* which Norcroft's stubs don't
 provide).
 
-Compiles all 529 DeskLib objects (270 C + 259 assembler) with -apcs 3/32bit in
+Compiles all 530 DeskLib objects (271 C + 259 assembler) with -apcs 3/32bit in
 wall-cap-sized slices, carrying the object dir forward between builds, then
 libfiles them into o.DeskLib. Output: ./DeskLib32 (drop-in 32-bit library that
 buildapp.py picks up automatically).
@@ -203,6 +203,23 @@ def main():
                     mem=zi.filename; break
             if mem:
                 with z.open(mem) as s, open(outp,"wb") as d: shutil.copyfileobj(s,d)
+                # Chunk-5 guard: the library must not import the C99
+                # snprintf/vsnprintf (SharedCLibrary stub chunk 5 with the
+                # Norcroft 5.18 toolchain; not initialised on the test Pi ->
+                # "SWI &5DC34 not known" at start-up). DeskLib's
+                # own calls are redirected to Compat/Printf.c by -D in dlplan.
+                data=open(outp,"rb").read(); hits=[]
+                for sym in (b"snprintf",b"vsnprintf"):
+                    for m in re.finditer(re.escape(sym)+b"\x00",data):
+                        i=m.start(); prev=data[i-1] if i>0 else 0
+                        if not (chr(prev).isalnum() or prev==0x5f): hits.append(sym.decode()); break
+                if hits:
+                    os.rename(outp,outp+".UNSAFE")
+                    log("\n!!! CHUNK-5 GUARD FAILED: the library imports %s."%", ".join(sorted(set(hits))))
+                    log("    Programs linking it would fail with 'SWI &5DC34 not known'.")
+                    log("    Output renamed to %s.UNSAFE. Check the -D flags in dlplan.json."%outp)
+                    return 6
+                log("chunk-5 guard: OK -- the library does not import snprintf/vsnprintf.")
                 log("\nDONE. 32-bit DeskLib -> %s (%d bytes)."%(outp,os.path.getsize(outp)))
                 log("Now run: python3 buildapp.py  (it picks up DeskLib32 automatically).")
                 return 0

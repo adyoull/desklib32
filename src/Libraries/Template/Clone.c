@@ -16,11 +16,6 @@
     Purpose: Loading, cacheing, and retrieval of window templates
 */
 
-/*
-    DeskLib32 modifications (C) 2026 Andrew Youll, offered under the same
-    FreeWare terms as DeskLib.
-*/
-
 
 #include "TempDefs.h"
 

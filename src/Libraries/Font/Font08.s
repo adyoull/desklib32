@@ -1,17 +1,16 @@
-@ Author Copyright 1993 Shaun Blackmore
+; Author: Copyright 1993 Shaun Blackmore
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-@os_error *Font_ConvertToOS(int x, int y, int *xout, int *yout)
+;os_error *Font_ConverttoOS(int x, int y, int *xout, int *yout)
 
 
 
-        
-        .global Font_ConvertToOS
-Font_ConvertToOS:
-@
+        PREAMBLE
+        STARTCODE Font_ConvertToOS
+;
         STMFD   sp!, {r4,lr}
         MOV     r4,r3
         MOV     r3,r2
@@ -22,4 +21,5 @@ Font_ConvertToOS:
         STR     r2,[r4,#0]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,pc}
-@
+;
+        END

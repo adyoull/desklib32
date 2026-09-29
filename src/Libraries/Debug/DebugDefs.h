@@ -35,7 +35,6 @@ BOOL Debug_InitialiseUniqueFile(void);
 void Debug_PrintUniqueFile(const char *text);
 
 BOOL Debug_InitialiseUniquePipe(void);
-static FILE *Debug__OpenPipeFile(void);
 void Debug_PrintUniquePipe(const char *text);
 
 #endif

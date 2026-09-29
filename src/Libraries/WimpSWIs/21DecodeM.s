@@ -1,43 +1,42 @@
-@
-@       Title                  : Wimp Decode Menu
-@       System                 : Wimp Library
-@       Version                : 1.0
-@       Copyright              : (C) John Winters
-@       Date                   : 12th January, 1990
-@       Author                 : John H. Winters
-@
-@       Function               : Decodes a menu result.
-@
-@
-@       Modification history.
-@
-@       Version                : (Reflect in header IDENT)
-@       Date                   :
-@       Author                 :
-@       Changes                :
-@
-@
-@============================================================================
-@
-@  Include files.
-@
-@============================================================================
-@
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
-@
-@============================================================================
-@
-@  Code.
-@
-@============================================================================
-@
-        
-        .global Wimp_DecodeMenu
-Wimp_DecodeMenu:
-@
-@        STMFD   sp!, {lr}
+;
+;       Title                  : Wimp Decode Menu
+;       System                 : Wimp Library
+;       Version                : 1.0
+;       Copyright              : (C) John Winters
+;       Date                   : 12th January, 1990
+;       Author                 : John H. Winters
+;
+;       Function               : Decodes a menu result.
+;
+;
+;       Modification history.
+;
+;       Version                : (Reflect in header IDENT)
+;       Date                   :
+;       Author                 :
+;       Changes                :
+;
+;
+;============================================================================
+;
+;  Include files.
+;
+;============================================================================
+;
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
+;
+;============================================================================
+;
+;  Code.
+;
+;============================================================================
+;
+        PREAMBLE
+        STARTCODE Wimp_DecodeMenu
+;
+;        STMFD   sp!, {lr}
         MOV      ip, lr
 
         MOV     a4, a3
@@ -47,5 +46,6 @@ Wimp_DecodeMenu:
         MOVVC   a1, #0
 
         MOV     pc, ip
-@        LDMFD   sp!, {pc}
-@
+;        LDMFD   sp!, {pc}
+;
+        END

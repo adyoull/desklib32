@@ -1,0 +1,71 @@
+DeskLib - licence, credits and contact
+
+The text below is reproduced verbatim from upstream DeskLib's
+!DeskLib/Docs/TextHelp (https://github.com/riscos-dot-info/desklib, master
+f7469f4). It applies to DeskLib, and therefore to DeskLib32, which is
+DeskLib with the changes listed in MODIFICATIONS.md.
+
+========================================================================
+
+Licence
+-------
+
+Note that although this software is supplied free of charge, copyright
+applies to it. All rights are reserved, except for the following: 
+
+This software may be copied and distributed without restriction so long
+as the following conditions are met: 
+
+- The copyright messages and these conditions are distributed intact in
+all such copies 
+- Only original, unaltered copies of this software are to be distributed
+so that this library retains consistent over time -  please don't  alter
+the library and pass it on; alter it and send alterations back to the
+moderator (see below) so that your code becomes an official update
+rather than a hack. 
+- No profit is made through such distribution 
+
+This software may be used in the production of any piece of software so
+long as the authors acknowledge in the final product distribution that
+DeskLib (or parts thereof) was used. 
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Bug reports, fixes,
+or any extra code may be sent to the moderator, who may or may not act
+on them as he deems fit. 
+
+NOTE that DeskLib is totally unaffiliated to anyone or anything. All
+comments about people and companies in this product are either personal
+opinion or were factual at the time of writing. Most such comments are
+included only so that the user knows the REASON for things having been
+done as they were. 
+
+Credits 
+-------
+
+This library has been built up by a group of authors. Individual files
+contain copyright notices for the author(s) who created them. Some of
+the authors (and other contributors) are, in alphabetical order: 
+
+Peter Arnold, Matthew Astley, Lee Atkinson, Philip Banks, Shaun
+Blackmore, Cy Booker, Tim Browse, Tony Bryant, Philip Colmer, Erik de
+Kort, Keith Hall, Tony Houghton, Jason Howat, Tony Howat, Peter Gaunt,
+Tom Kirby-Green, David Leftley, Lenny, David Lenthall, Keith Marlow,
+Stuart Martin, Sergio Monesi, Peter Naulls, Ernest Ong, Ainsley Pereira,
+David Pilling, Edouard Poor, Andrew Sellors, Andrew Sidwell, Antony
+Sidwell, Julian Smith, Ben Summers, Neil Tarrent, William Waghorn, Dave
+Ward, Robin Watts, Jason Williams, Mark H. Wilkinson and John Winters 
+
+Thanks also to the numerous others who have offered suggestions,
+constructive criticism, etc. If you feel you have been omitted from this
+list in error, then please get in touch so it can be fixed. 
+
+Contact
+-------
+
+If you find any bugs or problems in DeskLib, or if you can supply
+suggestions or code for alterations, additions, or tutorial
+applications, then please either write to Peter Naulls
+(peter@chocky.org), who is the current DeskLib moderator, or raise it on
+

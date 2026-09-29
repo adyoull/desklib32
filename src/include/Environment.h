@@ -180,7 +180,7 @@ typedef enum
   sysvar_NUMBER,
   sysvar_MACRO,
   sysvar_EXPANDED,
-  sysvar_LITERAL,
+  sysvar_LITERAL
 } sysvar_type;
 /*
    This is used to pass meaningful names to Environment_SetSysVar.

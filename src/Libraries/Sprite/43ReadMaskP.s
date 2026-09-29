@@ -1,42 +1,41 @@
-@
-@       Title                  : Read mask pixel
-@       System                 : Sprite Library
-@       Version                : 1.0
-@       Copyright              : (C) John Tytgat
-@       Date                   : 29 Nov 2005
-@       Author                 : John Tytgat
-@
-@       Function               : Read pixel from a mask
-@
-@
-@       Modification history.
-@
-@       Version                : (Reflect in header IDENT)
-@       Date                   :
-@       Author                 :
-@       Changes                :
-@
-@
-@============================================================================
-@
-@  Include files.
-@
-@============================================================================
-@
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
-@
-@============================================================================
-@
-@  Code.
-@
-@============================================================================
-@
-        
-        .global Sprite_ReadMaskPixelP
-Sprite_ReadMaskPixelP:
-@
+;
+;       Title                  : Read mask pixel
+;       System                 : Sprite Library
+;       Version                : 1.0
+;       Copyright              : (C) John Tytgat
+;       Date                   : 29 Nov 2005
+;       Author                 : John Tytgat
+;
+;       Function               : Read pixel from a mask
+;
+;
+;       Modification history.
+;
+;       Version                : (Reflect in header IDENT)
+;       Date                   :
+;       Author                 :
+;       Changes                :
+;
+;
+;============================================================================
+;
+;  Include files.
+;
+;============================================================================
+;
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
+;
+;============================================================================
+;
+;  Code.
+;
+;============================================================================
+;
+        PREAMBLE
+        STARTCODE Sprite_ReadMaskPixelP
+;
         STMFD     sp!, {v1-v2, lr}
 	LDMIA     a3, {a4, v1}
         MOV       a3, a2
@@ -47,4 +46,5 @@ Sprite_ReadMaskPixelP:
 	MOVVS     a1, #0
         MOVVC     a1, v2
         LDMFD     sp!, {v1-v2, pc}
-@
+;
+        END

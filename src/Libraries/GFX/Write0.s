@@ -1,14 +1,14 @@
-@-------------------------------------------------------------------------------
-@ OS_Write0
-@
-        .include     "Macros.h"
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-@
-        
-        .global GFX_Write0
-GFX_Write0:
-@
+;-------------------------------------------------------------------------------
+; OS_Write0
+;
+        GET     Macros.h
+        GET     RegDefs.h
+        GET     SwiNos.h
+;
+        PREAMBLE
+        STARTCODE GFX_Write0
+;
         SWI     XSWI_OS_Write0
         MOV     pc, lr
-@
+;
+        END

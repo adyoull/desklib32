@@ -1,12 +1,35 @@
 # DeskLib32 - Changelog
 
 A 32-bit build of DeskLib (the FreeWare RISC OS C library) compiled with
-Norcroft cc 5.18 on build.riscos.online, with a struct-layout fix and a
-debugging toolkit. Based on upstream DeskLib from 2026-09-29 (2.80 before). Dates are ISO (YYYY-MM-DD).
+Norcroft cc 5.18 on build.riscos.online, with the fixes Norcroft needs and a
+debugging toolkit. Since 2026-09-29 it is based on upstream DeskLib master
+`f7469f4` (2026-04-04); before that it was based on DeskLib 2.80. See
+MODIFICATIONS.md for every change. Dates are ISO (YYYY-MM-DD).
 
 ---
 
 ## 2026-09-29
+
+### Fixed (after the first build)
+- **"SWI &5DC34 not known" at start-up in programs linking DeskLib32.**
+  Upstream DeskLib calls the C99 `snprintf`/`vsnprintf` (23 files). These are
+  are linked through SharedCLibrary stub chunk 5 by the Norcroft 5.18
+  toolchain, and on the test Pi that chunk is not initialised at start-up.
+  Whether that is a quirk of the 5.18 toolchain or a ROM limit is not
+  established; avoiding the functions works either way. A new `Libraries/Compat/Printf.c` provides a bounded
+  replacement built from C89 calls. Every other C file is compiled with
+  `-Dsnprintf=DeskLib__snprintf -Dvsnprintf=DeskLib__vsnprintf`, and
+  `builddesklib.py` now refuses a library that still imports either function.
+  The first build (529 objects) is withdrawn. The build plan is now 530
+  objects (271 C + 259 assembler). See MODIFICATIONS.md, C1.
+
+Built clean: 530 objects plus `libfile`, and the chunk-5 guard passed. The
+repository-root `DeskLib32` (323,048 bytes) is this build. RDPClient 0.93.3
+built against it starts and runs on a Raspberry Pi.
+
+Every change from upstream, with its reasoning and verification, is now
+documented in `MODIFICATIONS.md`, and the exact edits are in
+`patches/desklib32-vs-upstream.diff`.
 
 ### Changed
 - **Rebased on current upstream DeskLib** (https://github.com/riscos-dot-info/desklib,
@@ -18,19 +41,48 @@ debugging toolkit. Based on upstream DeskLib from 2026-09-29 (2.80 before). Date
   `Menu_FullDispose`. Five older headers (`ColourMenu.h`, `Sound.h`,
   `StringCR.h`, `Validation.h`, `WAssert.h`) are now in `src/oldinclude/`, which
   the build adds to `DeskLib$Path` as upstream's `!Boot` does. The build plan
-  now covers 529 objects (270 C + 259 assembler).
+  covered 529 objects (270 C + 259 assembler); 530 with the C1 fix.
+- **Assembler sources come from upstream's `aof` branch.** Upstream master
+  converted its `.s` files to GNU `as` syntax in 2007, which `objasm` cannot
+  assemble. The `aof` branch keeps objasm-syntax equivalents of all 259 files
+  (plus `Macros.h`, `RegDefs.h` and the 24 `SwiNos.h` constant files); these are
+  used, with the later master fixes ported (see below). The exported symbol set
+  matches master's except where master's is wrong.
 
 ### Fixed
 - **`wimp_colourflags` layout, without changing the API.** The previous fix
   replaced the five named extra-window flags with one `extflags` byte, which
-  broke programs that use them (e.g. WinEd). The flags are now `unsigned char`
-  bit-fields: all member names are as upstream, the struct is 8 bytes under both
-  GCC and Norcroft, and the flags sit in bits 0-4 of the 8th byte. The swapped
+  broke programs that use them (e.g. WinEd). GCC now sees upstream's
+  declaration unchanged. For other compilers, bytes 4-7 (`scrollouter`,
+  `scrollinner`, `titlefocus` and the flags) are one `unsigned int` bit-field
+  container. Norcroft rejects `unsigned char` bit-fields as non-ANSI, so they
+  could not be used. All member names are as upstream, the struct is 8 bytes
+  under both compilers, and the flags sit in bits 0-4 of the 8th byte. The swapped
   `never3d`/`always3d` comments are corrected. Code that used `cols.extflags`
   should use `vals.extra`.
 - **`wimp_point` missing semicolon** (upstream, April 2026 header reformat):
   `int x` restored to `int x;`, without which nothing including `Wimp.h`
   compiles.
+- **Assembler veneers ported from master to the `aof` sources:**
+  `Environment/OSCLI.s` exports `Environment__OS_CLI` (the name `Environment.h`
+  declares; `Environment_Command` is the C function in `Command.c`);
+  `Tinct/PlotScaled.s` and `Tinct/PlotScaledAlpha.s` pass the width/height in the
+  right registers, and `PlotScaledAlpha` exports and calls
+  `Tinct_PlotScaledAlpha` rather than duplicating `Tinct_PlotAlpha`.
+- **Assembler exports that do not match the headers (upstream master):**
+  `Environment/GSTrans.s` keeps `Environment_ExpandString` (master exports
+  `OS_GSTrans`, which the header defines as a macro) and `Font/Font09.s` keeps
+  `Font_ConvertToPoints` (master has `Font_ConvertTopoints`).
+  `BackTrace/GetPC2.s` now also exports `BackTrace_GetPC2`, the name
+  `BackTrace.h` declares, alongside the old `Desk_BackTrace_GetPC2`.
+- **`Debug/DebugDefs.h`: `static` prototype in a shared header** (upstream
+  2008). `static FILE *Debug__OpenPipeFile(void);` was declared in a header
+  included by five files but defined only in `UniquePipe.c`. Norcroft rejects
+  this ("static function not defined"). The prototype is removed; the
+  function is defined before use.
+- **`Environment.h`: trailing comma in `enum sysvar_type`** (upstream 2008).
+  C89 does not allow it, and Norcroft stops with "Superfluous ',' in 'enum'
+  declaration". Removed.
 - Added a compile-time layout guard in `Template/Clone.c`
   (`sizeof(wimp_colourflags) == 8`, `sizeof(window_block) == 88`).
 

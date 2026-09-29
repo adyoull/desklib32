@@ -1,9 +1,10 @@
 
-.equ	XOS_Bit, 0x020000
+XOS_Bit                    EQU &020000
 
-.equ	SWI_OS_SerialOp, 0x000057
-.equ	SWI_OS_Byte, 0x000006
-.equ	SWI_OS_Module, 0x00001e
-.equ	SWI_OS_Claim, 0x00001f
-.equ	SWI_OS_Release, 0x000020
+SWI_OS_SerialOp            EQU &000057
+SWI_OS_Byte                EQU &000006
+SWI_OS_Module              EQU &00001e
+SWI_OS_Claim               EQU &00001f
+SWI_OS_Release             EQU &000020
 
+        END

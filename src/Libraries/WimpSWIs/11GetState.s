@@ -1,42 +1,41 @@
-@
-@       Title                  : Wimp Get Window State
-@       System                 : Wimp Library
-@       Version                : 1.0
-@       Copyright              : (C) John Winters
-@       Date                   : 12th January, 1990
-@       Author                 : John H. Winters
-@
-@       Function               : Gets the state of a window.
-@
-@
-@       Modification history.
-@
-@       Version                : (Reflect in header IDENT)
-@       Date                   :
-@       Author                 :
-@       Changes                :
-@
-@
-@============================================================================
-@
-@  Include files.
-@
-@============================================================================
-@
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
-@
-@============================================================================
-@
-@  Code.
-@
-@============================================================================
-@
-        
-        .global Wimp_GetWindowState
-Wimp_GetWindowState:
-@
+;
+;       Title                  : Wimp Get Window State
+;       System                 : Wimp Library
+;       Version                : 1.0
+;       Copyright              : (C) John Winters
+;       Date                   : 12th January, 1990
+;       Author                 : John H. Winters
+;
+;       Function               : Gets the state of a window.
+;
+;
+;       Modification history.
+;
+;       Version                : (Reflect in header IDENT)
+;       Date                   :
+;       Author                 :
+;       Changes                :
+;
+;
+;============================================================================
+;
+;  Include files.
+;
+;============================================================================
+;
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
+;
+;============================================================================
+;
+;  Code.
+;
+;============================================================================
+;
+        PREAMBLE
+        STARTCODE Wimp_GetWindowState
+;
         MOV     ip, lr
 
         STR     a1, [a2, #0]
@@ -44,4 +43,5 @@ Wimp_GetWindowState:
         MOVVC   a1, #0
 
         MOV     pc, ip
-@
+;
+        END

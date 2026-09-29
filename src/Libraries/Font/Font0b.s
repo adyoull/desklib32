@@ -1,17 +1,16 @@
-@ Author Copyright 1993 Shaun Blackmore
+; Author: Copyright 1993 Shaun Blackmore
 
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
 
-@os_error *Font_CurrentFont(FontState *state);
+;os_error *Font_CurrentFont(FontState *state);
 
 
 
-        
-        .global Font_CurrentFont
-Font_CurrentFont:
-@
+        PREAMBLE
+        STARTCODE Font_CurrentFont
+;
         STMFD   sp!, {r4,lr}
         MOV     r4,r0
         SWI     SWI_Font_CurrentFont + XOS_Bit
@@ -21,4 +20,5 @@ Font_CurrentFont:
         STR     r3,[r4,#12]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,pc}
-@
+;
+        END

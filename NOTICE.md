@@ -1,37 +1,43 @@
 # NOTICE - DeskLib and this 32-bit build
 
-## DeskLib (base library)
+## DeskLib's licence
 
-DeskLib is **"The FreeWare C library for RISC OS machines."** It is the work of
-many authors over many years, including (from the source headers) John Winters,
-Jason Williams, Tim Browse, Cy Booker, Sergio Monesi, Julian Smith and John
-Tytgat, among other DeskLib contributors. Copyright remains with those authors.
+DeskLib is **"The FreeWare C library for RISC OS machines."** Many authors have
+written it over many years, and copyright remains with them. Each source file
+carries its authors' copyright notice, and `LICENCE` lists the contributors.
 
-Every DeskLib source file carries its authors' copyright notice and the banner:
+DeskLib is under its own licence, which upstream keeps in
+`!DeskLib/Docs/TextHelp`. It is **reproduced verbatim in `LICENCE`** in this
+repository, because its first condition is that the copyright messages and
+conditions are distributed intact with every copy. In summary (the `LICENCE`
+text is authoritative):
 
-> Please refer to the accompanying documentation for conditions of use.
+- DeskLib may be copied and distributed, provided that:
+  - the copyright messages and conditions stay intact;
+  - only original, unaltered copies are distributed (alterations are to be sent
+    to the moderator so they can become official updates);
+  - no profit is made from the distribution.
+- Software built with DeskLib must acknowledge, in its distribution, that
+  DeskLib (or parts of it) was used.
+- There is no warranty.
 
-DeskLib is distributed as **general-purpose freeware**. There is no single
-licence file in the upstream source tree; the conditions of use live in the
-DeskLib documentation. The canonical DeskLib project and source repository are
-at:
-
-  https://www.riscos.info/index.php/DeskLib
-
-If you intend to redistribute DeskLib (modified or not), please consult the
-upstream documentation for the authoritative conditions of use.
+DeskLib is **not** under the GPL. This matters for programs such as !RDPClient:
+the program is GPL, but the DeskLib library it links stays under DeskLib's own
+licence.
 
 ## Modifications in this repository
 
-The source is upstream DeskLib (https://github.com/riscos-dot-info/desklib,
-master `f7469f4`) with two header fixes in `src/include/Wimp.h` - the
-`wimp_colourflags` flags declared as `unsigned char` bit-fields so the struct
-keeps its 8-byte layout under Norcroft, with all member names unchanged, and
-the missing semicolon in `wimp_point` restored - plus a compile-time layout
-check in `src/Libraries/Template/Clone.c` (see README.md and CHANGELOG.md). The
-build kit (`build/`) and the debugging toolkit (`debug/`) are new tooling, not
-part of DeskLib.
+DeskLib32 is upstream DeskLib (https://github.com/riscos-dot-info/desklib,
+master `f7469f4`, with assembler sources from upstream's `aof` branch). Eight
+files are modified and one is added (`Libraries/Compat/Printf.c`), so that it
+builds with Norcroft and to fix upstream bugs. Every change and its reason is
+in `MODIFICATIONS.md`, and the exact edits are in
+`patches/desklib32-vs-upstream.diff`.
 
-These additions and the small header fixes are offered under the same FreeWare
-terms as DeskLib, preserving the original authors' copyright. They carry a
-modification notice **(C) 2026 Andrew Youll** where a notice is appropriate.
+DeskLib's licence asks that altered copies are not passed on, but sent back so
+they can become official updates. In line with that, these changes are
+documented file by file and are being offered to the upstream maintainers.
+
+The build kit (`build/`), the debugging toolkit (`debug/`) and the
+documentation are new tooling and are not part of DeskLib. The DeskLib source
+files themselves carry only their original authors' copyright notices.

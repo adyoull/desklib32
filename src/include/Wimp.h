@@ -16,11 +16,6 @@
     Purpose: Type/structure definitions for Wimp SWI interface
 */
 
-/*
-    DeskLib32 modifications (C) 2026 Andrew Youll, offered under the same
-    FreeWare terms as DeskLib.
-*/
-
 
 #ifndef __dl_wimp_h
 #define __dl_wimp_h
@@ -525,21 +520,36 @@ typedef union
     unsigned char titleback;
     unsigned char workfore;
     unsigned char workback;  /* 0xff means Wimp won't clear              */
+#if defined(__GNUC__)
     unsigned char scrollouter;
     unsigned char scrollinner;
     unsigned char titlefocus;
-    /* The extra window flags occupy the 8th byte of the colour block.  They
-       are declared as unsigned char bit-fields so that every compiler keeps
-       them in that byte: with unsigned int bit-fields, GCC packs them into
-       byte 7 but Norcroft 5.x starts a new word at offset 8, which makes this
-       struct 12 bytes, shifts every later field of window_block (numicons,
-       the icon blocks...) by 4 and breaks template loading. */
-    unsigned char fullcolour     : 1;  /* Use 24 bit colour                      */
-    unsigned char extendedscroll : 1;  /* Use extended scroll requests           */
-    unsigned char never3d        : 1;  /* Never have a 3D border                 */
-    unsigned char always3d       : 1;  /* Always have a 3D border                */
-    unsigned char returnshaded   : 1;  /* Return shaded icons for GetPointerInfo */
-    unsigned char padding        : 3;
+    unsigned int  fullcolour     : 1;  /* Use 24 bit colour                      */
+    unsigned int  extendedscroll : 1;  /* Use extended scroll requests           */
+    unsigned int  never3d        : 1;  /* Never have a 3D border                 */
+    unsigned int  always3d       : 1;  /* Always have a 3D border                */
+    unsigned int  returnshaded   : 1;  /* Return shaded icons for GetPointerInfo */
+    unsigned int  padding        : 3;
+#else
+    /* The extra window flags must sit in the 8th byte of the colour block.
+       GCC packs the bit-fields above into that byte, but Norcroft 5.x will not
+       share a bit-field container with the plain char members before it: it
+       starts a new word at offset 8, which makes this struct 12 bytes, shifts
+       every later field of window_block (numicons, the icon blocks...) by 4
+       and breaks template loading.  ANSI C only allows int bit-fields, so for
+       other compilers bytes 4-7 are one unsigned int container.  Every member
+       name is unchanged; scrollouter, scrollinner and titlefocus become 8-bit
+       bit-fields (same values, but their address cannot be taken). */
+    unsigned int  scrollouter    : 8;
+    unsigned int  scrollinner    : 8;
+    unsigned int  titlefocus     : 8;
+    unsigned int  fullcolour     : 1;  /* Use 24 bit colour                      */
+    unsigned int  extendedscroll : 1;  /* Use extended scroll requests           */
+    unsigned int  never3d        : 1;  /* Never have a 3D border                 */
+    unsigned int  always3d       : 1;  /* Always have a 3D border                */
+    unsigned int  returnshaded   : 1;  /* Return shaded icons for GetPointerInfo */
+    unsigned int  padding        : 3;
+#endif
   } cols;
 
   struct {

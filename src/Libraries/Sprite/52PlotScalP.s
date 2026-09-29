@@ -1,42 +1,41 @@
-@
-@       Title                  : Plot Scaled
-@       System                 : Sprite Library
-@       Version                : 1.0
-@       Copyright              : (C) John Tytgat
-@       Date                   : 29 Nov 2005
-@       Author                 : John Tytgat
-@
-@       Function               : Plots sprite scaled
-@
-@
-@       Modification history.
-@
-@       Version                : (Reflect in header IDENT)
-@       Date                   :
-@       Author                 :
-@       Changes                :
-@
-@
-@============================================================================
-@
-@  Include files.
-@
-@============================================================================
-@
-        .include     "RegDefs.h"
-        .include     "SwiNos.h"
-        .include     "Macros.h"
-@
-@============================================================================
-@
-@  Code.
-@
-@============================================================================
-@
-        
-        .global Sprite_PlotScaledP
-Sprite_PlotScaledP:
-@
+;
+;       Title                  : Plot Scaled
+;       System                 : Sprite Library
+;       Version                : 1.0
+;       Copyright              : (C) John Tytgat
+;       Date                   : 29 Nov 2005
+;       Author                 : John Tytgat
+;
+;       Function               : Plots sprite scaled
+;
+;
+;       Modification history.
+;
+;       Version                : (Reflect in header IDENT)
+;       Date                   :
+;       Author                 :
+;       Changes                :
+;
+;
+;============================================================================
+;
+;  Include files.
+;
+;============================================================================
+;
+        GET     RegDefs.h
+        GET     SwiNos.h
+        GET     Macros.h
+;
+;============================================================================
+;
+;  Code.
+;
+;============================================================================
+;
+        PREAMBLE
+        STARTCODE Sprite_PlotScaledP
+;
         MOV       ip, sp
         STMFD     sp!, {v1-v4, lr}
         MOV       v2, a4
@@ -48,4 +47,5 @@ Sprite_PlotScaledP:
         SWI       OS_SpriteOp + XOS_Bit
         MOVVC     a1, #0
         LDMFD     sp!, {v1-v4, pc}
-@
+;
+        END
