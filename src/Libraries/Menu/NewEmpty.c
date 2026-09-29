@@ -57,7 +57,7 @@ menu_ptr Menu_NewEmpty(const char *title, int numitems)
   for (n = 0; n < numitems; n++)
   {
     items[n].menuflags.value = 0;
-    items[n].submenu.value   = NULL;
+    items[n].submenu.value   = 0;
     items[n].iconflags.value = icon_TEXT | icon_FILLED;
     items[n].iconflags.data.foreground = 7;
     items[n].icondata.text[0] = '\0';

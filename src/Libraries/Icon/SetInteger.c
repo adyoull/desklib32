@@ -14,6 +14,6 @@ extern void Icon_SetInteger(window_handle w, icon_handle i, int value)
 {
   char       text[16];
 
-  sprintf(text, "%d", value);
+  snprintf(text, sizeof(text), "%d", value);
   Icon_SetText(w, i, text);
 }

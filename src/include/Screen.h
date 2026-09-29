@@ -11,6 +11,7 @@
     File:    Screen.h
     Author:  Copyright © 1992 Jasn Williams
     Version: 1.01 (17 Apr 2005)
+             1.02 (10 Oct 2007) Replaced macros with enum (originally from kernelSWIs)
     Purpose: Screen functions (read size, eig factors, etc.)
 */
 
@@ -38,9 +39,29 @@ extern "C" {
   can use with the EventMsg system to call the function on every mode change.
 */
 
+typedef enum
+{
+  modevar_MODEFLAGS = 0,
+  modevar_RIGHTCOLUMN,
+  modevar_BOTTOMROW,
+  modevar_NCOLOUR,
+  modevar_XEIGFACTOR,
+  modevar_YEIGFACTOR,
+  modevar_LINELENGTH,
+  modevar_SCREENSIZE,
+  modevar_YSHIFTFACTOR,
+  modevar_LOG2BPP,
+  modevar_LOG2BPC,
+  modevar_XWINDOWLIMIT,
+  modevar_YWINDOWLIMIT
+} mode_variable;
+/*
+  This gives useful names to the various mode variables you can read with
+  Screen_ReadModeInfo.
+*/
 
-/* Values for OS_ReadModeVariable */
-
+/* haddoc ignore on */
+/* These are here for legacy support - superceded by mode_variable enum */
 #define SCREEN_VAR_ModeFlags    0
 #define SCREEN_VAR_ScrRCol      1
 #define SCREEN_VAR_ScrBRow      2
@@ -54,8 +75,7 @@ extern "C" {
 #define SCREEN_VAR_Log2BPC     10
 #define SCREEN_VAR_XWindLimit  11
 #define SCREEN_VAR_YWindLimit  12
-
-
+/* haddoc ignore off */
 
 /* Mode specifier */
 typedef struct {
@@ -111,6 +131,15 @@ extern int screen_bpp;
   ie. the colour "depth".
 */
 
+/* haddoc ignore on */
+/* Old name defined to maintain backwards compatibilty */
+#define OS_ReadModeVariable(m,v,r) Screen_ReadModeVariable(m,v,r)
+/* haddoc ignore off */
+os_error *Screen_ReadModeVariable(int mode, mode_variable variable, int *value);
+/*
+  This function reads a mode variable for the mode 'mode', or the current
+  screen mode if 'mode' is -1.  The value is returned in 'value'.
+*/
 
 extern BOOL Screen_CacheModeInfo(void);
 /*

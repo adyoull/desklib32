@@ -1,8 +1,45 @@
 # DeskLib32 - Changelog
 
-A 32-bit build of DeskLib 2.80 (the FreeWare RISC OS C library) compiled with
+A 32-bit build of DeskLib (the FreeWare RISC OS C library) compiled with
 Norcroft cc 5.18 on build.riscos.online, with a struct-layout fix and a
-debugging toolkit. Dates are ISO (YYYY-MM-DD).
+debugging toolkit. Based on upstream DeskLib from 2026-09-29 (2.80 before). Dates are ISO (YYYY-MM-DD).
+
+---
+
+## 2026-09-29
+
+### Changed
+- **Rebased on current upstream DeskLib** (https://github.com/riscos-dot-info/desklib,
+  master `f7469f4`, 2026-04-04) instead of DeskLib 2.80 (2007). This brings in 19
+  years of upstream work, including the Ursula `numeric` icon flag,
+  `Pointer_Get/SetPosition`, `Icon_FindValidationStringCommand`,
+  `Error_CheckSilent`, `Resource_InitialiseAuto`, the `Environment` module, and
+  fixes to `EventMsg_DispatchMessage`, buffer termination, Tinct veneers and
+  `Menu_FullDispose`. Five older headers (`ColourMenu.h`, `Sound.h`,
+  `StringCR.h`, `Validation.h`, `WAssert.h`) are now in `src/oldinclude/`, which
+  the build adds to `DeskLib$Path` as upstream's `!Boot` does. The build plan
+  now covers 529 objects (270 C + 259 assembler).
+
+### Fixed
+- **`wimp_colourflags` layout, without changing the API.** The previous fix
+  replaced the five named extra-window flags with one `extflags` byte, which
+  broke programs that use them (e.g. WinEd). The flags are now `unsigned char`
+  bit-fields: all member names are as upstream, the struct is 8 bytes under both
+  GCC and Norcroft, and the flags sit in bits 0-4 of the 8th byte. The swapped
+  `never3d`/`always3d` comments are corrected. Code that used `cols.extflags`
+  should use `vals.extra`.
+- **`wimp_point` missing semicolon** (upstream, April 2026 header reformat):
+  `int x` restored to `int x;`, without which nothing including `Wimp.h`
+  compiles.
+- Added a compile-time layout guard in `Template/Clone.c`
+  (`sizeof(wimp_colourflags) == 8`, `sizeof(window_block) == 88`).
+
+### Removed
+- Debugging instrumentation that had been left in `Template/Clone.c` in the
+  2.80-based build (diagnostic text in place of the library's normal
+  "not enough memory" errors), and the character-encoding damage to the
+  copyright line in the two files edited there. Both came from the 2.80-based
+  tree and are gone with the rebase.
 
 ---
 
@@ -55,5 +92,7 @@ debugging toolkit. Dates are ISO (YYYY-MM-DD).
 
 ## Base
 
-- DeskLib 2.80 - the FreeWare C library for RISC OS, (C) its original authors.
-  Canonical source: https://www.riscos.info/index.php/DeskLib
+- Upstream DeskLib, master `f7469f4` (2026-04-04) - the FreeWare C library for
+  RISC OS, (C) its original authors. Source: https://github.com/riscos-dot-info/desklib
+  (project page https://www.riscos.info/index.php/DeskLib). Releases before
+  2026-09-29 were based on DeskLib 2.80 (2007).

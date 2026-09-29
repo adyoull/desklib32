@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Adaptive chunked builder for a 32-bit DeskLib 2.80 library on
+Adaptive chunked builder for a 32-bit DeskLib library on
 build.riscos.online, using the service's own Norcroft compiler so the result is
 ABI/runtime-compatible with the app build (the official prebuilt DeskLib is
 GCC-built and references __divsi3/__ctype_* which Norcroft's stubs don't
 provide).
 
-Compiles all 516 DeskLib objects (256 C + 260 assembler) with -apcs 3/32bit in
+Compiles all 529 DeskLib objects (270 C + 259 assembler) with -apcs 3/32bit in
 wall-cap-sized slices, carrying the object dir forward between builds, then
 libfiles them into o.DeskLib. Output: ./DeskLib32 (drop-in 32-bit library that
 buildapp.py picks up automatically).

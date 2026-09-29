@@ -19,8 +19,8 @@ extern void Icon_SetDouble(window_handle w, icon_handle i,
 {
   char       text[32], format[16];
 
-  sprintf(format, "%%.%df", decimalplaces);
-  sprintf(text, format, value);
+  snprintf(format, sizeof(format), "%%.%df", decimalplaces);
+  snprintf(text, sizeof(text), format, value);
 
   Icon_SetText(w, i, text);
 }

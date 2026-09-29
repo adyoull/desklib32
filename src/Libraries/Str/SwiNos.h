@@ -1,7 +1,6 @@
 
-XOS_Bit                         EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_OS_ReadMonotonicTime        EQU &000042
+.equ	SWI_OS_ReadMonotonicTime, 0x000042
 
-SWI_PDriver_Info                EQU &080140
-         END
+.equ	SWI_PDriver_Info, 0x080140

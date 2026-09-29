@@ -1,21 +1,20 @@
 
-XOS_Bit                         EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_PDriver_Info                EQU &080140
-SWI_PDriver_CheckFeatures       EQU &080142
-SWI_PDriver_PageSize            EQU &080143
-SWI_PDriver_SelectJob           EQU &080145
-SWI_PDriver_CurrentJob          EQU &080146
-SWI_PDriver_EndJob              EQU &080148
-SWI_PDriver_AbortJob            EQU &080149
-SWI_PDriver_GiveRectangle       EQU &08014B
-SWI_PDriver_DrawPage            EQU &08014C
-SWI_PDriver_GetRectangle        EQU &08014D
-SWI_PDriver_CancelJob           EQU &08014E
-SWI_PDriver_ScreenDump          EQU &08014F
-SWI_PDriver_EnumerateJobs       EQU &080150
-SWI_PDriver_CancelJobWithError  EQU &080152
-SWI_PDriver_SelectIllustration  EQU &080153
-SWI_PDriver_InsertIllustration  EQU &080154
+.equ	SWI_PDriver_Info, 0x080140
+.equ	SWI_PDriver_CheckFeatures, 0x080142
+.equ	SWI_PDriver_PageSize, 0x080143
+.equ	SWI_PDriver_SelectJob, 0x080145
+.equ	SWI_PDriver_CurrentJob, 0x080146
+.equ	SWI_PDriver_EndJob, 0x080148
+.equ	SWI_PDriver_AbortJob, 0x080149
+.equ	SWI_PDriver_GiveRectangle, 0x08014B
+.equ	SWI_PDriver_DrawPage, 0x08014C
+.equ	SWI_PDriver_GetRectangle, 0x08014D
+.equ	SWI_PDriver_CancelJob, 0x08014E
+.equ	SWI_PDriver_ScreenDump, 0x08014F
+.equ	SWI_PDriver_EnumerateJobs, 0x080150
+.equ	SWI_PDriver_CancelJobWithError, 0x080152
+.equ	SWI_PDriver_SelectIllustration, 0x080153
+.equ	SWI_PDriver_InsertIllustration, 0x080154
 
-         END

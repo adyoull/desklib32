@@ -1,6 +1,5 @@
 
-XOS_Bit                            EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_TaskWindow_TaskInfo            EQU &043380
+.equ	SWI_TaskWindow_TaskInfo, 0x043380
 
-         END

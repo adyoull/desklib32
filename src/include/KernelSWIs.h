@@ -17,15 +17,17 @@
              13 Jul 1995 Sergio Monesi: Added OS_GSTrans
              02 Sep 1995 JH Added osbyte_WRITEVDUDRIVERBANK and
                             osbyte_WRITEDISPLAYHARDWAREBANK.
+             25 Aug 2007 ReadVarVal can explicitly accept 0 as bufsize
+             28 Sep 2007 Removed GSTrans, ReadVarVal, ReadModeVariable to Environment module
 */
 
 #ifndef __dl_kernelswis_h
 #define __dl_kernelswis_h
 
-#ifndef __dl_core_h
 #include "DeskLib:Core.h"
-#endif
-
+#include "DeskLib:Environment.h" /* As some KernelSWI functions have been moved */
+#include "DeskLib:Screen.h"      /* into different modules, these are here to   */
+#include "DeskLib:SWI.h"         /* maintain backward compatibility             */
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,7 +36,7 @@ extern "C" {
 
 /* Abstract */
 /*
-  This provides some low level veneers to certain OS_ SWIs.
+  This provides some low level veneers to certain OS_Byte and OS_Word.
 */
 
 
@@ -165,7 +167,6 @@ os_error *OS_Byte(osbyte_number reason, int r1in, int r2in,
   Stronghelp manual.
 */
 
-
 typedef enum
 {
   osword_READLINE = 0,
@@ -188,87 +189,12 @@ typedef enum
   the OS_Word SWI.
 */
 
-
 os_error *OS_Word(osword_number reason, void *param_block);
 /*
   This is a veneer to the OS_Word SWI, and does a number of different things
   depending on the reason code given in 'reason'.  You'll have to build
   your own parameter blocks to pass in param_block depending on the
   action you wish to take or the value you wish to read.
-*/
-
-
-extern BOOL OS_ReadVarVal(const char *varname, char *buf, int bufsize);
-/*
-  This reads the value of the system variable whose name is 'varname',
-  placing the text in the buffer 'buf' of size 'bufsize'.
-*/
-
-
-typedef enum
-{
-  modevar_MODEFLAGS = 0,
-  modevar_RIGHTCOLUMN,
-  modevar_BOTTOMROW,
-  modevar_NCOLOUR,
-  modevar_XEIGFACTOR,
-  modevar_YEIGFACTOR,
-  modevar_LINELENGTH,
-  modevar_SCREENSIZE,
-  modevar_YSHIFTFACTOR,
-  modevar_LOG2BPP,
-  modevar_LOG2BPC,
-  modevar_XWINDOWLIMIT,
-  modevar_YWINDOWLIMIT
-} mode_variable;
-/*
-  This gives useful names to the various mode variables you can read with
-  OS_ReadModeVariables.
-*/
-
-
-extern os_error *OS_ReadModeVariable(int mode, mode_variable variable,
-                                     int *value);
-/*
-  This function reads a mode variable for the mode 'mode', or the current
-  screen mode if 'mode' is -1.  The value is returned in 'value'.
-*/
-
-
-os_error *OS_SWINumberToString(int number, char *buffer, int size);
-/*
-  This converts the given SWI number to the corresponding SWI name.
-  The name is placed in the string pointed to by 'buffer' of length
-  'size'.
-
-  This returns NULL if there is no error.
-*/
-
-
-os_error *OS_SWINumberFromString(const char *string, int *number);
-/*
-  This converts the given SWI name to the corresponding SWI number.
-  The number is placed in 'number'.
-
-  This returns NULL if there is no error.
-*/
-
-
-os_error *OS_GSTrans(const char *string, char *buffer, int size, char **end);
-/*
-  This is a veneer to the OS_GSTrans SWI, and converts the string 'string'
-  using GS operations, placing the resulting string in 'buffer' whose size
-  is given by 'size'.  It also sets 'end' to point to the character after
-  the terminator.  This expands system variable references in the source
-  string.
-
-  It returns NULL if there is no error.
-*/
-
-
-os_error *OS_CLI(const char *cmd);
-/*
-  This is a veneer for the OS_CLI SWI, executing the given star command.
 */
 
 

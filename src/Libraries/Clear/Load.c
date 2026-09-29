@@ -24,9 +24,9 @@ static clear_picture *Clear__AbortLoad(file_handle in, clear_picture *temp)
   if(temp)
   {
     if(temp->bitmap)
-      Mem_Free((void **)&temp->bitmap);
+      Mem_Free((void *)&temp->bitmap);
     if(temp->palette)
-      Mem_Free((void **)&temp->palette);
+      Mem_Free((void *)&temp->palette);
     free(temp);
   }
 
@@ -82,7 +82,7 @@ clear_picture *Clear_Load(const char *filename)
   {
     colours = 1 << temp->bpp;
 
-    if(!Mem_Alloc((void **)&temp->palette, sizeof(palette_entry) * colours))
+    if(!Mem_Alloc((void *)&temp->palette, sizeof(palette_entry) * colours))
       return Clear__AbortLoad(in, temp);
 
     palette = temp->palette;
@@ -100,7 +100,7 @@ clear_picture *Clear_Load(const char *filename)
     bitmap_size = temp->width * temp->height;
   }
 
-  if(!Mem_Alloc((void **)&temp->bitmap, bitmap_size))
+  if(!Mem_Alloc((void *)&temp->bitmap, bitmap_size))
     return Clear__AbortLoad(in, temp);
 
   if(File_ReadBytes(in, temp->bitmap, bitmap_size) || file_lasterror)

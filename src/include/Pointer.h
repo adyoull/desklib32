@@ -9,8 +9,10 @@
     ________________________________________________________________________
 
     File:    Pointer.h
-    Author:  Copyright © 1994 Lee Atkinson
+    Author:  Copyright © 1994, 2020 Lee Atkinson and Stephen Fryatt
     Version: 1.01 (17 Apr 2005)
+             1.02 (16 Jun 2020) Added Pointer_SetPosition()
+             1.03 (18 Jul 2020) Added Pointer_GetPosition()
     Purpose: high level pointer handling routines
 */
 
@@ -61,6 +63,21 @@ extern os_error *Pointer_Unrestrict(void);
   This removes any restriction on the pointer.
 */
 
+
+extern os_error *Pointer_GetPosition(wimp_point *position);
+/*
+  This gets the position of the pointer. It takes a pointer to
+  a wimp_point structure to hold the position, and returns NULL,
+  or a pointer to any error which occurs.
+*/
+
+
+extern os_error *Pointer_SetPosition(wimp_point position);
+/*
+  This sets the position of the pointer. It takes a wimp_point
+  structure holding the required position, and returns NULL,
+  or a pointer to any error which occurs.
+*/
 
 #ifdef __cplusplus
 }

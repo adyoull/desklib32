@@ -40,7 +40,7 @@ clear_picture *Clear_Create(unsigned width, unsigned height, unsigned bpp)
   }
   else
   {
-    if(!Mem_Alloc((void **)&temp->palette, sizeof(palette_entry) * (1 << bpp)))
+    if(!Mem_Alloc((void *)&temp->palette, sizeof(palette_entry) * (1 << bpp)))
     {
       free(temp);
       return NULL;
@@ -49,7 +49,7 @@ clear_picture *Clear_Create(unsigned width, unsigned height, unsigned bpp)
     bitmap_size = width * height;
   }
 
-  if(!Mem_Alloc((void **)&temp->bitmap, bitmap_size))
+  if(!Mem_Alloc((void *)&temp->bitmap, bitmap_size))
   {
     if(temp->palette)
       Mem_Free((void **)temp->palette);

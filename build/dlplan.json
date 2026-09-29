@@ -1,6 +1,6 @@
 {
  "setup": [
-  "Set DeskLib$Path @.include.",
+  "Set DeskLib$Path @.include.,@.oldinclude.",
   "CDir o"
  ],
  "compiles": [
@@ -13,16 +13,6 @@
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.GetFns -o o.BackTrace_GetFns",
    "out": "o.BackTrace_GetFns",
    "name": "BackTrace_GetFns"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.ToF -o o.BackTrace_ToF",
-   "out": "o.BackTrace_ToF",
-   "name": "BackTrace_ToF"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.backtrace -o o.BackTrace_backtrace",
-   "out": "o.BackTrace_backtrace",
-   "name": "BackTrace_backtrace"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.BackTrace -throwback Libraries.BackTrace.s.GetPC -o o.BackTrace_GetPC",
@@ -45,9 +35,19 @@
    "name": "BackTrace_PCMask"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.ToF -o o.BackTrace_ToF",
+   "out": "o.BackTrace_ToF",
+   "name": "BackTrace_ToF"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.BackTrace -throwback Libraries.BackTrace.s.backtr_sup -o o.BackTrace_backtr_sup",
    "out": "o.BackTrace_backtr_sup",
    "name": "BackTrace_backtr_sup"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.BackTrace.c.backtrace -o o.BackTrace_backtrace",
+   "out": "o.BackTrace_backtrace",
+   "name": "BackTrace_backtrace"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clear.c.Create -o o.Clear_Create",
@@ -78,11 +78,6 @@
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Clipboard.c.Clipboard -o o.Clipboard_Clipboard",
    "out": "o.Clipboard_Clipboard",
    "name": "Clipboard_Clipboard"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.ColourMenu.c.Colourmenu -o o.ColourMenu_Colourmenu",
-   "out": "o.ColourMenu_Colourmenu",
-   "name": "ColourMenu_Colourmenu"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.ColourTran -throwback Libraries.ColourTran.s.ColNo4Mode -o o.ColourTran_ColNo4Mode",
@@ -158,6 +153,41 @@
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Coord.c.WOrigin -o o.Coord_WOrigin",
    "out": "o.Coord_WOrigin",
    "name": "Coord_WOrigin"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.Debug -o o.Debug_Debug",
+   "out": "o.Debug_Debug",
+   "name": "Debug_Debug"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.PipeType -o o.Debug_PipeType",
+   "out": "o.Debug_PipeType",
+   "name": "Debug_PipeType"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.Reporter -o o.Debug_Reporter",
+   "out": "o.Debug_Reporter",
+   "name": "Debug_Reporter"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.Signal -o o.Debug_Signal",
+   "out": "o.Debug_Signal",
+   "name": "Debug_Signal"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.Stderr -o o.Debug_Stderr",
+   "out": "o.Debug_Stderr",
+   "name": "Debug_Stderr"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.UniqueFile -o o.Debug_UniqueFile",
+   "out": "o.Debug_UniqueFile",
+   "name": "Debug_UniqueFile"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Debug.c.UniquePipe -o o.Debug_UniquePipe",
+   "out": "o.Debug_UniquePipe",
+   "name": "Debug_UniquePipe"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Dialog.c.CreatDstry -o o.Dialog_CreatDstry",
@@ -255,6 +285,51 @@
    "name": "DragASpr_Stop"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.Command -o o.Environment_Command",
+   "out": "o.Environment_Command",
+   "name": "Environment_Command"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Environment -throwback Libraries.Environment.s.GSTrans -o o.Environment_GSTrans",
+   "out": "o.Environment_GSTrans",
+   "name": "Environment_GSTrans"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.Log -o o.Environment_Log",
+   "out": "o.Environment_Log",
+   "name": "Environment_Log"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.Modules -o o.Environment_Modules",
+   "out": "o.Environment_Modules",
+   "name": "Environment_Modules"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Environment -throwback Libraries.Environment.s.OSCLI -o o.Environment_OSCLI",
+   "out": "o.Environment_OSCLI",
+   "name": "Environment_OSCLI"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.OSVersion -o o.Environment_OSVersion",
+   "out": "o.Environment_OSVersion",
+   "name": "Environment_OSVersion"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Environment -throwback Libraries.Environment.s.SysBeep -o o.Environment_SysBeep",
+   "out": "o.Environment_SysBeep",
+   "name": "Environment_SysBeep"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.SysVars -o o.Environment_SysVars",
+   "out": "o.Environment_SysVars",
+   "name": "Environment_SysVars"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Environment.c.Tasks -o o.Environment_Tasks",
+   "out": "o.Environment_Tasks",
+   "name": "Environment_Tasks"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Error.c.Error -o o.Error_Error",
    "out": "o.Error_Error",
    "name": "Error_Error"
@@ -305,9 +380,29 @@
    "name": "File_AllocLoad"
   },
   {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.Date -o o.File_Date",
+   "out": "o.File_Date",
+   "name": "File_Date"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.Delete -o o.File_Delete",
+   "out": "o.File_Delete",
+   "name": "File_Delete"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.Exists -o o.File_Exists",
    "out": "o.File_Exists",
    "name": "File_Exists"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.FileOps -o o.File_FileOps",
+   "out": "o.File_FileOps",
+   "name": "File_FileOps"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.GetType -o o.File_GetType",
+   "out": "o.File_GetType",
+   "name": "File_GetType"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.File.c.IsDir -o o.File_IsDir",
@@ -335,56 +430,6 @@
    "name": "File_printf"
   },
   {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.Date -o o.File_Date",
-   "out": "o.File_Date",
-   "name": "File_Date"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.Delete -o o.File_Delete",
-   "out": "o.File_Delete",
-   "name": "File_Delete"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.FileOps -o o.File_FileOps",
-   "out": "o.File_FileOps",
-   "name": "File_FileOps"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.File -throwback Libraries.File.s.GetType -o o.File_GetType",
-   "out": "o.File_GetType",
-   "name": "File_GetType"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Filenames -o o.Filing_Filenames",
-   "out": "o.Filing_Filenames",
-   "name": "Filing_Filenames"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ReadDir -o o.Filing_ReadDir",
-   "out": "o.Filing_ReadDir",
-   "name": "Filing_ReadDir"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDir -o o.Filing_ScanDir",
-   "out": "o.Filing_ScanDir",
-   "name": "Filing_ScanDir"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDirDir -o o.Filing_ScanDirDir",
-   "out": "o.Filing_ScanDirDir",
-   "name": "Filing_ScanDirDir"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Single -o o.Filing_Single",
-   "out": "o.Filing_Single",
-   "name": "Filing_Single"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.SingleFull -o o.Filing_SingleFull",
-   "out": "o.Filing_SingleFull",
-   "name": "Filing_SingleFull"
-  },
-  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filing -throwback Libraries.Filing.s.CanonPath -o o.Filing_CanonPath",
    "out": "o.Filing_CanonPath",
    "name": "Filing_CanonPath"
@@ -393,6 +438,11 @@
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filing -throwback Libraries.Filing.s.File20 -o o.Filing_File20",
    "out": "o.Filing_File20",
    "name": "Filing_File20"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Filenames -o o.Filing_Filenames",
+   "out": "o.Filing_Filenames",
+   "name": "Filing_Filenames"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filing -throwback Libraries.Filing.s.GBPB10 -o o.Filing_GBPB10",
@@ -415,6 +465,26 @@
    "name": "Filing_MakePath"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ReadDir -o o.Filing_ReadDir",
+   "out": "o.Filing_ReadDir",
+   "name": "Filing_ReadDir"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDir -o o.Filing_ScanDir",
+   "out": "o.Filing_ScanDir",
+   "name": "Filing_ScanDir"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.ScanDirDir -o o.Filing_ScanDirDir",
+   "out": "o.Filing_ScanDirDir",
+   "name": "Filing_ScanDirDir"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.Single -o o.Filing_Single",
+   "out": "o.Filing_Single",
+   "name": "Filing_Single"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filing -throwback Libraries.Filing.s.Single2 -o o.Filing_Single2",
    "out": "o.Filing_Single2",
    "name": "Filing_Single2"
@@ -423,6 +493,11 @@
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filing -throwback Libraries.Filing.s.SingleFul2 -o o.Filing_SingleFul2",
    "out": "o.Filing_SingleFul2",
    "name": "Filing_SingleFul2"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Filing.c.SingleFull -o o.Filing_SingleFull",
+   "out": "o.Filing_SingleFull",
+   "name": "Filing_SingleFull"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filter -throwback Libraries.Filter.s.DeRegPost -o o.Filter_DeRegPost",
@@ -443,21 +518,6 @@
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Filter -throwback Libraries.Filter.s.RegPre -o o.Filter_RegPre",
    "out": "o.Filter_RegPre",
    "name": "Filter_RegPre"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.FontPaint3 -o o.Font_FontPaint3",
-   "out": "o.Font_FontPaint3",
-   "name": "Font_FontPaint3"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.LoseAll -o o.Font_LoseAll",
-   "out": "o.Font_LoseAll",
-   "name": "Font_LoseAll"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.ScanString -o o.Font_ScanString",
-   "out": "o.Font_ScanString",
-   "name": "Font_ScanString"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Font -throwback Libraries.Font.s.Font00 -o o.Font_Font00",
@@ -580,24 +640,29 @@
    "name": "Font_Font17"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.FontPaint3 -o o.Font_FontPaint3",
+   "out": "o.Font_FontPaint3",
+   "name": "Font_FontPaint3"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Font -throwback Libraries.Font.s.FontWimp -o o.Font_FontWimp",
    "out": "o.Font_FontWimp",
    "name": "Font_FontWimp"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.LoseAll -o o.Font_LoseAll",
+   "out": "o.Font_LoseAll",
+   "name": "Font_LoseAll"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font.c.ScanString -o o.Font_ScanString",
+   "out": "o.Font_ScanString",
+   "name": "Font_ScanString"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Font2.c.Font2 -o o.Font2_Font2",
    "out": "o.Font2_Font2",
    "name": "Font2_Font2"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.ReadPoint -o o.GFX_ReadPoint",
-   "out": "o.GFX_ReadPoint",
-   "name": "GFX_ReadPoint"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.Rectangle -o o.GFX_Rectangle",
-   "out": "o.GFX_Rectangle",
-   "name": "GFX_Rectangle"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.GFX -throwback Libraries.GFX.s.CLG -o o.GFX_CLG",
@@ -613,6 +678,16 @@
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.GFX -throwback Libraries.GFX.s.Plot -o o.GFX_Plot",
    "out": "o.GFX_Plot",
    "name": "GFX_Plot"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.ReadPoint -o o.GFX_ReadPoint",
+   "out": "o.GFX_ReadPoint",
+   "name": "GFX_ReadPoint"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.GFX.c.Rectangle -o o.GFX_Rectangle",
+   "out": "o.GFX_Rectangle",
+   "name": "GFX_Rectangle"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.GFX -throwback Libraries.GFX.s.SetClip -o o.GFX_SetClip",
@@ -910,6 +985,11 @@
    "name": "Icon_Unshade"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.Validation -o o.Icon_Validation",
+   "out": "o.Icon_Validation",
+   "name": "Icon_Validation"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Icon.c.WhichRadio -o o.Icon_WhichRadio",
    "out": "o.Icon_WhichRadio",
    "name": "Icon_WhichRadio"
@@ -920,14 +1000,14 @@
    "name": "Icon_printf"
   },
   {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Kbd.c.GetMods -o o.Kbd_GetMods",
-   "out": "o.Kbd_GetMods",
-   "name": "Kbd_GetMods"
-  },
-  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Kbd -throwback Libraries.Kbd.s.GET -o o.Kbd_GET",
    "out": "o.Kbd_GET",
    "name": "Kbd_GET"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Kbd.c.GetMods -o o.Kbd_GetMods",
+   "out": "o.Kbd_GetMods",
+   "name": "Kbd_GetMods"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Kbd -throwback Libraries.Kbd.s.KeyDown -o o.Kbd_KeyDown",
@@ -935,39 +1015,14 @@
    "name": "Kbd_KeyDown"
   },
   {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.KernelSWIs.c.ReadVarVal -o o.KernelSWIs_ReadVarVal",
-   "out": "o.KernelSWIs_ReadVarVal",
-   "name": "KernelSWIs_ReadVarVal"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.GSTrans -o o.KernelSWIs_GSTrans",
-   "out": "o.KernelSWIs_GSTrans",
-   "name": "KernelSWIs_GSTrans"
-  },
-  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.OSByte -o o.KernelSWIs_OSByte",
    "out": "o.KernelSWIs_OSByte",
    "name": "KernelSWIs_OSByte"
   },
   {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.OSCLI -o o.KernelSWIs_OSCLI",
-   "out": "o.KernelSWIs_OSCLI",
-   "name": "KernelSWIs_OSCLI"
-  },
-  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.OSWord -o o.KernelSWIs_OSWord",
    "out": "o.KernelSWIs_OSWord",
    "name": "KernelSWIs_OSWord"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.ReadModeVa -o o.KernelSWIs_ReadModeVa",
-   "out": "o.KernelSWIs_ReadModeVa",
-   "name": "KernelSWIs_ReadModeVa"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.KernelSWIs -throwback Libraries.KernelSWIs.s.SWINumStr -o o.KernelSWIs_SWINumStr",
-   "out": "o.KernelSWIs_SWINumStr",
-   "name": "KernelSWIs_SWINumStr"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.LinkList.c.AddToHead -o o.LinkList_AddToHead",
@@ -1045,14 +1100,19 @@
    "name": "Menu_AddSubWin"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Colourmenu -o o.Menu_Colourmenu",
+   "out": "o.Menu_Colourmenu",
+   "name": "Menu_Colourmenu"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.Extend -o o.Menu_Extend",
    "out": "o.Menu_Extend",
    "name": "Menu_Extend"
   },
   {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FontMenu -o o.Menu_FontMenu",
-   "out": "o.Menu_FontMenu",
-   "name": "Menu_FontMenu"
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Menu -throwback Libraries.Menu.s.FontMenu3 -o o.Menu_FontMenu3",
+   "out": "o.Menu_FontMenu3",
+   "name": "Menu_FontMenu3"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu.c.FullDispos -o o.Menu_FullDispos",
@@ -1130,11 +1190,6 @@
    "name": "Menu_Warn"
   },
   {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Menu -throwback Libraries.Menu.s.FontMenu3 -o o.Menu_FontMenu3",
-   "out": "o.Menu_FontMenu3",
-   "name": "Menu_FontMenu3"
-  },
-  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Menu2.c.Attach -o o.Menu2_Attach",
    "out": "o.Menu2_Attach",
    "name": "Menu2_Attach"
@@ -1150,26 +1205,6 @@
    "name": "Menu2_Msgs"
   },
   {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.SWI -o o.Misc_SWI",
-   "out": "o.Misc_SWI",
-   "name": "Misc_SWI"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Screen -o o.Misc_Screen",
-   "out": "o.Misc_Screen",
-   "name": "Misc_Screen"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Misc.c.Validation -o o.Misc_Validation",
-   "out": "o.Misc_Validation",
-   "name": "Misc_Validation"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Misc -throwback Libraries.Misc.s.Dispatch -o o.Misc_Dispatch",
-   "out": "o.Misc_Dispatch",
-   "name": "Misc_Dispatch"
-  },
-  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Module -throwback Libraries.Module.s.06Claim -o o.Module_06Claim",
    "out": "o.Module_06Claim",
    "name": "Module_06Claim"
@@ -1178,26 +1213,6 @@
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Module -throwback Libraries.Module.s.07Free -o o.Module_07Free",
    "out": "o.Module_07Free",
    "name": "Module_07Free"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoadFile -o o.MsgTrans_LoadFile",
-   "out": "o.MsgTrans_LoadFile",
-   "name": "MsgTrans_LoadFile"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LookupPS -o o.MsgTrans_LookupPS",
-   "out": "o.MsgTrans_LookupPS",
-   "name": "MsgTrans_LookupPS"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoseFile -o o.MsgTrans_LoseFile",
-   "out": "o.MsgTrans_LoseFile",
-   "name": "MsgTrans_LoseFile"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.ReportPS -o o.MsgTrans_ReportPS",
-   "out": "o.MsgTrans_ReportPS",
-   "name": "MsgTrans_ReportPS"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.MsgTrans -throwback Libraries.MsgTrans.s.CloseFile -o o.MsgTrans_CloseFile",
@@ -1210,14 +1225,34 @@
    "name": "MsgTrans_FileInfo"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoadFile -o o.MsgTrans_LoadFile",
+   "out": "o.MsgTrans_LoadFile",
+   "name": "MsgTrans_LoadFile"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.MsgTrans -throwback Libraries.MsgTrans.s.Lookup -o o.MsgTrans_Lookup",
    "out": "o.MsgTrans_Lookup",
    "name": "MsgTrans_Lookup"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LookupPS -o o.MsgTrans_LookupPS",
+   "out": "o.MsgTrans_LookupPS",
+   "name": "MsgTrans_LookupPS"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.LoseFile -o o.MsgTrans_LoseFile",
+   "out": "o.MsgTrans_LoseFile",
+   "name": "MsgTrans_LoseFile"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.MsgTrans -throwback Libraries.MsgTrans.s.OpenFile -o o.MsgTrans_OpenFile",
    "out": "o.MsgTrans_OpenFile",
    "name": "MsgTrans_OpenFile"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.MsgTrans.c.ReportPS -o o.MsgTrans_ReportPS",
+   "out": "o.MsgTrans_ReportPS",
+   "name": "MsgTrans_ReportPS"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Msgs.c.Drop -o o.Msgs_Drop",
@@ -1435,9 +1470,19 @@
    "name": "Pane2_Show"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pointer.c.Get -o o.Pointer_Get",
+   "out": "o.Pointer_Get",
+   "name": "Pointer_Get"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pointer.c.Restrict -o o.Pointer_Restrict",
    "out": "o.Pointer_Restrict",
    "name": "Pointer_Restrict"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Pointer.c.Set -o o.Pointer_Set",
+   "out": "o.Pointer_Set",
+   "name": "Pointer_Set"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Print.c.Print -o o.Print_Print",
@@ -1455,6 +1500,11 @@
    "name": "Resource_Init"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.InitAuto -o o.Resource_InitAuto",
+   "out": "o.Resource_InitAuto",
+   "name": "Resource_InitAuto"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Resource.c.InitPath -o o.Resource_InitPath",
    "out": "o.Resource_InitPath",
    "name": "Resource_InitPath"
@@ -1470,14 +1520,29 @@
    "name": "Resource_Pathname"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.SWI.c.SWI -o o.SWI_SWI",
+   "out": "o.SWI_SWI",
+   "name": "SWI_SWI"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.SWI -throwback Libraries.SWI.s.SWINumStr -o o.SWI_SWINumStr",
+   "out": "o.SWI_SWINumStr",
+   "name": "SWI_SWINumStr"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Save.c.Save -o o.Save_Save",
    "out": "o.Save_Save",
    "name": "Save_Save"
   },
   {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Serial.c.NZPWOnRec -o o.Serial_NZPWOnRec",
-   "out": "o.Serial_NZPWOnRec",
-   "name": "Serial_NZPWOnRec"
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Screen -throwback Libraries.Screen.s.ReadMode -o o.Screen_ReadMode",
+   "out": "o.Screen_ReadMode",
+   "name": "Screen_ReadMode"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Screen.c.Screen -o o.Screen_Screen",
+   "out": "o.Screen_Screen",
+   "name": "Screen_Screen"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Serial -throwback Libraries.Serial.s.Activate -o o.Serial_Activate",
@@ -1515,6 +1580,11 @@
    "name": "Serial_GetTxRate"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Serial.c.NZPWOnRec -o o.Serial_NZPWOnRec",
+   "out": "o.Serial_NZPWOnRec",
+   "name": "Serial_NZPWOnRec"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Serial -throwback Libraries.Serial.s.PutByte -o o.Serial_PutByte",
    "out": "o.Serial_PutByte",
    "name": "Serial_PutByte"
@@ -1548,31 +1618,6 @@
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Slider.c.Slider -o o.Slider_Slider",
    "out": "o.Slider_Slider",
    "name": "Slider_Slider"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Sound -throwback Libraries.Sound.s.SysBeep -o o.Sound_SysBeep",
-   "out": "o.Sound_SysBeep",
-   "name": "Sound_SysBeep"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFile -o o.Sprite_LoadFile",
-   "out": "o.Sprite_LoadFile",
-   "name": "Sprite_LoadFile"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFiles -o o.Sprite_LoadFiles",
-   "out": "o.Sprite_LoadFiles",
-   "name": "Sprite_LoadFiles"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSize -o o.Sprite_MemSize",
-   "out": "o.Sprite_MemSize",
-   "name": "Sprite_MemSize"
-  },
-  {
-   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSizeIcn -o o.Sprite_MemSizeIcn",
-   "out": "o.Sprite_MemSizeIcn",
-   "name": "Sprite_MemSizeIcn"
   },
   {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Sprite -throwback Libraries.Sprite.s.02ScrSave -o o.Sprite_02ScrSave",
@@ -1920,6 +1965,26 @@
    "name": "Sprite_62ReadSave"
   },
   {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFile -o o.Sprite_LoadFile",
+   "out": "o.Sprite_LoadFile",
+   "name": "Sprite_LoadFile"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.LoadFiles -o o.Sprite_LoadFiles",
+   "out": "o.Sprite_LoadFiles",
+   "name": "Sprite_LoadFiles"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSize -o o.Sprite_MemSize",
+   "out": "o.Sprite_MemSize",
+   "name": "Sprite_MemSize"
+  },
+  {
+   "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Sprite.c.MemSizeIcn -o o.Sprite_MemSizeIcn",
+   "out": "o.Sprite_MemSizeIcn",
+   "name": "Sprite_MemSizeIcn"
+  },
+  {
    "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Sprite -throwback Libraries.Sprite.s.UnRedirect -o o.Sprite_UnRedirect",
    "out": "o.Sprite_UnRedirect",
    "name": "Sprite_UnRedirect"
@@ -1955,9 +2020,19 @@
    "name": "Str_MakeHex"
   },
   {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Str -throwback Libraries.Str.s.strcatcr -o o.Str_strcatcr",
+   "out": "o.Str_strcatcr",
+   "name": "Str_strcatcr"
+  },
+  {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strcmpcr -o o.Str_strcmpcr",
    "out": "o.Str_strcmpcr",
    "name": "Str_strcmpcr"
+  },
+  {
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Str -throwback Libraries.Str.s.strcpycr -o o.Str_strcpycr",
+   "out": "o.Str_strcpycr",
+   "name": "Str_strcpycr"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Str.c.strdup -o o.Str_strdup",
@@ -1995,14 +2070,9 @@
    "name": "Str_strnicmpcr"
   },
   {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Str -throwback Libraries.Str.s.strcatcr -o o.Str_strcatcr",
-   "out": "o.Str_strcatcr",
-   "name": "Str_strcatcr"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.Str -throwback Libraries.Str.s.strcpycr -o o.Str_strcpycr",
-   "out": "o.Str_strcpycr",
-   "name": "Str_strcpycr"
+   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.TaskWindow -throwback Libraries.TaskWindow.s.Check -o o.TaskWindow_Check",
+   "out": "o.TaskWindow_Check",
+   "name": "TaskWindow_Check"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Kill -o o.TaskWindow_Kill",
@@ -2028,11 +2098,6 @@
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.TaskWindow.c.Suspend -o o.TaskWindow_Suspend",
    "out": "o.TaskWindow_Suspend",
    "name": "TaskWindow_Suspend"
-  },
-  {
-   "cmd": "objasm -apcs 3/32bit -ILibraries -ILibraries.TaskWindow -throwback Libraries.TaskWindow.s.Check -o o.TaskWindow_Check",
-   "out": "o.TaskWindow_Check",
-   "name": "TaskWindow_Check"
   },
   {
    "cmd": "cc -c -za1 -apcs 3/32bit -ffahi -throwback -IC: Libraries.Template.c.ClearAll -o o.Template_ClearAll",
@@ -2589,20 +2654,19 @@
  "objects": [
   "o.BackTrace_GetDepth",
   "o.BackTrace_GetFns",
-  "o.BackTrace_ToF",
-  "o.BackTrace_backtrace",
   "o.BackTrace_GetPC",
   "o.BackTrace_GetPC2",
   "o.BackTrace_GetSL",
   "o.BackTrace_PCMask",
+  "o.BackTrace_ToF",
   "o.BackTrace_backtr_sup",
+  "o.BackTrace_backtrace",
   "o.Clear_Create",
   "o.Clear_Free",
   "o.Clear_Init",
   "o.Clear_Load",
   "o.Clear_Save",
   "o.Clipboard_Clipboard",
-  "o.ColourMenu_Colourmenu",
   "o.ColourTran_ColNo4Mode",
   "o.ColourTran_Invalidate",
   "o.ColourTran_ReturnFont",
@@ -2618,6 +2682,13 @@
   "o.Coord_RectUnion",
   "o.Coord_RectsOvlap",
   "o.Coord_WOrigin",
+  "o.Debug_Debug",
+  "o.Debug_PipeType",
+  "o.Debug_Reporter",
+  "o.Debug_Signal",
+  "o.Debug_Stderr",
+  "o.Debug_UniqueFile",
+  "o.Debug_UniquePipe",
   "o.Dialog_CreatDstry",
   "o.Dialog_Hide",
   "o.Dialog_Show",
@@ -2637,6 +2708,15 @@
   "o.DragASpr_DragIcon",
   "o.DragASpr_Start",
   "o.DragASpr_Stop",
+  "o.Environment_Command",
+  "o.Environment_GSTrans",
+  "o.Environment_Log",
+  "o.Environment_Modules",
+  "o.Environment_OSCLI",
+  "o.Environment_OSVersion",
+  "o.Environment_SysBeep",
+  "o.Environment_SysVars",
+  "o.Environment_Tasks",
   "o.Error_Error",
   "o.Error_global",
   "o.Event_Event",
@@ -2647,37 +2727,34 @@
   "o.Event_MReleaseS",
   "o.Event_taskname",
   "o.File_AllocLoad",
+  "o.File_Date",
+  "o.File_Delete",
   "o.File_Exists",
+  "o.File_FileOps",
+  "o.File_GetType",
   "o.File_IsDir",
   "o.File_LoadTo",
   "o.File_SetType",
   "o.File_Size",
   "o.File_printf",
-  "o.File_Date",
-  "o.File_Delete",
-  "o.File_FileOps",
-  "o.File_GetType",
-  "o.Filing_Filenames",
-  "o.Filing_ReadDir",
-  "o.Filing_ScanDir",
-  "o.Filing_ScanDirDir",
-  "o.Filing_Single",
-  "o.Filing_SingleFull",
   "o.Filing_CanonPath",
   "o.Filing_File20",
+  "o.Filing_Filenames",
   "o.Filing_GBPB10",
   "o.Filing_GBPB11",
   "o.Filing_GBPB9",
   "o.Filing_MakePath",
+  "o.Filing_ReadDir",
+  "o.Filing_ScanDir",
+  "o.Filing_ScanDirDir",
+  "o.Filing_Single",
   "o.Filing_Single2",
   "o.Filing_SingleFul2",
+  "o.Filing_SingleFull",
   "o.Filter_DeRegPost",
   "o.Filter_DeRegPre",
   "o.Filter_RegPost",
   "o.Filter_RegPre",
-  "o.Font_FontPaint3",
-  "o.Font_LoseAll",
-  "o.Font_ScanString",
   "o.Font_Font00",
   "o.Font_Font01",
   "o.Font_Font02",
@@ -2702,13 +2779,16 @@
   "o.Font_Font15",
   "o.Font_Font16",
   "o.Font_Font17",
+  "o.Font_FontPaint3",
   "o.Font_FontWimp",
+  "o.Font_LoseAll",
+  "o.Font_ScanString",
   "o.Font2_Font2",
-  "o.GFX_ReadPoint",
-  "o.GFX_Rectangle",
   "o.GFX_CLG",
   "o.GFX_GetClip",
   "o.GFX_Plot",
+  "o.GFX_ReadPoint",
+  "o.GFX_Rectangle",
   "o.GFX_SetClip",
   "o.GFX_SetColour",
   "o.GFX_VDU",
@@ -2768,18 +2848,14 @@
   "o.Icon_Slider",
   "o.Icon_StartDrag",
   "o.Icon_Unshade",
+  "o.Icon_Validation",
   "o.Icon_WhichRadio",
   "o.Icon_printf",
-  "o.Kbd_GetMods",
   "o.Kbd_GET",
+  "o.Kbd_GetMods",
   "o.Kbd_KeyDown",
-  "o.KernelSWIs_ReadVarVal",
-  "o.KernelSWIs_GSTrans",
   "o.KernelSWIs_OSByte",
-  "o.KernelSWIs_OSCLI",
   "o.KernelSWIs_OSWord",
-  "o.KernelSWIs_ReadModeVa",
-  "o.KernelSWIs_SWINumStr",
   "o.LinkList_AddToHead",
   "o.LinkList_AddToTail",
   "o.LinkList_InList",
@@ -2795,8 +2871,9 @@
   "o.Mem_Size",
   "o.Menu_AddSubMenu",
   "o.Menu_AddSubWin",
+  "o.Menu_Colourmenu",
   "o.Menu_Extend",
-  "o.Menu_FontMenu",
+  "o.Menu_FontMenu3",
   "o.Menu_FullDispos",
   "o.Menu_GetFlags",
   "o.Menu_GetText",
@@ -2812,24 +2889,19 @@
   "o.Menu_SetText",
   "o.Menu_Show",
   "o.Menu_Warn",
-  "o.Menu_FontMenu3",
   "o.Menu2_Attach",
   "o.Menu2_Menu2",
   "o.Menu2_Msgs",
-  "o.Misc_SWI",
-  "o.Misc_Screen",
-  "o.Misc_Validation",
-  "o.Misc_Dispatch",
   "o.Module_06Claim",
   "o.Module_07Free",
-  "o.MsgTrans_LoadFile",
-  "o.MsgTrans_LookupPS",
-  "o.MsgTrans_LoseFile",
-  "o.MsgTrans_ReportPS",
   "o.MsgTrans_CloseFile",
   "o.MsgTrans_FileInfo",
+  "o.MsgTrans_LoadFile",
   "o.MsgTrans_Lookup",
+  "o.MsgTrans_LookupPS",
+  "o.MsgTrans_LoseFile",
   "o.MsgTrans_OpenFile",
+  "o.MsgTrans_ReportPS",
   "o.Msgs_Drop",
   "o.Msgs_LoadFind",
   "o.Msgs_Report",
@@ -2873,15 +2945,21 @@
   "o.Pane2_SetFlags",
   "o.Pane2_SetVars",
   "o.Pane2_Show",
+  "o.Pointer_Get",
   "o.Pointer_Restrict",
+  "o.Pointer_Set",
   "o.Print_Print",
   "o.Resource_Choices",
   "o.Resource_Init",
+  "o.Resource_InitAuto",
   "o.Resource_InitPath",
   "o.Resource_LoadSprite",
   "o.Resource_Pathname",
+  "o.SWI_SWI",
+  "o.SWI_SWINumStr",
   "o.Save_Save",
-  "o.Serial_NZPWOnRec",
+  "o.Screen_ReadMode",
+  "o.Screen_Screen",
   "o.Serial_Activate",
   "o.Serial_Deactivate",
   "o.Serial_GetByte",
@@ -2889,6 +2967,7 @@
   "o.Serial_GetRxRate",
   "o.Serial_GetStatus",
   "o.Serial_GetTxRate",
+  "o.Serial_NZPWOnRec",
   "o.Serial_PutByte",
   "o.Serial_SendBreak",
   "o.Serial_SetFormat",
@@ -2896,11 +2975,6 @@
   "o.Serial_SetStatus",
   "o.Serial_SetTxRate",
   "o.Slider_Slider",
-  "o.Sound_SysBeep",
-  "o.Sprite_LoadFile",
-  "o.Sprite_LoadFiles",
-  "o.Sprite_MemSize",
-  "o.Sprite_MemSizeIcn",
   "o.Sprite_02ScrSave",
   "o.Sprite_03ScrLoad",
   "o.Sprite_08ReadCont",
@@ -2970,6 +3044,10 @@
   "o.Sprite_61RedirectM",
   "o.Sprite_61RedirectMP",
   "o.Sprite_62ReadSave",
+  "o.Sprite_LoadFile",
+  "o.Sprite_LoadFiles",
+  "o.Sprite_MemSize",
+  "o.Sprite_MemSizeIcn",
   "o.Sprite_UnRedirect",
   "o.Sprite_WimpPlot",
   "o.Str_DecodeHex",
@@ -2977,7 +3055,9 @@
   "o.Str_MakeASCIIZ",
   "o.Str_MakeCR",
   "o.Str_MakeHex",
+  "o.Str_strcatcr",
   "o.Str_strcmpcr",
+  "o.Str_strcpycr",
   "o.Str_strdup",
   "o.Str_stricmp",
   "o.Str_stricmpcr",
@@ -2985,14 +3065,12 @@
   "o.Str_strncpycr",
   "o.Str_strnicmp",
   "o.Str_strnicmpcr",
-  "o.Str_strcatcr",
-  "o.Str_strcpycr",
+  "o.TaskWindow_Check",
   "o.TaskWindow_Kill",
   "o.TaskWindow_Resume",
   "o.TaskWindow_SendInput",
   "o.TaskWindow_Start",
   "o.TaskWindow_Suspend",
-  "o.TaskWindow_Check",
   "o.Template_ClearAll",
   "o.Template_Clone",
   "o.Template_Delete",

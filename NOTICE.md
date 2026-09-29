@@ -23,12 +23,15 @@ upstream documentation for the authoritative conditions of use.
 
 ## Modifications in this repository
 
-The only functional source change from stock DeskLib 2.80 is in
-`src/include/Wimp.h`: the `wimp_colourflags` bitfield group is replaced with a
-single `unsigned char extflags;` so the struct keeps its intended 8-byte layout
-under modern Norcroft (see README.md and CHANGELOG.md). The build kit (`build/`)
-and the debugging toolkit (`debug/`) are new tooling, not part of DeskLib.
+The source is upstream DeskLib (https://github.com/riscos-dot-info/desklib,
+master `f7469f4`) with two header fixes in `src/include/Wimp.h` - the
+`wimp_colourflags` flags declared as `unsigned char` bit-fields so the struct
+keeps its 8-byte layout under Norcroft, with all member names unchanged, and
+the missing semicolon in `wimp_point` restored - plus a compile-time layout
+check in `src/Libraries/Template/Clone.c` (see README.md and CHANGELOG.md). The
+build kit (`build/`) and the debugging toolkit (`debug/`) are new tooling, not
+part of DeskLib.
 
-These additions and the one-line struct fix are offered under the same FreeWare
+These additions and the small header fixes are offered under the same FreeWare
 terms as DeskLib, preserving the original authors' copyright. They carry a
 modification notice **(C) 2026 Andrew Youll** where a notice is appropriate.

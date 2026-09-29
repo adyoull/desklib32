@@ -1,14 +1,15 @@
-; Author: Copyright 1993 Shaun Blackmore
+@ Author Copyright 1993 Shaun Blackmore
 
-        GET     RegDefs.h
-        GET     SwiNos.h
-        GET     Macros.h
+        .include     "RegDefs.h"
+        .include     "SwiNos.h"
+        .include     "Macros.h"
 
-;os_error *Font_ListFonts(char *name, int *count);
+@os_error *Font_ListFonts(char *name, int *count);
 
-        PREAMBLE
-        STARTCODE Font_ListFonts
-;
+        
+        .global Font_ListFonts
+Font_ListFonts:
+@
         STMFD   sp!, {r4,lr}
         MOV     r4,r1
         MOV     r3,#-1
@@ -18,5 +19,4 @@
         STR     r2,[r4,#0]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,pc}
-;
-        END
+@

@@ -641,6 +641,11 @@ extern BOOL Mem_Initialise(void)
  *   *desktop world" error message and exit)
  */
 {
+#ifdef __UNIXLIB_FEATURES_H
+
+  return(FALSE);
+
+#else
   _kernel_register_slotextend(Mem_DontBudge);
 
   if (mem__heap == -1)    /* This will be > 0 if we have already initialised */
@@ -667,4 +672,5 @@ extern BOOL Mem_Initialise(void)
   }
 
   return(TRUE);
+#endif
 }

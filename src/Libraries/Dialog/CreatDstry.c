@@ -62,7 +62,7 @@ extern dialog Dialog_Create(const char *template_name, int maxtitlesize)
   dialog d;
 
   window = Window_Create(template_name, maxtitlesize);
-  if (window == NULL) return(NULL);
+  if (window == (window_handle)0) return(NULL);
 
   d = (dialog) malloc(sizeof(dialog_record));
   if (d == NULL) return(NULL);

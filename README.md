@@ -1,10 +1,11 @@
 # DeskLib32 - 32-bit DeskLib for RISC OS 5 (Norcroft build)
 
-A **32-bit build of DeskLib 2.80** - the FreeWare C library for RISC OS - compiled
-with the **build.riscos.online** service's own **Norcroft cc 5.18 (JRF)** so the
-result is ABI- and runtime-compatible with 32-bit Norcroft-linked applications.
-It carries one small source fix (below) needed for correct Wimp struct layout
-under modern Norcroft.
+A **32-bit build of current upstream DeskLib** - the FreeWare C library for RISC
+OS, from https://github.com/riscos-dot-info/desklib (master `f7469f4`,
+2026-04-04) - compiled with the **build.riscos.online** service's own **Norcroft
+cc 5.18 (JRF)** so the result is ABI- and runtime-compatible with 32-bit
+Norcroft-linked applications. It carries two small header fixes (below), both
+of which keep DeskLib's API unchanged.
 
 This was produced to link the 32-bit port of **!RDPClient**
 (https://github.com/adyoull/riscos-rdpclient). The official prebuilt DeskLib is
@@ -12,25 +13,41 @@ GCC-built and references symbols (`__divsi3`, `__ctype_*` and similar) that
 Norcroft's stubs do not provide, so a Norcroft-built DeskLib is required to link
 a Norcroft application cleanly.
 
-## The fix
+## Changes from upstream DeskLib
 
-`src/include/Wimp.h` - the `wimp_colourflags` type.
+1. **`src/include/Wimp.h` - `wimp_colourflags` layout.** Upstream declares the
+   extra window flags (`fullcolour`, `extendedscroll`, `never3d`, `always3d`,
+   `returnshaded`, `padding`) as `unsigned int` bit-fields after seven `char`
+   fields. GCC packs them into the 8th byte, but Norcroft 5.x starts a new word
+   at offset 8, making the struct **12 bytes instead of 8** and shifting
+   `numicons`/`icons` in `window_block` by 4 - template loading then fails
+   (*"not enough memory to copy template"*). They are now declared as
+   `unsigned char` bit-fields: **every member name is unchanged**, the struct is
+   8 bytes on both compilers, and the flags sit in bits 0-4 of the 8th byte as
+   the Wimp expects. (The never3d/always3d comments, which were swapped, are
+   corrected.)
+2. **`src/include/Wimp.h` - `wimp_point`.** Upstream's April 2026 header
+   reformat left `int x` without its semicolon, so any file including `Wimp.h`
+   fails to compile. Restored to `int x;`.
+3. **`src/Libraries/Template/Clone.c` - compile-time layout guard.** Two
+   `typedef`s that fail the build if `wimp_colourflags` is not 8 bytes or
+   `window_block` is not 88 bytes, so a layout regression cannot slip through
+   silently. No runtime code change.
 
-The original declared a group of `unsigned int : 1` bitfields after some `char`
-fields. Modern Norcroft word-aligns the bitfield unit, which makes the struct
-**12 bytes instead of 8** and shifts `numicons`/`icons` by 4. The wrong
-`numicons` offset makes `Template_Clone`/template loading request a bogus
-allocation - the app dies on launch with *"not enough memory to copy template"*.
+Everything else is upstream, byte for byte. Build-plan choices (`-apcs 3/32bit`,
+`-za1`) live in `build/dlplan.json`, not in the source.
 
-The bitfield group is replaced with a single `unsigned char extflags;`, which
-keeps the struct at 8 bytes and matches the Wimp window-block format. No code
-references the individual flags. The change is commented inline in `Wimp.h`.
+**History:** earlier DeskLib32 releases were based on DeskLib 2.80 (2007) and
+replaced the named colour flags with a single `extflags` byte. That broke the
+API for other programs (e.g. WinEd) and has been withdrawn in favour of the
+fix above. Programs that used `cols.extflags` should use `vals.extra`.
 
 ## Repository layout
 
 ```
-src/            The modified DeskLib 2.80 source (source of truth):
-                  include/    DeskLib public headers (the extflags fix is here)
+src/            Upstream DeskLib source plus the fixes above (source of truth):
+                  include/    DeskLib public headers
+                  oldinclude/ compatibility headers (on DeskLib$Path, as upstream)
                   Libraries/  the library sources (C + ARM assembler)
 build/          Reproducible build kit:
                   builddesklib.py   chunked build driver (build.riscos.online)
@@ -60,7 +77,7 @@ python3 package.py                          # ../src -> desklib_src.zip (if you 
 python3 builddesklib.py                     # compile + libfile on the service
 ```
 
-`builddesklib.py` compiles all ~516 DeskLib objects (C + assembler) with
+`builddesklib.py` compiles all 529 DeskLib objects (C + assembler) with
 `-apcs 3/32bit` (C objects additionally `-za1`, for alignment-safe codegen so
 the library runs with CPU alignment checking ON — see CHANGELOG) in
 wall-clock-capped slices, carrying the object directory
@@ -88,5 +105,5 @@ and the DeskLib contributors). There is no single licence file upstream; each
 source file carries its authors' copyright and the banner *"Please refer to the
 accompanying documentation for conditions of use."* The canonical source is the
 DeskLib project at https://www.riscos.info/index.php/DeskLib . The 32-bit build
-fix here is offered under the same FreeWare terms, preserving the original
+fixes here are offered under the same FreeWare terms, preserving the original
 authors' copyright. See `NOTICE.md`.

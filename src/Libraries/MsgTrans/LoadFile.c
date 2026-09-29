@@ -15,9 +15,14 @@
 */
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
+#include "DeskLib:Wimp.h"
 #include "DeskLib:LinkList.h"
 #include "DeskLib:MsgTrans.h"
+#include "DeskLib:File.h"
+#include "DeskLib:Resource.h"
 #include "MTDefs.h"
 
 linklist_header msgtrans__list = {NULL,NULL};
@@ -32,18 +37,37 @@ os_error *MsgTrans_LoadFile(msgtrans_filedesc **filedesc,
   int size;
   os_error *swierr;
   msgtrans_file *block;
+  char namebuff[wimp_MAXPATH];
 
   block = malloc(sizeof(msgtrans_file));
   if (!block)
   {
-
     MsgTrans_Lookup(0,"NoStore",error.errmess,252);
     return &error;
   }
 
-  swierr = MessageTrans_FileInfo(filename, &flags, &size);
+  strncpy(namebuff, filename, sizeof(namebuff) - 1);
+  namebuff[sizeof(namebuff) - 1] = '\0'; /* Ensure correct termination */
+
+  /* Check if file exists */
+  if (!File_Exists(namebuff))
+  {
+    /* File not found, try prefixing with resources location */
+    snprintf(namebuff, sizeof(namebuff), "%s%s", resource_pathname, filename);
+
+    if (!File_Exists(namebuff))
+    {
+      /* Still can't find file */
+      snprintf(error.errmess, sizeof(error.errmess), "Messages file not found. Tried '%s' and '%s'", filename, namebuff);
+      error.errnum = 1;
+      return &error;
+    }
+  }
+
+  swierr = MessageTrans_FileInfo(namebuff, &flags, &size);
   if (swierr)
     return (swierr);
+
   block->data = malloc(size);
   if (!block->data)
   {
@@ -52,7 +76,7 @@ os_error *MsgTrans_LoadFile(msgtrans_filedesc **filedesc,
     return &error;
   }
 
-  swierr = MessageTrans_OpenFile(&block->filedesc, filename, block->data);
+  swierr = MessageTrans_OpenFile(&block->filedesc, namebuff, block->data);
   if (swierr)
   {
     MsgTrans_Lookup(0,"NoStore",error.errmess,252);
@@ -62,7 +86,8 @@ os_error *MsgTrans_LoadFile(msgtrans_filedesc **filedesc,
 
   LinkList_AddToTail(&msgtrans__list,&block->list);
 
-  *filedesc = &block->filedesc;
+  /* Only return filedesc if function was successful */
+  if (!swierr) *filedesc = &block->filedesc;
 
   return (swierr);
 }

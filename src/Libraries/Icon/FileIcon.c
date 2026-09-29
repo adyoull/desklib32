@@ -11,6 +11,7 @@
     File:    Icon.FileIcon.c
     Author:  Copyright © 1994 Tim Browse
     Version: 1.01 (26 Jun 1994)
+             1.02 (05 Sep 2007) Changed sprintf to snprintf
     Purpose: Changes an icon in a window to display the correct filetype
       	     sprite for the given filetype number.
 */
@@ -39,8 +40,9 @@ icon_handle Icon_FileIcon(window_handle window, icon_handle icon, int filetype)
   Wimp_DeleteIcon(window, icon);
 
   /* Put sprite name in name field */
-  sprintf((char *)(int)iconcreate.icondata.data.indirectsprite.name,
-          "file_%03x", filetype);
+  snprintf((char *)(int)iconcreate.icondata.data.indirectsprite.name,
+           iconcreate.icondata.data.indirectsprite.nameisname,
+           "file_%03x", filetype);
 
   /* Fill in sprite area */
   iconcreate.icondata.data.indirectsprite.spritearea = (unsigned int *) 1;

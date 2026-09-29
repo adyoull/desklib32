@@ -21,6 +21,8 @@
              of these routines.
     History: 0.01 (25 Feb 2001) : Added   'Resource_ChoicesInit()'
                                 : Added   'Resource_ChoicesPath()'
+             0.02 (05 Sep 2007) : Removed sprintf and strcpy in favour of "n" versions
+             0.03 (23 Sep 2007) : Tweaked ChoicesInit to use event_taskname if appname is NULL
 
 */
 
@@ -31,6 +33,7 @@
 #include "DeskLib:KernelSWIs.h"     /* General low level SWI veneers       */
 #include "DeskLib:Resource.h"       /* Handles finding resource files      */
 #include "DeskLib:File.h"           /* Filing system functions             */
+#include "DeskLib:Event.h"          /* For event_taskname                  */
 
 /* --- CLib -------------------------------------------------------------- */
 #include <stdio.h>      /*  General I/O routines                           */
@@ -71,12 +74,15 @@ extern void Resource_ChoicesInit(const char *groupdir, const char *appname, BOOL
 
   if (groupdir == NULL)  resource_choices_groupdir[0] = 0;
   else if (groupdir[0] == 0)  resource_choices_groupdir[0] = 0;
-  else  strcpy(resource_choices_groupdir, groupdir);
+  else  strncpy(resource_choices_groupdir, groupdir, sizeof(resource_choices_groupdir)-1);
+  resource_choices_groupdir[sizeof(resource_choices_groupdir)-1] = '\0';
 
   if ((appname == NULL) || (appname[0] == 0)) {
-    Error_ReportFatal(1, "Choices Init error : the application name must be provided");
+    strncpy(resource_choices_appname, event_taskname, sizeof(resource_choices_appname)-1);
+    resource_choices_appname[sizeof(resource_choices_appname)-1] = '\0';
   } else {
-    strcpy(resource_choices_appname, appname);
+    strncpy(resource_choices_appname, appname, sizeof(resource_choices_appname)-1);
+    resource_choices_appname[sizeof(resource_choices_appname)-1] = '\0';
   }
 
   resource_choices_multiple = multiple;
@@ -136,18 +142,18 @@ extern void Resource_ChoicesPath(char *pathname, const char *leafname, BOOL writ
         if (resource_choices_multiple) {
           sprintf(pathname, "<Choices$Write>.%s.%s.%s",
                   resource_choices_groupdir, resource_choices_appname, leafname);
-          sprintf(tmp, "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp);
-          sprintf(tmp, "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
+          snprintf(tmp, sizeof(tmp), "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp);
+          snprintf(tmp, sizeof(tmp), "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
           File_CreateDir(tmp);
         } else {
           /* appname is used as leafname .. */
           sprintf(pathname, "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
-          sprintf(tmp, "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp);
+          snprintf(tmp, sizeof(tmp), "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp);
         }
       } else {
         if (resource_choices_multiple) {
           sprintf(pathname, "<Choices$Write>.%s.%s", resource_choices_appname, leafname);
-          sprintf(tmp, "<Choices$Write>.%s", resource_choices_appname);  File_CreateDir(tmp);
+          snprintf(tmp, sizeof(tmp), "<Choices$Write>.%s", resource_choices_appname);  File_CreateDir(tmp);
         } else {
           /* appname is used as leafname .. */
           sprintf(pathname, "<Choices$Write>.%s", resource_choices_appname);
@@ -172,10 +178,10 @@ extern void Resource_ChoicesPath(char *pathname, const char *leafname, BOOL writ
       }
     }
     /* Check for auto-upgrade ..   */
-/*    if (multiple)  sprintf(tmp, "<%s$Dir>.Choices.%s", appname, leafname); */ /* Something like this for */
-/*    else           sprintf(tmp, "<%s$Dir>.%s", appname, leafname);         */ /* non DeskLib users */
-    if (resource_choices_multiple)  sprintf(tmp, "%sChoices.%s", resource_pathname, leafname);
-    else                            sprintf(tmp, "%s%s", resource_pathname, leafname);
+/*    if (multiple)  snprintf(tmp, sizeof(tmp), "<%s$Dir>.Choices.%s", appname, leafname); */ /* Something like this for */
+/*    else           snprintf(tmp, sizeof(tmp), "<%s$Dir>.%s", appname, leafname);         */ /* non DeskLib users */
+    if (resource_choices_multiple)  snprintf(tmp, sizeof(tmp), "%sChoices.%s", resource_pathname, leafname);
+    else                            snprintf(tmp, sizeof(tmp), "%s%s", resource_pathname, leafname);
     if (File_Exists(tmp)) {
       /* The file already exists within app, though Choices$Dir also exists .. */
       if (write) {
@@ -187,22 +193,22 @@ extern void Resource_ChoicesPath(char *pathname, const char *leafname, BOOL writ
         /* We're reading, so move file to new location, first ensuring dest dir(s) exist .. */
         if (group) {
           if (resource_choices_multiple) {
-            sprintf(tmp2, "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp2);
-            sprintf(tmp2, "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp2);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
             File_CreateDir(tmp2);
-            sprintf(tmp2, "<Choices$Write>.%s.%s.%s", resource_choices_groupdir, resource_choices_appname, leafname);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s.%s.%s", resource_choices_groupdir, resource_choices_appname, leafname);
           } else {
             /* appname is used as leafname .. */
-            sprintf(tmp2, "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp2);
-            sprintf(tmp2, "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s", resource_choices_groupdir);  File_CreateDir(tmp2);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s.%s", resource_choices_groupdir, resource_choices_appname);
           }
         } else {
           if (resource_choices_multiple) {
-            sprintf(tmp2, "<Choices$Write>.%s", resource_choices_appname);  File_CreateDir(tmp2);
-            sprintf(tmp2, "<Choices$Write>.%s.%s", resource_choices_appname, leafname);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s", resource_choices_appname);  File_CreateDir(tmp2);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s.%s", resource_choices_appname, leafname);
           } else {
             /* appname is used as leafname .. */
-            sprintf(tmp2, "<Choices$Write>.%s", resource_choices_appname);
+            snprintf(tmp2, sizeof(tmp2), "<Choices$Write>.%s", resource_choices_appname);
           }
         }
         /* Move the file (tmp -> tmp2) .. */
@@ -227,8 +233,8 @@ extern void Resource_ChoicesPath(char *pathname, const char *leafname, BOOL writ
 /*      sprintf(pathname, "<%s$Dir>.Choices.%s", appname, leafname);*/  /* Something like this for non DeskLib users */
       sprintf(pathname, "%sChoices.%s", resource_pathname, leafname);
       if (write) {  /* ensure dir exists .. */
-/*        sprintf(tmp, "<%s$Dir>.Choices", appname);  File_CreateDir(tmp); */ /* for non DeskLib users */
-        sprintf(tmp, "%sChoices", resource_pathname);  File_CreateDir(tmp);
+/*        snprintf(tmp, sizeof(tmp), "<%s$Dir>.Choices", appname);  File_CreateDir(tmp); */ /* for non DeskLib users */
+        snprintf(tmp, sizeof(tmp), "%sChoices", resource_pathname);  File_CreateDir(tmp);
       }
     } else {
 /*      sprintf(pathname, "<%s$Dir>.%s", appname, leafname);*/  /* for non DeskLib users */

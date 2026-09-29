@@ -19,8 +19,8 @@
 void Clear_Free(clear_picture *picture)
 {
   if(picture->bitmap)
-    Mem_Free((void **)&picture->bitmap);
+    Mem_Free((void *)&picture->bitmap);
   if(picture->palette)
-    Mem_Free((void **)&picture->palette);
+    Mem_Free((void *)&picture->palette);
   free(picture);
 }

@@ -205,8 +205,10 @@ static BOOL Save__UserDragHandler(event_pollblock *event, void *ref)
   msg.data.datasave.estsize  = saveblock->estimatedsize;
   msg.data.datasave.filetype = saveblock->filetype;
 
-  strcpy(msg.data.datasave.leafname,
-         LeafName(Icon_GetTextPtr(saveblock->window, saveblock->filenameicon)));
+  strncpy(msg.data.datasave.leafname,
+         LeafName(Icon_GetTextPtr(saveblock->window, saveblock->filenameicon)),
+         sizeof(msg.data.datasave.leafname)-1);
+  msg.data.datasave.leafname[sizeof(msg.data.datasave.leafname)-1] = '\0';
 
   Wimp_SendMessage(event_SENDWANTACK, &msg, ptr.window, ptr.icon);
 

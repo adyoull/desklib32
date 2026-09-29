@@ -18,6 +18,7 @@
                                 function when compiling a DLL - otherwise
                                 cc complains about 'RISC OS (or other reentrant
                                 module has static init. to data 'x$dataseg''.
+             05 Sep 2007 - Changed use of sprintf to snprintf
 
 */
 
@@ -55,19 +56,20 @@ os_error *Filing_OpenDir(const char *dirname, filing_dirdata *dirdata,
    return er;
  if (objtype==1) {
    error_global.errnum=filing_ERROR_DirectoryIsFile;
-   sprintf(error_global.errmess,"Directory '%s' is actually a file!",dirname);
+   snprintf(error_global.errmess, sizeof(error_global.errmess), "Directory '%s' is actually a file!",dirname);
    return &error_global;
  }
  else if (objtype==0) {
    error_global.errnum=filing_ERROR_DirectoryDoesntExist;
-   sprintf(error_global.errmess,"Directory '%s' doesn't exist!",dirname);
+   snprintf(error_global.errmess, sizeof(error_global.errmess),"Directory '%s' doesn't exist!",dirname);
    return &error_global;
  }
 
  dirdata->dirname=MALLOC(strlen(dirname)+1);
  if (dirdata->dirname==NULL)
    return __outofmemory;
- strcpy(dirdata->dirname,dirname);
+ strncpy(dirdata->dirname,dirname,sizeof(dirdata->dirname)-1);
+ dirdata->dirname[sizeof(dirdata->dirname)-1] = '\0';
 
  dirdata->buf=MALLOC(bufsize);
  if (dirdata->buf==NULL)

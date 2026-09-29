@@ -9,15 +9,27 @@
     ________________________________________________________________________
 
     File:    Template.Clone.c
-    Author:  Copyright ï¿½ 1992 Jason Williams
+    Author:  Copyright © 1992 Jason Williams
              Thanks to John Winters for supplying the code that I hacked
              changed, hacked, rewrote, and then wrote again from scratch!
     Version: 1.11 (13 Jul 1993)
     Purpose: Loading, cacheing, and retrieval of window templates
 */
 
+/*
+    DeskLib32 modifications (C) 2026 Andrew Youll, offered under the same
+    FreeWare terms as DeskLib.
+*/
+
 
 #include "TempDefs.h"
+
+/* Compile-time layout guard (DeskLib32): the window block must match the
+   Wimp's format -- wimp_colourflags 8 bytes, window_block header 88 bytes --
+   or copying templates corrupts memory.  If a compiler lays the structs out
+   differently, one of these array sizes becomes -1 and the build stops here. */
+typedef char desklib_check_colourflags[(sizeof(wimp_colourflags) == 8) ? 1 : -1];
+typedef char desklib_check_windowblock[(sizeof(window_block) == 88) ? 1 : -1];
 
 
 
@@ -35,15 +47,7 @@ extern window_block *Template_Clone(const char *name, int maxtitlesize)
   window = (window_block *) malloc(sizeof(window_block) +
                                 (sizeof(icon_block) * t->windowdef->numicons));
   if (window == NULL)
-  {
-    char __dbg[160];
-    sprintf(__dbg, "copy '%s': numicons=%d wsz=%d isz=%d wdef=%p req=%d",
-            name, (int) t->windowdef->numicons,
-            (int) sizeof(window_block), (int) sizeof(icon_block),
-            (void *) t->windowdef,
-            (int) (sizeof(window_block) + sizeof(icon_block) * t->windowdef->numicons));
-    Error_ReportFatalInternal(ERR1, __dbg);
-  }
+    Error_ReportFatalInternal(ERR1, ERRMESS1);
 
   memcpy(window, t->windowdef, sizeof(window_block) +
                                 (sizeof(icon_block) * t->windowdef->numicons));
@@ -58,12 +62,7 @@ extern window_block *Template_Clone(const char *name, int maxtitlesize)
     window->title.indirecttext.buffer  = (char *) malloc(maxtitlesize);
     window->title.indirecttext.bufflen = maxtitlesize;
     if (window->title.indirecttext.buffer == NULL)
-    {
-      char __d[140];
-      sprintf(__d, "'%s' TITLE buf: maxtitlesize=%d numicons=%d",
-              name, maxtitlesize, (int) t->windowdef->numicons);
-      Error_ReportFatalInternal(ERR1, __d);
-    }
+      Error_ReportFatalInternal(ERR1, ERRMESS1);
 
     strncpy(window->title.indirecttext.buffer,
             t->windowdef->title.indirecttext.buffer,
@@ -81,13 +80,7 @@ extern window_block *Template_Clone(const char *name, int maxtitlesize)
       icons[icon].data.indirecttext.buffer = (char *)
                                 malloc(icons[icon].data.indirecttext.bufflen);
       if (icons[icon].data.indirecttext.buffer == NULL)
-      {
-        char __d[140];
-        sprintf(__d, "'%s' ICON %d buf: bufflen=%d numicons=%d",
-                name, (int) icon, (int) icons[icon].data.indirecttext.bufflen,
-                (int) t->windowdef->numicons);
-        Error_ReportFatalInternal(ERR1, __d);
-      }
+        Error_ReportFatalInternal(ERR1, ERRMESS1);
 
       strncpy(icons[icon].data.indirecttext.buffer,
               oldtext, icons[icon].data.indirecttext.bufflen - 1);
@@ -102,12 +95,7 @@ extern window_block *Template_Clone(const char *name, int maxtitlesize)
         size = strlencr(oldtext);
         icons[icon].data.indirecttext.validstring = (char *) malloc(size + 1);
         if (icons[icon].data.indirecttext.validstring == NULL)
-        {
-          char __d[140];
-          sprintf(__d, "'%s' ICON %d valid: size=%d numicons=%d",
-                  name, (int) icon, size, (int) t->windowdef->numicons);
-          Error_ReportFatalInternal(ERR1, __d);
-        }
+          Error_ReportFatalInternal(ERR1, ERRMESS1);
 
         strncpy(icons[icon].data.indirecttext.validstring, oldtext, size);
         icons[icon].data.indirecttext.validstring[size] = 0;

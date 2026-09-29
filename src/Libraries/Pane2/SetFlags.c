@@ -42,7 +42,7 @@ extern int Pane2_SetFlags(window_handle mainwindow, int panenumber, int flags)
   */
   mainelement = FindMainWindow(mainwindow);
   if(mainelement == NULL)
-     return(NULL); /* not found */
+     return 0; /* not found */
 
 
   paneelement = FindPaneWindow(mainelement, panenumber);
@@ -57,5 +57,5 @@ extern int Pane2_SetFlags(window_handle mainwindow, int panenumber, int flags)
 
   }
   else
-     return(NULL);
+     return 0;
 }

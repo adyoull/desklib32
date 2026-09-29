@@ -39,7 +39,7 @@ if ( !dialog2)	{
 	return NULL;
 	}
 
-dialog2->window				= NULL;
+ dialog2->window				= (window_handle)0;
 dialog2->templatename		= templatename;
 dialog2->reference			= reference;
 dialog2->openfn				= openfn;

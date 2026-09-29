@@ -15,11 +15,13 @@
     Mods:    02 Sep 1995 JH Uses mode variable Log2BPC (bytes per chr) instead
                             of Log2BPP (bits per pixel), to work properly with
                             'double pixel' modes such as mode 4.
+             22 Oct 2007 Update modevar enum (from macro)
 */
 
 
 #include "DeskLib:Sprite.h"
 #include "DeskLib:SWI.h"
+#include "DeskLib:KernelSWIs.h"
 
 
 /* Macro to round a number of BITS up to a multiple of words */
@@ -34,7 +36,7 @@ extern unsigned int Sprite_MemorySize(unsigned int width,
   unsigned int log2bpp;      /* Log base 2 bits per pixel, i.e. 2^log2bpp */
 
   SWI(2, 3, SWI_OS_ReadModeVariable,             /* Get Log2BPC for mode */
-                 mode, SCREEN_VAR_Log2BPC,       /* (used to be Log2BPP  */
+                 mode, modevar_LOG2BPC,          /* (used to be Log2BPP  */
        /* TO */  NULL, NULL, &log2bpp );
 
   return Sprite_MemorySizeBpp(width, height, 1 << log2bpp, flags);

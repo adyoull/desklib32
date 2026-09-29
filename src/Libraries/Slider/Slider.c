@@ -559,7 +559,7 @@ extern os_error *Slider_Drag(slider_info *slider, int *closed,
    * Inform the other functions in this module that the slider is
    * currently being dragged.
    */
-  slider->flags.dragging = 1;
+  slider->flags.dragging = -1;
 
   /* Try to update the slider once. */
   error = Slider_Update(slider, ref, &finished);

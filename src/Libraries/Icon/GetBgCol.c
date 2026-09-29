@@ -17,7 +17,6 @@
 #include "DeskLib:Wimp.h"
 #include "DeskLib:WimpSWIs.h"
 #include "DeskLib:Icon.h"
-#include "DeskLib:Validation.h"
 #include "DeskLib:Str.h"
 
 int Icon_GetBgCol(icon_block *icon)

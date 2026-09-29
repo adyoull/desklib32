@@ -18,6 +18,8 @@
 
 #include "DeskLib:Str.h"
 
+#ifdef __TARGET_SCL__
+
 int stricmp(const char *s1, const char *s2)
 {
   char ch1 = 0,
@@ -37,3 +39,5 @@ int stricmp(const char *s1, const char *s2)
     s2++;
   }
 }
+
+#endif

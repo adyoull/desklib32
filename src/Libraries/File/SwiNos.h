@@ -1,14 +1,13 @@
 
-XOS_Bit                    EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_OS_File                EQU &000008
-SWI_OS_Args                EQU &000009
-SWI_OS_BGet                EQU &00000a
-SWI_OS_BPut                EQU &00000b
-SWI_OS_GBPB                EQU &00000c
-SWI_OS_Find                EQU &00000d
+.equ	SWI_OS_File, 0x000008
+.equ	SWI_OS_Args, 0x000009
+.equ	SWI_OS_BGet, 0x00000a
+.equ	SWI_OS_BPut, 0x00000b
+.equ	SWI_OS_GBPB, 0x00000c
+.equ	SWI_OS_Find, 0x00000d
 
-fileaccess_READ            EQU &0
-fileaccess_WRITE           EQU &1
+.equ	fileaccess_READ, 0x0
+.equ	fileaccess_WRITE, 0x1
 
-        END

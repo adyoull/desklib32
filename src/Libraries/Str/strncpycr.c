@@ -15,7 +15,7 @@
              terminator of the result to a NUL (0).
 */
 
-#include "DeskLib:StringCR.h"
+#include "DeskLib:Str.h"
 
 
 extern char *strncpycr(char *s1, const char *s2, int n)

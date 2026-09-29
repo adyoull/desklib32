@@ -1,13 +1,12 @@
 
-XOS_Bit                            EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_OS_Word                        EQU &000007
+.equ	SWI_OS_Word, 0x000007
 
-SWI_OS_ReadMonotonicTime           EQU &000042
-SWI_OS_ConvertStandardDateAndTime  EQU &0000C0
-SWI_OS_ConvertDateAndTime          EQU &0000C1
+.equ	SWI_OS_ReadMonotonicTime, 0x000042
+.equ	SWI_OS_ConvertStandardDateAndTime, 0x0000C0
+.equ	SWI_OS_ConvertDateAndTime, 0x0000C1
 
-SWI_Territory_ConvertTimeToOrdinals     EQU &04304F
-SWI_Territory_ConvertTimeToUTCOrdinals  EQU &043049
+.equ	SWI_Territory_ConvertTimeToOrdinals, 0x04304F
+.equ	SWI_Territory_ConvertTimeToUTCOrdinals, 0x043049
 
-         END

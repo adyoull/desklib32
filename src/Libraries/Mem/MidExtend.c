@@ -76,7 +76,7 @@ static BOOL Mem__MidExtendNoCompact(mem_anchor *anchor, mem_header *chunk, int a
   }
   else /* try to alloc block of new size and copy old one over */
   {
-    if(!Mem_Alloc((mem_anchor *)&destination, newdatasize))
+    if(!Mem_Alloc((void *)&destination, newdatasize))
       return FALSE;
 
     memmove(destination, source, at);
@@ -84,7 +84,7 @@ static BOOL Mem__MidExtendNoCompact(mem_anchor *anchor, mem_header *chunk, int a
 
     Mem_Free(anchor);
     *anchor = destination;
-    Mem__FindChunk((mem_anchor *)&destination, &chunk);
+    Mem__FindChunk((void *)&destination, &chunk);
     chunk->handle = anchor;
   }
 

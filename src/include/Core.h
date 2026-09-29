@@ -36,6 +36,9 @@ extern "C" {
   This header file contains core definitions used by most of DeskLib.
 */
 
+/* This is an integer value representing the DeskLib version times 100. */
+#define DESKLIB_VERSION 300
+
 /* --- Boolean values */
 #ifndef BOOL
 #define BOOL  unsigned
@@ -64,7 +67,8 @@ extern "C" {
   #endif
 #endif
 
-
+/* haddoc ignore on */
+/* No point showing this defined twice */
 #define UNUSED_ARG(x) ((x) = (x))
 /*
   A simple macro to avoid compiler warnings when you don't actually use
@@ -73,6 +77,7 @@ extern "C" {
   Also useful for conditional compilation where one of the paths doesn't
   use a variable.
 */
+/* haddoc ignore off */
 
 #define UNUSED(x) ((x) = (x))
 /*

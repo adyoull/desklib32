@@ -24,6 +24,8 @@
                   Added Window_MoveWindow()
              1.14 (17 Apr 2005) John Tytgat
                   Made it usable for C++
+             1.15 (1 Jul 2007) Adam Richardson
+                  Added Window_IsOpen
 */
 
 
@@ -333,7 +335,7 @@ extern BOOL Window_MoveWindow(event_pollblock *event, void *reference);
 
 extern BOOL Window_IsOpen(window_handle window);
 /*
-  This returns TRUE if the window is currently open.
+  This returns TRUE if the specified window is currently open.
 */
 
 

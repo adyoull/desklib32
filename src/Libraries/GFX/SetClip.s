@@ -1,13 +1,14 @@
-;-------------------------------------------------------------------------------
-; Get graphics clip rectangle 
-;
-        GET     Macros.h
-        GET     RegDefs.h
-        GET     SwiNos.h
-;
-        PREAMBLE
-        STARTCODE GFX_SetClip
-;
+@-------------------------------------------------------------------------------
+@ Get graphics clip rectangle 
+@
+        .include     "Macros.h"
+        .include     "RegDefs.h"
+        .include     "SwiNos.h"
+@
+        
+        .global GFX_SetClip
+GFX_SetClip:
+@
         MOV     a2, a1
 
         MOV     a1, #24
@@ -31,5 +32,4 @@
         SWI     XSWI_OS_WriteC
 
         MOV     pc, lr
-;
-        END
+@

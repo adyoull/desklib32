@@ -11,6 +11,7 @@
     File:    Msgs.Report.c
     Author:  Copyright © 1993 Philip Colmer
     Version: 1.01 (13 Jul 1993)
+             1.02 (05 Sep 2007) Changed vsprintf to vsnprintf
     Purpose: To ease reporting errors which are based on messages
 */
 
@@ -32,8 +33,9 @@ extern void Msgs_Report(int errornum, const char *tag, ...)
   else
   {
     va_start(va, tag);
-    vsprintf(errmess, buffer, va);
+    vsnprintf(errmess, sizeof(errmess), buffer, va);
     va_end(va);
+    errmess[sizeof(errmess)-1] = '\0';
 
     Error_Report(errornum, errmess);
   }

@@ -25,7 +25,10 @@
 os_error *MsgTrans_LoseFile(msgtrans_filedesc *filedesc)
 {
   msgtrans_file *block;
-  os_error *swierr = MessageTrans_CloseFile(filedesc);
+  os_error *swierr = NULL;
+
+  /* Only close file if we're passed a valid (or at least non-NULL) handle */
+  if (filedesc) swierr = MessageTrans_CloseFile(filedesc);
 
   for (block = LinkList_NextItem(&msgtrans__list);block;block = LinkList_NextItem(block))
     if (&block->filedesc == filedesc)

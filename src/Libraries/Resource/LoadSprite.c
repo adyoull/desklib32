@@ -11,6 +11,7 @@
     File:    Resource.LoadSprite.c
     Author:  Copyright © 1994 Lenny
     Version: 0.01 (18 Nov 1994)
+             0.02 (05 Sep 2007) Use snprintf rather than sprintf
     Purpose: Creates a user sprite area, and loads the application's
              resource sprite file ("Sprites") into this area.
     History: 0.01 (18 Nov 94) : Added 'Resource_LoadSprites()'
@@ -50,12 +51,12 @@ extern void Resource_LoadSprites(void)
 
   Screen_CacheModeInfo();
   if (screen_eig.y == 1) {
-    sprintf(filename, "%sSprites22", resource_pathname);
+    snprintf(filename, sizeof(filename), "%sSprites22", resource_pathname);
     if (File_Exists(filename) == FALSE) {
-      sprintf(filename, "%sSprites", resource_pathname);
+      snprintf(filename, sizeof(filename), "%sSprites", resource_pathname);
     }
   } else {
-    sprintf(filename, "%sSprites", resource_pathname);
+    snprintf(filename, sizeof(filename), "%sSprites", resource_pathname);
   }
 
   filesize = File_Size(filename);

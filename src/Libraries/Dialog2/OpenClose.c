@@ -22,7 +22,6 @@
 #include "DeskLib:Event.h"
 #include "DeskLib:Error.h"
 #include "DeskLib:Handler.h"
-#include "DeskLib:Sound.h"
 #include "DeskLib:Template.h"
 #include "DeskLib:Dialog2.h"
 
@@ -66,7 +65,7 @@ if ( dialog2->window)	{
 	if ( !dialog2->flags.data.keepwindow)	{
 		if ( deletewindow)	{
 			Window_Delete( dialog2->window);
-			dialog2->window = NULL;
+			dialog2->window = (window_handle)0;
 			}
 		else	Event_ReleaseWindow( dialog2->window);
 		}

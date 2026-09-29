@@ -11,6 +11,9 @@
     File:    Window.Show.c
     Author:  Copyright © 1992 Jason Williams
     Version: 1.00 (19 Mar 1992)
+             1.01 (31 Aug 2007) Ensure window doesn't appear off-screen &
+                                bring to front if already open
+             1.02 (7  Jan 2008) Remove redundant code - OpenWindow only opens windows fully on screen anyhow
     Purpose: High-level window management functions: Show a window
 */
 
@@ -108,17 +111,11 @@ extern void Window_Show(window_handle window, window_openpos openpos)
       break;
 
     default:
-      /* Open wherever it is defined in the template file. */
+      /* Open wherever it is defined in the template file, or where last open on screen. */
       moveto.x = wstate.openblock.screenrect.min.x;
       moveto.y = wstate.openblock.screenrect.max.y;
       break;
   }
-
-  /* Check that window doesn't fall off the side of the screen */
-  if (moveto.x < 0)  moveto.x = 0;
-  if (moveto.y < 64) moveto.y = 64;
-  if (moveto.x > (screen_size.x - w)) moveto.x = screen_size.x - w;
-  if (moveto.y > (screen_size.y - h)) moveto.y = screen_size.y - h;
 
   wstate.openblock.screenrect.min.x = moveto.x;
   wstate.openblock.screenrect.max.y = moveto.y;

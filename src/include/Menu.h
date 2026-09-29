@@ -15,6 +15,7 @@
              not used for this simple implementation, but may be used in
              the future.
     Version: 1.05 (17 Apr 2005)
+             1.06 (24 Oct 2007) Removed RO2 functions
     Purpose: Equivalent of RISC OS Lib's "menus" functions - Give a simple
              method for creating and showing menus.
 
@@ -72,7 +73,9 @@ extern menu_ptr Menu_New(const char *title, const char *description);
 
   The items themselves can be preceded by option characters to set flags
   for the given item.  '!' means the item will be ticked, '~' means it
-  will be shaded (greyed out). Leading spaces are ignored.
+  will be shaded (greyed out).  '>' means you'll get a submenu warning
+  message. (Important: don't use '>' if you're going to use
+  Menu_AddSubMenu or Menu_AddSubWindow.) Leading spaces are ignored.
 
   An example is "!Ticked,~Disabled,Sub-menu,!~Ticked and disabled, Normal".
 
@@ -306,17 +309,10 @@ extern menu_ptr Menu_FontMenu(BOOL sysfont, char *tick);
   menu.
 */
 
-
-extern menu_ptr Menu_FontMenu3(BOOL sysfont, char *tick);
-/*
-  This returns a pointer to a font menu, or zero if it couldn't make one.
-  If you want the system font at the top of the menu, set sysfont to TRUE.
-  Pass a font name in 'tick' to tick that font in the menu, or else
-  Menu_FontMenu_NOTICK or Menu_FontMenu_TICKSYSFONT.
-
-  It is probably not a good idea to attempt to free the memory for this
-  menu.
-*/
+/* haddoc ignore on */
+/* #define here to map old (RO2) function to RO3 one - we don't support RO2 any more */
+#define Menu_FontMenu3 Menu_FontMenu
+/* haddoc ignore off */
 
 
 extern char *Menu_FontMenuDecode(int *selection);
@@ -325,12 +321,10 @@ extern char *Menu_FontMenuDecode(int *selection);
   by the given menu selection, or NULL if an error occurred.
 */
 
-
-extern char *Menu_FontMenuDecode3(int *selection);
-/*
-  This returns a pointer to the name of the font which has been selected
-  by the given menu selection, or NULL if an error occurred.
-*/
+/* haddoc ignore on */
+/* #define here to map old (RO2) function to RO3 one - we don't support RO2 any more */
+#define Menu_FontMenuDecode3 Menu_FontMenuDecode
+/* haddoc ignore off */
 
 
 extern menu_ptr menu_fontmenu;
@@ -354,6 +348,17 @@ extern menu_ptr menu_currentopen;
   will be invalid.  Use with caution.
 */
 
+/* haddoc ignore on */
+/* Old name defined to maintain backwards compatibilty */
+#define ColourMenu_Create(s) Menu_NewColourMenu(s)
+/* haddoc ignore off */
+
+
+extern menu_ptr Menu_NewColourMenu(const char *name);
+/*
+  This creates a menu containing the sixteen Wimp colours, with the title
+  for the menu given by 'name'.  It returns a pointer to the new menu.
+*/
 
 #ifdef __cplusplus
 }

@@ -11,9 +11,15 @@
     File:    WAssert.h
     Author:  Copyright © 1993, 1994 Mark H. Wilkinson
     Version: 1.02 (17 Apr 2005)
+             1.03 (25 Oct 2007) Deprecated
     Purpose: Wimp version of ANSI assert() system, based on RISCOS_Lib
              version presented in Archive magazine 6.12.53 by Remo Biagioni.
 */
+
+/*
+   NOTE: This module is deprecated. Use Debug_Assert from Debug module instead.
+*/
+
 
 /* Abstract */
 /*

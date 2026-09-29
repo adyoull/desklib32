@@ -222,7 +222,7 @@ if ( event->data.message.header.action == message_MENUWARN)	{
 	int		*selections	= &event->data.message.data.words[3];
 	int		selectdepth	= Menu2__SelectionDepth( selections);
 	menu2_block	*lastmenu	= menu2__openmenus[ selectdepth-1];
-	menu2_handle	nextmenu = NULL;
+	menu2_handle	nextmenu = 0;
 
 	Menu2__Free( selectdepth);
 	Debug_Printf( "Menu2__MessageHandler, menu2__numopen=%i\n", menu2__numopen);

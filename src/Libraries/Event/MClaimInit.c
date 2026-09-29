@@ -62,7 +62,7 @@ static BOOL EventMsg_DispatchMessage(event_pollblock *event, void *reference)
   {
     nextptr = (eventmsg_claimrecord *) ptr->header.next;
 
-    if (ptr->messagetype == event_ANY || ptr->messagetype == action)
+    if (ptr->messagetype == message_ANY || ptr->messagetype == action)
     {
       wptr = (eventmsg_windowrecord *) ptr->windowlist.next;
       while (wptr != NULL)

@@ -49,7 +49,7 @@ extern int Pane_SetFlags(window_handle master, int flags)
     }
     curpane = curpane->next;
   }
-  return NULL;
+  return 0;
 }
 
 

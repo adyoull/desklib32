@@ -115,7 +115,8 @@ extern int File_Size(const char *filename);
 extern BOOL File_Exists(const char *filename);
 /*
   This returns TRUE if the given filename is a file of some kind.
-  This includes the file being an "image file".
+  This includes the file being an "image file". To check for the
+  existence of a directory, use File_IsDirectory.
 */
 
 
@@ -384,9 +385,8 @@ extern int File_GetType(const char *filename);
 
 extern BOOL File_IsDirectory(const char *pathname);
 /*
-  This checks if the given file is in fact a directory.  Note that
-  in this case, the definition of a directory includes an image file
-  as it can be treated as a directory.
+  This returns TRUE if the given object exists and is either a
+  directory or an image file. To check for a normal file, use File_Exists.
 */
 
 

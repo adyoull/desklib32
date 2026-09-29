@@ -11,6 +11,7 @@
     File:    Sprite.MemSizeIcn.c
     Author:  Copyright © 1993 Tom Kirby-Green
     Version: 1.00 (12 Jul 1993)
+             1.01 (22 Oct 2007) Update modevar enum (from macro)
     Purpose: Calculate the size in bytes of a sprite with the given parameters
              if it were to exactly fill the given WIMP icon. Also returns
              the width and height of the icon.
@@ -34,11 +35,11 @@ extern int Sprite_IconMemorySize(window_block *pWinBlock, icon_handle icon,
 
   /* Get scaling factors */
   SWI(2, 3, SWI_OS_ReadModeVariable,
-                mode, SCREEN_VAR_XEigFactor,
+                mode, modevar_XEIGFACTOR,
       /* TO */  NULL, NULL, &eig.x );
 
   SWI(2, 3, SWI_OS_ReadModeVariable,
-                mode, SCREEN_VAR_YEigFactor,                   
+                mode, modevar_YEIGFACTOR,
       /* TO */  NULL, NULL, &eig.y );
 
   /* Convert OS units to pixels */

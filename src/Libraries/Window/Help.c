@@ -11,6 +11,7 @@
     File:    Window.Help.c
     Author:  Copyright © 1992 Jason Williams
     Version: 1.00 (09 Apr 1992)
+             1.01 (05 Sep 2007) Change use of sprintf to snprintf
     Purpose: Adds an event handler that replies to HelpRequest messages
              by taking the window's template name and icon number, and
              looking up (e.g. "template.1") in the Msgs file.
@@ -39,8 +40,8 @@ extern BOOL Window_HelpHandler(event_pollblock *event, void *reference)
                       mtemplate);
     mtemplate[8] = '\0';         /* tags can't be more than 8 characters long */
 
-    sprintf(number, ".%d", event->data.message.data.helprequest.where.icon);
-    strcat(mtemplate, number);
+    snprintf(number, 8, ".%d", event->data.message.data.helprequest.where.icon);
+    strcat(mtemplate, number); /* 8 + 8 is max size so can't be larger than 16 */
 
     if (Msgs_Lookup(mtemplate, event->data.message.data.helpreply.text, 235))
     {

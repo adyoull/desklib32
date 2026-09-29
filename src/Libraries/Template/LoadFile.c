@@ -13,6 +13,7 @@
              Thanks to John Winters for supplying the code that I hacked
              changed, hacked, rewrote, and then wrote again from scratch!
     Version: 1.12 (02 Mar 1994)
+             1.13 (05 Sep 2007) Changed strcpy to strncpy
     Purpose: Loading, cacheing, and retrieval of window templates
              Now correctly loads templates with outline fonts in them
 */
@@ -25,6 +26,7 @@
 linklist_header template_list         = {NULL, NULL};
 font_array      *template_fontarray   = (font_array *) -1;
 
+extern BOOL template_initialised; /* Set up in Init.c */
 
 static void ReadHeader(const char *filename)
 /* Find out how many templates, names, and sizes */
@@ -96,8 +98,9 @@ extern void Template_LoadFile(const char *leafname)
   template_block  tblock;
   char            tempdata[5192];        /* temp. buffer for indirected data */
 
-  strcpy(filename, resource_pathname);
-  strcat(filename, leafname);
+  if (!template_initialised) Template_Initialise();
+
+  snprintf(filename, sizeof(filename), "%s%s", resource_pathname, leafname);
 
   /* Remember the end of the template list - this will be NULL for the
    * first call to Template_LoadFile, and non-NULL for subsequent calls.
@@ -145,7 +148,8 @@ extern void Template_LoadFile(const char *leafname)
      * in here as well, the fonts were not handled at all...
      */
     tblock.font     = template_fontarray;   /* was  (font_array *) -1 */
-    strcpy(tempname, tptr->identifier);
+    strncpy(tempname, tptr->identifier, sizeof(tempname)-1);
+    tempname[sizeof(tempname) - 1] = '\0';
     tblock.name     = tempname;
     tblock.index    = 0;
     Wimp_LoadTemplate(&tblock);
@@ -166,7 +170,8 @@ extern void Template_LoadFile(const char *leafname)
     tblock.workfree = tptr->indirectdata;
     tblock.workend  = tblock.workfree + tptr->indirectsize;
     tblock.font     = template_fontarray;
-    strcpy(tempname, tptr->identifier);
+    strncpy(tempname, tptr->identifier, sizeof(tempname)-1);
+    tempname[sizeof(tempname)-1] = '\0';
     tblock.name     = tempname;
     tblock.index    = 0;
     Wimp_LoadTemplate(&tblock);

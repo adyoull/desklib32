@@ -1,18 +1,21 @@
 /*
-    ####             #    #     # #
-    #   #            #    #       #          The FreeWare C library for
-    #   #  ##   ###  #  # #     # ###             RISC OS machines
-    #   # #  # #     # #  #     # #  #   ___________________________________
-    #   # ####  ###  ##   #     # #  #
-    #   # #        # # #  #     # #  #    Please refer to the accompanying
-    ####   ### ####  #  # ##### # ###    documentation for conditions of use
-    ________________________________________________________________________
-
-    File:    SWI.h
-    Author:  Copyright © 1992 Jason Williams
-    Version: 1.03 (17 Apr 2005)
-    Purpose: Generic SWI call veneer function
-*/
+ * This file is part of DeskLib, the C library for RISC OS.
+ * Please see accompanying documentation for terms of use.
+ *
+ *       http://www.riscos.info/index.php/DeskLib
+ *
+ *
+ * Module:  SWI
+ * File:    SWI.h
+ * Author:  Copyright © 1992 Jason Williams
+ * Purpose: Generic SWI call veneer function + SWI number macros.
+ *
+ * Version History
+ * 17/04/1992: 1.03
+ * 19/08/2007: Added some Reporter numbers
+ * 27/08/2007: Added SysLog numbers
+ *
+ */
 
 
 #ifndef __dl_swi_h
@@ -28,10 +31,35 @@ extern "C" {
 
 /* Abstract */
 /*
-  This header provides one function - a general-purpose SWI calling veneer -
-  and many macros giving names to SWI numbers.
+  This header provides functions related to SWI handling - a general-purpose
+  SWI calling veneer and SWI name/number translation veneers. It also defines
+  many macros giving names to SWI numbers.
 */
 
+/* haddoc ignore on */
+/* Old name defined to maintain backwards compatibilty */
+#define OS_SWINumberToString(n,b,s) SWI_SWINumberToString(n,b,s)
+/* haddoc ignore off */
+os_error *SWI_SWINumberToString(int number, char *buffer, int size);
+/*
+  This converts the given SWI number to the corresponding SWI name.
+  The name is placed in the string pointed to by 'buffer' of length
+  'size'.
+
+  This returns NULL if there is no error.
+*/
+
+/* haddoc ignore on */
+/* Old name defined to maintain backwards compatibilty */
+#define OS_SWINumberFromString(s,n) SWI_SWINumberFromString(s,n)
+/* haddoc ignore off */
+os_error *SWI_SWINumberFromString(const char *string, int *number);
+/*
+  This converts the given SWI name to the corresponding SWI number.
+  The number is placed in 'number'.
+
+  This returns NULL if there is no error.
+*/
 
 os_error *SWI(int numregsin, int numregsout, int swicode, ... );
 /*
@@ -392,6 +420,33 @@ os_error *SWI(int numregsin, int numregsout, int swicode, ... );
 #define SWI_Tinct_AvailableFeatures        0x057245
 #define SWI_Tinct_Compress                 0x057246
 #define SWI_Tinct_Decompress               0x057247
+
+/* Reporter */
+#define SWI_Reporter_Text0                 0x054C80
+#define SWI_Reporter_TextS                 0x054C81
+#define SWI_Reporter_Regs                  0x054C82
+#define SWI_Reporter_Registers             0x054C83
+#define SWI_Reporter_Where                 0x054C84
+#define SWI_Reporter_Poll                  0x054C85
+#define SWI_Reporter_Dump                  0x054C86
+
+/* SysLog */
+#define SWI_SysLog_LogMessage               0x4C880
+#define SWI_SysLog_GetLogLevel              0x4C881
+#define SWI_SysLog_FlushLog                 0x4C882
+#define SWI_SysLog_SetLogLevel              0x4C883
+#define SWI_SysLog_LogUnstamped             0x4C884
+#define SWI_SysLog_Indent                   0x4C885
+#define SWI_SysLog_UnIndent                 0x4C886
+#define SWI_SysLog_NoIndent                 0x4C887
+#define SWI_SysLog_OpenSessionLog           0x4C888
+#define SWI_SysLog_CloseSessionLog          0x4C889
+#define SWI_SysLog_LogData                  0x4C88A
+#define SWI_SysLog_LogFormatted             0x4C88B
+#define SWI_SysLog_ReadErrorMessage         0x4C88C
+#define SWI_SysLog_LogComplete              0x4C88D
+#define SWI_SysLog_IRQMode                  0x4C88E
+
 
 #ifdef __cplusplus
 }

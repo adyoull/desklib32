@@ -1,42 +1,16 @@
-a1 RN 0
-a2 RN 1
-a3 RN 2
-a4 RN 3
-v1 RN 4
-v2 RN 5
-v3 RN 6
-v4 RN 7
-v5 RN 8
-v6 RN 9
-sl RN 10
-fp RN 11
-ip RN 12
-sp RN 13
-lr RN 14
-pc RN 15
-
-f0 FN 0
-f1 FN 1
-f2 FN 2
-f3 FN 3
-f4 FN 4
-f5 FN 5
-f6 FN 6
-f7 FN 7
 
 
-XOS_Bit                         EQU &020000
 
-SWI_MessageTrans_FileInfo       EQU &041500
-SWI_MessageTrans_OpenFile       EQU &041501
-SWI_MessageTrans_Lookup         EQU &041502
-SWI_MessageTrans_CloseFile      EQU &041504
+.equ	XOS_Bit, 0x020000
 
-        AREA |D$$code|, CODE, READONLY
+.equ	SWI_MessageTrans_FileInfo, 0x041500
+.equ	SWI_MessageTrans_OpenFile, 0x041501
+.equ	SWI_MessageTrans_Lookup, 0x041502
+.equ	SWI_MessageTrans_CloseFile, 0x041504
 
-        EXPORT MessageTrans_CloseFile
+        .global MessageTrans_CloseFile
 
-MessageTrans_CloseFile
+MessageTrans_CloseFile:
 
         STMFD   sp!,{lr}
 
@@ -45,4 +19,3 @@ MessageTrans_CloseFile
         MOVVC   a1,#0
         LDMFD   sp!,{pc}
 
-        END

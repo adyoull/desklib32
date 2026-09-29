@@ -52,7 +52,7 @@
 #endif
 
 #ifndef __dl_strlencr_h
-#include "DeskLib:StringCR.h"
+#include "DeskLib:Str.h"
 #endif
 
 #ifndef __dl_sprite_h

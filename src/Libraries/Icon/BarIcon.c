@@ -26,7 +26,8 @@
 #include "DeskLib:SWI.h"
 #include "DeskLib:Icon.h"
 
-#define ReadModeVar(m, v, r) SWI(3, 3, 0x20035, (m), (v), 0,   0, 0, (r))
+/* This is also defined in Screen.c as Screen_ReadModeVar */
+#define Icon_ReadModeVar(m, v, r) SWI(3, 3, 0x20035, (m), (v), 0,   0, 0, (r))
 
 extern icon_handle Icon_BarIcon(const char *spritename, window_handle pos)
 {
@@ -49,8 +50,8 @@ extern icon_handle Icon_BarIcon(const char *spritename, window_handle pos)
   swierr = Sprite_ReadInfo(ramsprites, spritename, &sinfo);
   if (swierr == NULL)
   {
-    ReadModeVar(sinfo.mode, 4, &xeigfactor);
-    ReadModeVar(sinfo.mode, 5, &yeigfactor);
+    Icon_ReadModeVar(sinfo.mode, 4, &xeigfactor);
+    Icon_ReadModeVar(sinfo.mode, 5, &yeigfactor);
     icreate.icondata.workarearect.max.x = sinfo.width  << xeigfactor;
     icreate.icondata.workarearect.max.y = sinfo.height << yeigfactor;
 

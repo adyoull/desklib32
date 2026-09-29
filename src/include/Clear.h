@@ -40,8 +40,8 @@ typedef struct
   const char   *creator;
   unsigned      creatorversion;
 
-  unsigned      width,
-                height;
+  unsigned      width;
+  unsigned      height;
   unsigned      bpp;
 
   palette_entry *palette;

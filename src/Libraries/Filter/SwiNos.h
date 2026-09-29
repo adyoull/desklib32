@@ -1,12 +1,10 @@
 
-XOS_Bit                        EQU &020000
+.equ	XOS_Bit, 0x020000
 
-SWI_Filter_RegisterPreFilter    EQU    &042640
-SWI_Filter_RegisterPostFilter   EQU    &042641
-SWI_Filter_DeRegisterPreFilter  EQU    &042642
-SWI_Filter_DeRegisterPostFilter EQU    &042643
-
-
+.equ	SWI_Filter_RegisterPreFilter, 0x042640
+.equ	SWI_Filter_RegisterPostFilter, 0x042641
+.equ	SWI_Filter_DeRegisterPreFilter, 0x042642
+.equ	SWI_Filter_DeRegisterPostFilter, 0x042643
 
 
 
@@ -18,4 +16,5 @@ SWI_Filter_DeRegisterPostFilter EQU    &042643
 
 
 
-        END
+
+

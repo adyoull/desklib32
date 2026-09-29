@@ -291,7 +291,7 @@ message.header.size		= 256;
 message.data.print.filler[4]	= estsize;
 message.data.print.filetype	= filetype;
 message.header.yourref		= 0;		/* not a reply*/
-sprintf( message.data.print.filename, leafname);
+snprintf(message.data.print.filename, sizeof(message.data.print.filename), leafname);
 Wimp_SendMessage( event_SENDWANTACK, &message, 0, 0);
 print->message_ref = message.header.myref;
 

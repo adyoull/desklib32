@@ -171,7 +171,7 @@ os_error *TaskWindow_Start(const char *command, const char *taskname,
   newinfo->txt_handle = Time_Monotonic();
   end += sprintf(starttask + end, "\" -quit -ctrl -task &%x -txt &%x", event_taskhandle, newinfo->txt_handle);
 
-  if (wimpslot_k > 0) sprintf(starttask + end, " -wimpslot %ik", wimpslot_k);
+  if (wimpslot_k > 0) sprintf(starttask + end, " -wimpslot %zdk", wimpslot_k);
 
   /* Start the task, return any error */
   err = SWI(1, 1, SWI_Wimp_StartTask, starttask, &newtask);

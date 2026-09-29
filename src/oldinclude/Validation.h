@@ -11,6 +11,7 @@
     File:    Validation.h
     Author:  Copyright © 1992 Jason Williams
     Version: 1.00 (22 Mar 1992)
+             1.01 (25 Oct 2007) Moved function to Icon module
     Purpose: Scanning of validation strings for various fields
 */
 
@@ -18,25 +19,14 @@
 #ifndef __dl_validation_h
 #define __dl_validation_h
 
+#include "DeskLib:Icon.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* Abstract */
 /*
-  This header provides a function to extract information from an icon's
-  validation string.
-*/
-
-extern int Validation_ScanString(const char *string, char tag);
-/*
-  This scans the given string for the tag character given, and returns the
-  index of the *next* character, or zero if the tag character is not found.
-  The tag must be either the first character or directly follow a
-  semi-colon.
-
-  For instance, if you search for the tag 'r' in "sicon;r5", it will return
-  the index of '5' (7, in this example).
+  Compatibility header only. Validation_ScanString moved to Icon module.
 */
 
 

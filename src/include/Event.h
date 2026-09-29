@@ -14,7 +14,9 @@
     Purpose: High-level WIMP event dispatch to a hierarchy of user event
              handling functions.
     Mods:    14 July 1993 - Added Event_Initialise3
-             20 Mar 1995  - JPS Added veneers for global vars for use with DLLs
+             20 Mar  1995 - JPS Added veneers for global vars for use with DLLs
+             1  May  2007 - Tweaked documentation
+             11 Dec  2007 - Added recommendation to use Event_InitNested
 */
 
 
@@ -41,14 +43,20 @@ extern "C" {
   It polls the Wimp for you, and then passes the resulting event to one
   or more of your handler routines based on the event which occurred and the
   window and icon the event occurred in.  Events are cascaded down through
-  your handlers until one of them returns TRUE, indicating that it has been
-  dealt with succesfully.  This allows you to have application-wide
-  defaults for certain event types, with occasional overrides of that
-  default for specific windows or icons.
+  your handlers (from specific to generic) until one of them returns TRUE,
+  indicating that it has been dealt with succesfully.  This allows you to
+  have application-wide defaults for certain event types, with occasional
+  overrides of that default for specific windows or icons.
 
   Any event which has no handlers attached is automatically masked out in
   subsequent Wimp_Polls (except for quit messages).  A set of default (and
   example) handlers for some events is provided in the Handlers library.
+
+  (Note that you should be careful not to leave handlers attached to windows
+  that you delete - potentially a new window might gain the same handle and
+  all the old handlers will become unexpectedly attached to it. The best way
+  to avoid this is to use Window_Delete, which neatly tidies everything up
+  for you.)
 */
 
 
@@ -161,7 +169,8 @@ extern void Event_PollIdle(unsigned int delay);
 
 extern void Event_Initialise3(const char *taskname, int version, int *messages);
 /*
-  This initialises the Wimp and the Event system for your task.
+  This initialises the Wimp and the Event system for your task, including
+  registering an exit event handler which calls the Wimp_CloseDown SWI.
 
   taskname should be your task name, version should be the Wimp version * 100
   required for your program to run. and messages should point to a
@@ -184,6 +193,10 @@ extern void Event_Initialise3(const char *taskname, int version, int *messages);
   earliest version supported by DeskLib), and expressing an interest in
   *no* messages.
 
+  Unless you have a good reason to support very old and non-updated
+  installations, you should call Event_InitNested instead, to unlock
+  some useful WIMP functionality.
+
   Note: in versions of DeskLib up to and including 2.40, this set the wimp
   version to 200 and got notified of *all* messages.
 */
@@ -191,8 +204,11 @@ extern void Event_Initialise3(const char *taskname, int version, int *messages);
 
 extern void Event_InitNested(const char *taskname);
 /*
-  Version of Event_Initialise to pass default values for a
+  This functions calls Event_Initialise3 with default values for a
   task under a Nested Wimp with no messages.
+
+  The nested wimp is available as a softload (in UniBoot) for very
+  old machines, so can be considered a sensible minimum requirement.
 */
 
 

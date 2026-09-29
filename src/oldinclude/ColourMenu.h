@@ -27,15 +27,9 @@ extern "C" {
 
 /* Abstract */
 /*
-  This header declares a single function to create a simple menu of
-  the sixteen Wimp colours.
+  Compatibility header. ColourMenu_Create has been renamed
+  Menu_NewColourMenu and moved to the menu module
  */
-
-extern menu_ptr ColourMenu_Create(const char *name);
-/*
-  This creates a menu containing the sixteen Wimp colours, with the title
-  for the menu given by 'name'.  It returns a pointer to the new menu.
-*/
 
 #ifdef __cplusplus
 }

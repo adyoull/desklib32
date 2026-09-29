@@ -18,6 +18,7 @@
             14 Jun 1993 - PJC - Allowed Error_Report(Fatal) to take
                                 variable arguments
             13 Jul 1993 - PJC - Added varargs to "Internal" versions of above
+            05 Sep 2007 - AR  - replaced vsprintf with (safer) vsnprintf
 */
 
 
@@ -26,7 +27,10 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
+undef commented out 5/9/07 - not sure what it was for?
 #undef vsprintf
+*/
 
 #include "DeskLib:Error.h"
 #include "DeskLib:WimpSWIs.h"
@@ -40,14 +44,15 @@ extern void Error_Report(int errornum, const char *report, ...)
   error_flags eflags;
 
   va_start(va, report);
-  vsprintf(error.errmess, report, va);
+  vsnprintf(error.errmess, sizeof(error.errmess), report, va);
   va_end(va);
   error.errnum = errornum;
+
+  error.errmess[sizeof(error.errmess)-1] = '\0'; /* Ensure correct termination */
 
   eflags.value = 1;
   (void) Wimp_ReportError(&error, eflags.value, event_taskname);
 }
-
 
 
 extern void Error_ReportFatal(int errornum, const char *report, ...)
@@ -56,8 +61,10 @@ extern void Error_ReportFatal(int errornum, const char *report, ...)
   char errmess[256];
 
   va_start(va, report);
-  vsprintf(errmess, report, va);
+  vsnprintf(errmess, sizeof(errmess), report, va);
   va_end(va);
+
+  errmess[sizeof(errmess)-1] = '\0'; /* Ensure correct termination */
 
   Error_Report(errornum,
      "%s has suffered a fatal internal error (%s) and must quit immediately",
@@ -66,18 +73,19 @@ extern void Error_ReportFatal(int errornum, const char *report, ...)
 }
 
 
-
 extern void Error_ReportInternal(int errornum, const char *report, ...)
 {
   va_list va;
   char errmess[256];
 
   va_start(va, report);
-  vsprintf(errmess, report, va);
+  vsnprintf(errmess, sizeof(errmess), report, va);
   va_end(va);
+
+  errmess[sizeof(errmess)-1] = '\0'; /* Ensure correct termination */
+
   Error_Report(errornum, errmess);
 }
-
 
 
 extern void Error_ReportFatalInternal(int errornum, const char *report, ...)
@@ -86,11 +94,13 @@ extern void Error_ReportFatalInternal(int errornum, const char *report, ...)
   char errmess[256];
 
   va_start(va, report);
-  vsprintf(errmess, report, va); 
+  vsnprintf(errmess, sizeof(errmess), report, va);
   va_end(va);
+
+  errmess[sizeof(errmess)-1] = '\0'; /* Ensure correct termination */
+
   Error_ReportFatal(errornum, errmess);
 }
-
 
 
 extern BOOL Error_Check(os_error *error)
@@ -104,13 +114,20 @@ extern BOOL Error_Check(os_error *error)
 }
 
 
+extern BOOL Error_CheckSilent(os_error *error)
+{
+  if (error != NULL)
+    return(TRUE);
+
+  return(FALSE);
+}
+
 
 extern void Error_CheckFatal(os_error *error)
 {
   if (error != NULL)
     Error_ReportFatal(error->errnum, error->errmess);
 }
-
 
 
 extern BOOL Error_OutOfMemory(BOOL fatal, const char *place)

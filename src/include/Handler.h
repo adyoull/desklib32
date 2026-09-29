@@ -11,6 +11,7 @@
     File:    Handler.h
     Author:  Copyright © 1992, 1993, 1994 Jason Williams
     Version: 1.03 (01 April 1994)
+             1.04 (16 September 2007) Added dl_Handler__MenuClick
     Purpose: Predefined default handlers for you to COPY and use as the
              basis of your own handlers
 
@@ -126,14 +127,12 @@ extern BOOL Handler_DragFinish(event_pollblock *event, void *reference);
 */
 
 
-
 extern BOOL Handler_HatchRedraw(event_pollblock *event, void *reference);
 /*
   Hatch the work area of a window. Useful when testing
   a program before you get round to writing your own redraw
   routines so you can see that something is happening.
 */
-
 
 #ifdef __cplusplus
 }

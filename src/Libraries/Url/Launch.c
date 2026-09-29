@@ -123,7 +123,7 @@ static int Url_ANTBroadcast(url_info_blk *block, const char *url)
     antmsg->data.indirect.tag = 0;
 
     /* Claim some RMA memory for the url */
-    if (Module_Claim(strlen(url) + 1, (void **) &block->rma_url) != NULL)
+    if (Module_Claim(strlen(url) + 1, (void *) &block->rma_url) != NULL)
     {
       /* If it failes, return that we cannot broadcast the URL */
       return -1;

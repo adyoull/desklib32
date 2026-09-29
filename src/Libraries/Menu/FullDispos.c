@@ -28,7 +28,7 @@ void Menu_FullDispose(menu_ptr menu)
 
   /* Free title data if necessary */
   if (items[0].menuflags.data.indtitle)
-    free (((icon_data *)(void *)menu->title)->indirecttext.buffer);
+    free (((icon_data *)(void *)menu)->indirecttext.buffer);
     /* Menu_New makes title validation -1 */
 
   /* Process entries */

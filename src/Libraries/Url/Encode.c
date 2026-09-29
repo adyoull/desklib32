@@ -42,7 +42,7 @@ BOOL Url_Encode(const char *toencode, char *encoded_buf, int *bufsize)
 
       /* Do ranges */
       if ((*encoding <=  31) ||
-         ((*encoding >= 128) && (*encoding <= 255)) ||
+	  ((*encoding >= 128) /* && (*encoding <= 255) */) ||
          ((*encoding >=  59) && (*encoding <=  64)) ||
          ((*encoding >=  34) && (*encoding <=  38)) ||
          ((*encoding >=  91) && (*encoding <=  96)) ||

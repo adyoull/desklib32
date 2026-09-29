@@ -14,6 +14,7 @@
     Purpose: Automate handling of save-as windows
     Mods:    13-Jun-1994 - JPS - Added filetype handling
              18-Jun-1994 - JDH - See Save.c
+             10-Aug-2007 - AR - Documentation tweaks
 */
 
 #ifndef __dl_save_h
@@ -42,9 +43,9 @@ extern "C" {
 
 typedef BOOL (*save_filesaver)(char *filename, void *ref);
 /*
-  This type of function should save data to the given filename, and
-  return TRUE if successful or FALSE otherwise.  'ref' is the reference
-  originally passed to Save_InitSaveWindowHandler.
+  This type of function should save data to the given filename (which is
+  automatically passed to it), and return TRUE if successful or FALSE otherwise.
+  'ref' is the reference originally passed to Save_InitSaveWindowHandler.
 */
 
 
@@ -193,7 +194,8 @@ save_saveblock *Save_InitSaveWindowHandler(
   the the full pathname and start with a default leafname to be used for
   the file.  You can leave out any of these except the filenameicon, in which
   case you whould pass a negative number instead of an icon handle for
-  those parameters.
+  those parameters. When your save_filesaver function is called, it is passed
+  the full pathname to save to.
 
   You can also choose how the library deals with your window and the handlers
   attached to it.  Setting 'release_after' to TRUE means that when the window

@@ -107,7 +107,7 @@ extern BOOL Menu__Create(menu_item *item, const char *description, int numitems)
   {
     it = &item[i];
     it->menuflags.value = 0;
-    it->submenu.value   = NULL;
+    it->submenu.value   = 0;
     it->iconflags.value = icon_TEXT | icon_FILLED;
     it->iconflags.data.foreground = 7;
 

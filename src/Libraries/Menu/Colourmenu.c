@@ -1,6 +1,8 @@
 /*
- * File: ColourMenu.Colourmenu.c
+ * File: Menu/Colourmenu.c
  * Author: Craig Beech, 27th August 1994
+ *
+ * Version 1.01 (10 Oct 2007) Moved to Menu module
  *
  * Abstract: Create a "colour selector" menu.  This is equivalent to the
  * RISC_OSLib colourmenu function.
@@ -11,8 +13,6 @@
  */
 
 #include "DeskLib:Menu.h"
-#include "DeskLib:ColourMenu.h"
-
 
 /****************************************************************************
 
@@ -24,7 +24,7 @@
 
 ****************************************************************************/
 
-extern menu_ptr ColourMenu_Create(const char *name)
+extern menu_ptr Menu_NewColourMenu(const char *name)
 { menu_ptr menu;
   menu_item *item;
 

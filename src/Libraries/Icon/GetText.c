@@ -58,7 +58,7 @@ extern void Icon_GetText(window_handle w, icon_handle i, char *text)
     index++;
 
   if (index < len)
-    text[index] = NULL;
+    text[index] = '\0';
   else
-    text[len - 1] = NULL;
+    text[len - 1] = '\0';
 }

@@ -21,16 +21,20 @@
 /*
   This file has prototypes for a standard set of simple debugging functions.
 
-  Note that the main DeskLib library 'DeskLib:o.DeskLib' does *not*
-  contain any of these functions - you have to link with a library inside
-  'DeskLib:o.Debug.' (or provide your own versions of the functions). This
-  is so that different debugging libraries can be used, to output data to
-  stderr, or a file in pipe or wherever you feel most comfortable with...
+  Several different ways of outputting debug messages are provided. Call
+  Debug_Initialise to specify which method to use (otherwise the library
+  defaults to outputting to stderr).
 
   This header file ensures that all calls to Debug_xxx functions are
   macro-ed out by the preprocessor unless DeskLib_DEBUG is predefined.
   So don't worry about debug calls taking up space in your finished
-  project, they will disappear when you build a normal version of your project.
+  project, they will disappear when you build a normal version of your
+  project.
+
+  Thread Safety: Debug_Initialise is not thread-safe (though, in general
+  you should only need to call it once at the start of your app).
+  Debug_Printf may or may not be thread-safe, depending on the value
+  passed to Debug_Initialise.
 */
 
 #ifndef __dl_debug_h
@@ -48,69 +52,84 @@
 extern "C" {
 #endif
 
+typedef enum
+{
+  debug_UNINITIALISED,
+  debug_REPORTER,
+  debug_PIPETYPE,
+  debug_STDERR,
+  debug_UNIQUEFILE,
+  debug_UNIQUEPIPE
+} debug_type;
+/*
+   This enum is used to specify which method of outputting debug
+   information you'd like the debug functions to use. Pass one of
+   the values to Debug_Initialise.
+
+   REPORTER will output to Martin Avison's Reporter if it's
+   present when the debug library is initialised (otherwise it
+   will return TRUE and the debug type will remain uninitialised).
+   Debug_Printf is thread-safe if this option is successful.
+
+   PIPETYPE writes to a file in Pipe: and displays it in a
+   taskwindow on screen (so can only be initialised after
+   the program has called Event_Initialise).
+
+   STDERR writes to the stderr output (usually specified by
+   redirection in your !Run file).
+
+   UNIQUEFILE writes to a unique file inside Scrap
+
+   UNIQUEPIPE is similar to PIPETYPE but creates a unique file in
+   Pipe: and does not open it in a taskwindow.
+
+   UNINITIALISED is only for use internally.
+*/
 
 typedef void (*debug_signalhandlerfn)( int sig, void *reference);
 /*
   This is a function type which is called when a signal happens.
 */
 
+#if defined(DeskLib_DEBUG) || defined(_DeskLib_Debug_BUILD)
 
-
-
-/* haddoc ignore on */
-/* This bit is ignored to avoid duplicate entries being written */
-
-#if !defined( DeskLib_DEBUG) && !defined( _DeskLib_Debug)
-
-	#define Debug_Initialise()
-
-	#define Debug_InitialiseSignal()
-
-	#define Debug_ReleaseSignal()
-
-	#define Debug_Print( text)
-
-	#define Debug_ClaimSignal( fn, reference)
-
-	#define Debug_Assert( expression)
-
-	#define Debug_Error_CheckFatal( errfn)	Error_CheckFatal( errfn);
-
-	#define Debug_Printf 	Debug_Dummyf
-
+        BOOL Debug_Initialise(debug_type type);
 	/*
-      These effectively remove any references to Debug_ functions from
-      source code.
-    */
-/* haddoc ignore off */
-#else
+	  Sets up the debug library. Call this before you use the
+	  Debug_Print or Debug_Printf functions. "type" specifies how
+	  the debug functions will output the debug information.
 
-	void Debug_Initialise( void);
-	/*
-	  Sets up the debug library - call this at the start of main().
+	  Calling this function is not mandatory (unless using threads),
+	  as it will be automatically called if you don't do so. In
+	  this case, it is initialised to the STDERR output.
+
+	  It returns TRUE if an error occurred.
 	*/
 
-	void Debug_InitialiseSignal( void);
+	void Debug_InitialiseSignal(void);
 	/*
-	  Sets up a handler for signals.
+	  Sets up a default handler for signals which calls Error_Report.
+	  To set up your own handler, use Debug_ClaimSignal (which calls
+	  Debug_InitialiseSignal for you).
 	*/
 
-	void Debug_ClaimSignal( debug_signalhandlerfn fn, void *reference);
+	void Debug_ClaimSignal(debug_signalhandlerfn fn, void *reference);
 	/*
 	  Makes 'fn' be called when a signal occurs.
 	*/
 
-	void Debug_ReleaseSignal( void);
+	void Debug_ReleaseSignal(void);
 	/*
 	  Stops the fn, from a previous call to Debug_ClaimSignal, being called.
+	  The default handler is re-instated.
 	*/
 
-	int Debug_Printf( const char *format, ...);
+	int Debug_Printf(const char *format, ...);
 	/*
 	  Sends the text to the debug output, in same way as printf.
 	*/
 
-	void Debug_Print( const char *text);
+	void Debug_Print(const char *text);
 	/*
 	  Sends a string to the debug output.
 	*/
@@ -133,12 +152,6 @@ typedef void (*debug_signalhandlerfn)( int sig, void *reference);
 	  DeskLib_DEBUG is predefined.
 	*/
 
-	void	Debug__Assert( const char *expression, char *sourcefile, int line);
-	/*
-	  Not for user consumption - used by Debug_Assert.
-	*/
-
-
 	#define Debug_Assert( expression)					\
 		(								\
 			(expression) 						\
@@ -156,6 +169,33 @@ typedef void (*debug_signalhandlerfn)( int sig, void *reference);
 	  unless DeskLib_DEBUG is defined.
 	*/
 
+#else
+
+	/*
+          These effectively remove any references to Debug_ functions from
+          source code.
+        */
+
+        /* This bit is ignored to avoid duplicate entries being written */
+        /* haddoc ignore on */
+
+	#define Debug_Initialise(choice)
+
+	#define Debug_InitialiseSignal()
+
+	#define Debug_ReleaseSignal()
+
+	#define Debug_Print(text)
+
+	#define Debug_ClaimSignal(fn, reference)
+
+	#define Debug_Assert(expression)
+
+	#define Debug_Error_CheckFatal(errfn) Error_CheckFatal(errfn);
+
+	#define Debug_Printf Debug_Dummyf
+
+        /* haddoc ignore off */
 
 #endif
 
@@ -176,8 +216,6 @@ int Debug__Dummyf(const char *format, ...);
   arguments.
 */
 
-/* haddoc ignore off */
-
 #define Debug_Dummyf  if (1) (void)0; else Debug__Dummyf
 /*
   A macro which is used to remove calls to a multi-argument function
@@ -193,6 +231,7 @@ int Debug__Dummyf(const char *format, ...);
   else flag=3;
 */
 
+/* haddoc ignore off */
 
 extern int debug_level;
 /*

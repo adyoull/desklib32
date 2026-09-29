@@ -37,13 +37,17 @@ extern "C" {
   retrieving window templates from Template files.
 */
 
+/* haddoc ignore on */
 
 extern void Template_Initialise(void);
 /*
-  This initialises the Template manager ready for use.  Be sure to call this
-  before you call any other Template functions.
+  This initialises the Template manager ready for use.
+
+  This call is now performed automatically from Template_LoadFile,
+  so does not need to be visible to the user.
 */
 
+/* haddoc ignore off */
 
 extern window_block *Template_Find(const char *name);
 /*
@@ -130,9 +134,10 @@ extern void Template_ClearAll(void);
 extern void Template_LoadFile(const char *leafname);
 /*
   This loads all template definitions from the given file (which should be
-  on the resource_pathname for your task) into the Template cache.  If any
-  errors occur, they go to Error_ReportFatal or similar, as they tend to
-  be unfixable.
+  on the resource_pathname for your task) into the Template cache. You can
+  call this function more than once - the new templates will be added to the
+  template cache. If any errors occur, they go to Error_ReportFatal or
+  similar, as they tend to be unfixable.
 
   After loading the file, use Template_Clone to get a copy of any of the
   templates for use by giving the name as specified in the file.  If you don't
@@ -140,6 +145,9 @@ extern void Template_LoadFile(const char *leafname);
   Template_Delete or Template_ClearAll.  If you want to use outline fonts
   in your windows make sure you call Template_UseOutlineFonts *before* loading
   the file.
+
+  Note: earlier versions of DeskLib required an explicit call to Template_Initialise
+  before using this function. This is no longer required.
 */
 
 

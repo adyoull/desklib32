@@ -88,7 +88,7 @@ extern os_error *Wimp_CloseDown(task_handle task);
 extern os_error *Wimp_StartTask(const char *command);
 /*
   This function is used to start a task from within a program.
-  The text in 'command' can be any * command which will case a Wimp
+  The text in 'command' can be any * command which will cause a Wimp
   program to be executed.  Control will be returned to your program when
   the new task exits, or when it first calls Wimp_Poll.
 */
@@ -97,7 +97,7 @@ extern os_error *Wimp_StartTask(const char *command);
 extern os_error *Wimp_StartTask3(const char *command, task_handle *newtask);
 /*
   This function is used to start a task from within a program.
-  The text in 'command' can be any * command which will case a Wimp
+  The text in 'command' can be any * command which will cause a Wimp
   program to be executed.  Control will be returned to your program when
   the new task exits, or when it first calls Wimp_Poll.
 
@@ -408,9 +408,9 @@ extern os_error *Wimp_WhichIcon(window_handle    window,
                                    unsigned int   settings);
 /*
   This function searches for icons that match a given flag word.  All icons
-  in the given window will be checks, and the list placed in the array pointed
-  to be 'icons'.  'mask' determines which which bits are to be checked,
-  'settings' says what should be looked for.
+  in the given window will be checked, and the list placed in the array pointed
+  to by 'icons'.  'mask' determines which bits are to be checked, 'settings'
+  says what should be looked for.
 
   It checks if: iconflags & mask == settings & mask.
 */

@@ -11,6 +11,7 @@
     File:    Icon.BarIconUse.c
     Author:  Copyright © 1994 Peter Gaunt
     Version: 1.00 (12 Mar 1994)
+             1.01 (05 Sep 2007) Use strncpy rather than strcpy
     Purpose: Place icon on the Icon Bar, using a caller-specified sprite
       	     area.
 */
@@ -46,7 +47,8 @@ extern icon_handle Icon_BarIconUser(const char *spritename, window_handle pos,
   if (iconname == NULL)
     Error_Report(1,"Not enough memory");
 
-  strcpy(iconname,spritename);
+  strncpy(iconname,spritename,wimp_MAXNAME);
+  iconname[wimp_MAXNAME] = '\0';
 
   icreate.icondata.data.indirectsprite.name = iconname;
   icreate.icondata.data.indirectsprite.spritearea = area;

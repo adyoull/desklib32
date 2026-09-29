@@ -39,7 +39,11 @@ extern "C" {
   module SWIs, and MsgTrans_ functions which provide a higher level
   interface in a way likely to be of use in a desktop application.
 
-  The file format consists of a series of lines of the form
+  To use the higher level interface, call MsgTrans_LoadFile to open and
+  load your message file, MsgTrans_Lookup to look up the value of tokens
+  and, finally, MsgTrans_LoseFile to close the file when you're finished.
+
+  The message file format consists of a series of lines of the form
   "Token:Text message with parameters %0 to %3".  You can specify more
   than one token for a message by separating the alternative tokens with
   '/' or LF, eg. "Token1/Token2:Message".  You can put '?' in a token,
@@ -136,8 +140,13 @@ extern os_error *MsgTrans_LoadFile(msgtrans_filedesc **filedesc,
                                    const char *filename);
 /*
   This function allocates space (using malloc) for the given message
-  file and loads it.  If fills 'filedesc' with a pointer to a MessageTrans
-  file descriptor block.
+  file and loads it. If fills 'filedesc' with a pointer to a MessageTrans
+  file descriptor block if no errors occur.
+
+  The function will check for the existence of "filename" and if it's
+  not present, will try again after prefixing the filename with the
+  location of your application resources (as set up for the Resource
+  module). If it still can't find a file, an error is returned.
 
   This function returns NULL if there are no errors.
 */
@@ -183,9 +192,9 @@ extern os_error *MsgTrans_LookupPS(msgtrans_filedesc *filedesc,
 
 extern os_error *MsgTrans_LoseFile(msgtrans_filedesc *filedesc);
 /*
-  This closes a message file opened with MsgTrans_LoadFile, and frees the
-  memory occupied by that file.  You should pass the file descriptor returned
-  by that earlier call.
+  This closes a message file opened with MsgTrans_LoadFile (so long as
+  filedesc is not NULL), and frees the memory occupied by that file.
+  You should pass the file descriptor returned by that earlier call.
 
   This function returns NULL if there are no errors.
 */

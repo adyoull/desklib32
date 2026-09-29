@@ -1,16 +1,16 @@
-; Copyright 1993 Shaun Blackmore
+@ Copyright 1993 Shaun Blackmore
 
-        GET     RegDefs.h
-        GET     SwiNos.h
-        GET     Macros.h
+        .include     "RegDefs.h"
+        .include     "SwiNos.h"
+        .include     "Macros.h"
 
-;        void Filter_RegisterPreFilter(char *FilterName, FilterHandler handler, int R12, int TaskHandle);
+@        void Filter_RegisterPreFilter(char *FilterName, FilterHandler handler, int R12, int TaskHandle);
 
-        PREAMBLE
-        STARTCODE Filter_RegisterPreFilter
-;
+        
+        .global Filter_RegisterPreFilter
+Filter_RegisterPreFilter:
+@
         STMFD   sp!, {lr}
         SWI     SWI_Filter_RegisterPreFilter
         LDMFD   sp!, {pc}
-;
-        END
+@

@@ -48,7 +48,7 @@ static BOOL Url_Received(event_pollblock *event, void *ref)
 
       mess.header.yourref = mess.header.myref;
       mess.header.action = message_URI_MPROCESSACK;
-      Wimp_SendMessage(event_ACK, &mess, mess.header.sender, NULL);
+      Wimp_SendMessage(event_ACK, &mess, mess.header.sender, 0);
 
       return TRUE;
     }
@@ -85,7 +85,7 @@ static BOOL Url_Received(event_pollblock *event, void *ref)
     {
       message_block mess = event->data.message;
       mess.header.yourref = mess.header.myref;
-      Wimp_SendMessage(event_ACK, &mess, mess.header.sender, NULL);
+      Wimp_SendMessage(event_ACK, &mess, mess.header.sender, 0);
 
       return TRUE;
     }

@@ -1,12 +1,11 @@
 
-XOS_Bit                    EQU &020000
+.equ	XOS_Bit, 0x020000
 
-OS_SpriteOp                EQU &00002e
+.equ	OS_SpriteOp, 0x00002e
 
-Wimp_ReadPixTrans          EQU &0400ed
+.equ	Wimp_ReadPixTrans, 0x0400ed
 
-Wimp_GetWindowOutline      EQU &400E0
+.equ	Wimp_GetWindowOutline, 0x400E0
 
-OS_Word EQU &07
+.equ	OS_Word, 0x07
 
-        END

@@ -19,6 +19,8 @@
     Mods:    08 Jul 1995 - Julian Smith - Added Font_Paint3 for use with RISC
                                           OS 3. Also various macros for the
                                           'plottype' argument of Font_Paint3.
+             23 Oct 2007: Removed Font_Plot from documentation, changed names
+                          to meet DeskLib naming standards
 */
 
 #ifndef __dl_font_h
@@ -40,11 +42,6 @@ extern "C" {
 /* Abstract */
 /*
   This header provides assembler veneers for the FontManager SWIs.
-
-  Some of the names are not strictly in the DeskLib style, instead they
-  are consistent with the SWIs they correspond to, eg. Font_Converttopoints.
-  For these cases, macros with the DeskLib style are provided to allow
-  either style to be used.
 */
 
 
@@ -55,8 +52,10 @@ typedef unsigned char font_handle;
 typedef struct
 {
   char name[128];
-  unsigned int xsize, ysize;
-  unsigned int xres, yres;
+  unsigned int xsize;
+  unsigned int ysize;
+  unsigned int xres;
+  unsigned int yres;
   unsigned int age;
   unsigned int usage;
 } font_defn;
@@ -74,7 +73,10 @@ typedef struct
 
 typedef struct
 {
-    int minx, miny, maxx, maxy;
+    int minx;
+    int miny;
+    int maxx;
+    int maxy;
 } font_info;
 /*
   This is used to give a bounding box for a font or a character in a
@@ -104,7 +106,8 @@ typedef struct
 
 typedef struct
 {
-  int background, foreground;
+  int background;
+  int foreground;
 } font_colours;
 /*
   The logical colours of the font.
@@ -187,7 +190,7 @@ extern os_error *Font_ReadInfo(font_handle font, font_info *info);
 */
 
 
-extern os_error *Font_ConverttoOS(int x, int y, int *xout, int *yout);
+extern os_error *Font_ConvertToOS(int x, int y, int *xout, int *yout);
 /*
   This converts x and y from millipoints to OS units, according to the
   current scale factor (normally 400millipoints = 1 OS unit).
@@ -196,14 +199,16 @@ extern os_error *Font_ConverttoOS(int x, int y, int *xout, int *yout);
   interested in one of them.
 */
 
-#define Font_ConvertToOS Font_ConverttoOS
+/* haddoc ignore on */
+#define Font_ConverttoOS Font_ConvertToOS
 /*
   This is simply to provide a more DeskLib-like name for the
   Font_ConverttoOS function.
 */
+/* haddoc ignore off */
 
 
-extern os_error *Font_Converttopoints(int x, int y, int *xout, int *yout);
+extern os_error *Font_ConvertToPoints(int x, int y, int *xout, int *yout);
 /*
   This converts x and y from OS units to millipoints, according to the
   current scale factor (normally 400millipoints = 1 OS unit).
@@ -212,11 +217,13 @@ extern os_error *Font_Converttopoints(int x, int y, int *xout, int *yout);
   interested in one of them.
 */
 
-#define Font_ConvertToPoints Font_Converttopoints
+/* haddoc ignore on */
+#define Font_Converttopoints Font_ConvertToPoints
 /*
   This is simply to provide a more DeskLib-like name for the
   Font_Converttopoints function.
 */
+/* haddoc ignore off */
 
 
 extern os_error *Font_FindFont(font_handle *font, const char *name,
@@ -270,7 +277,8 @@ extern os_error *Font_FutureFont(font_state *state);
   state after the next call to Font_Paint would be.
 */
 
-
+/* haddoc ignore on */
+/* We don't support RISC OS 2 any more */
 extern os_error *Font_Paint(const char *str, int options, int x, int y);
 /*
   This writes a string to the screen in the simple RISC OS 2 way.  It doesn't
@@ -284,7 +292,7 @@ extern os_error *Font_Paint(const char *str, int options, int x, int y);
   The flags you can use in 'options' are font_justify_CURSOR, font_rubout_CURSOR
   and font_plot_OSCOORS.  All other bits of 'options' should be zero.
 */
-
+/* haddoc ignore off */
 
 extern os_error *Font_Caret(int colour, int height, int flags, int x, int y);
 /*

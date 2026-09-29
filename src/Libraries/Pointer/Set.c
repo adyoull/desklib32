@@ -8,34 +8,25 @@
     ####   ### ####  #  # ##### # ###    documentation for conditions of use
     ________________________________________________________________________
 
-    File:    Sound.h
-    Author:  Copyright © 1993 Jason Williams
-    Version: 0.01 (28 Mar 1993)
-    Purpose: Sound system interfaces
+    File:    Pointer.Set.c
+    Author:  Copyright © 2020 Stephen Fryatt
+    Version: 1.00 (16 Jun 2020)
+    Purpose: Set the pointer position
 */
 
-#ifndef __dl_sound_h
-#define __dl_sound_h
+#include "DeskLib:KernelSWIs.h"
+#include "DeskLib:Pointer.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+typedef char byte;
 
-/* Abstract */
-/*
-  This header provides sound system interfaces.
-  In fact, just the one at the moment.
-*/
+os_error *Pointer_SetPosition(wimp_point position)
+{
+ byte         box[5]={3};
 
-extern void Sound_SysBeep(void);
-/*
-  Simply writes a character 7 (system beep) to the VDU stream, in order
-  to sound a system beep. It sorta goes 'beep', really.
-*/
+ box[1] = (position.x & 0x00ff);
+ box[2] = (position.x & 0xff00) >> 8;
+ box[3] = (position.y & 0x00ff);
+ box[4] = (position.y & 0xff00) >> 8;
 
-#ifdef __cplusplus
+ return OS_Word(osword_DEFINEPOINTERANDMOUSE,box);
 }
-#endif
-
-
-#endif

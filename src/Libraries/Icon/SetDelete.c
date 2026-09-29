@@ -1,3 +1,20 @@
+/*
+ * This file is part of DeskLib, the C library for RISC OS.
+ * Please see accompanying documentation for terms of use.
+ *
+ *       http://www.riscos.info/index.php/DeskLib
+ *
+ *
+ * Module:  Icon
+ * File:    SetDelete.c
+ * Author:  Adam Richardson
+ * Purpose: Sets "deleted" flag for icon
+ *
+ * Version History
+ * 01/07/2007: Creation
+ *
+ */
+
 #include "DeskLib:Wimp.h"
 #include "DeskLib:WimpSWIs.h"
 #include "DeskLib:Icon.h"

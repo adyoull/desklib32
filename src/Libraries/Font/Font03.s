@@ -1,25 +1,26 @@
-; Author: Copyright 1993 Shaun Blackmore
+@ Author Copyright 1993 Shaun Blackmore
 
-        GET     RegDefs.h
-        GET     SwiNos.h
-        GET     Macros.h
+        .include     "RegDefs.h"
+        .include     "SwiNos.h"
+        .include     "Macros.h"
 
-; os_error *Font_ReadDefn(FontHandle font, FontDefn *defn);
+@ os_error *Font_ReadDefn(FontHandle font, FontDefn *defn);
 
-;       r0=font
-;       r1=pointer to definition block
+@       r0=font
+@       r1=pointer to definition block
 
-;       [r1,#0]  = Font name
-;       [r1,#128] = x size
-;       [r1,#132] = y size
-;       [r1,#136] = x res
-;       [r1,#140] = y res
-;       [r1,#144] = age
-;       [r1,#148] = usage
+@       [r1,#0]  = Font name
+@       [r1,#128] = x size
+@       [r1,#132] = y size
+@       [r1,#136] = x res
+@       [r1,#140] = y res
+@       [r1,#144] = age
+@       [r1,#148] = usage
 
-        PREAMBLE
-        STARTCODE Font_ReadDefn
-;
+        
+        .global Font_ReadDefn
+Font_ReadDefn:
+@
         STMFD   sp!, {r4,r5,r6,r7,lr}
         SWI     SWI_Font_ReadDefn + XOS_Bit
         STR     r2,[r1,#128]
@@ -30,5 +31,4 @@
         STR     r7,[r1,#148]
         MOVVC   r0,#0
         LDMFD   sp!, {r4,r5,r6,r7,pc}
-;
-        END
+@

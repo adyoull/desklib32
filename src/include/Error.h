@@ -106,6 +106,12 @@ extern BOOL Error_Check(os_error *error);
   returned
 */
 
+extern BOOL Error_CheckSilent(os_error *error);
+/*
+  Used to encapsulate an OS call to automatically check for error return.
+  If an error is encountered the function returns TRUE (but takes no other
+  action), otherwise it returns FALSE.
+*/
 
 extern void Error_CheckFatal(os_error *error);
 /*
@@ -126,14 +132,14 @@ extern BOOL Error_OutOfMemory(BOOL fatal, const char *place);
   if (spritearea == NULL) return( Error_OutOfMemory(FALSE, "icon sprites"));
 */
 
-
+/* haddoc ignore on */
 #define error__SR(x)	error__VL(x)
 /* Macro used in error_PLACE */
 
 
 #define error__VL(x)	#x
 /* Macro used in error__SR */
-
+/* haddoc ignore off */
 
 #define error_PLACE	"File '" __FILE__ "', line " error__SR( __LINE__) ". "
 /*
@@ -232,10 +238,8 @@ extern os_error error_global;
   error_FIXED may be used to provide a global version of this macro.
 */
 
-
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif

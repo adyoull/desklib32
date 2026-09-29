@@ -29,10 +29,9 @@ extern "C" {
 /*
   EventMsg is an add-on for the Event system, which provides a layer of
   handlers to handle user messages (reason codes 17-19).
-
-  To use these, you have to call Event_Initialise or an equivalent first.
 */
 
+/* haddoc ignore on */
 extern void EventMsg_Initialise(void);
 /*
   Initialises the EventMsg system ready for use. Attaches EventMsg event
@@ -43,7 +42,7 @@ extern void EventMsg_Initialise(void);
   that call EventMsg_Claim when the user may not be aware, and in case
   the programmer forgets for his own code.
 */
-
+/* haddoc ignore off */
 
 extern BOOL EventMsg_Claim(message_action messagetype, window_handle window,
                            event_handler handler, void *reference);
@@ -60,8 +59,8 @@ extern BOOL EventMsg_Claim(message_action messagetype, window_handle window,
   priority over all-window ones.
 
   This will call Wimp_AddMessages for any message codes you claim, so that
-  your task can be sure of receiving the messages you claim whether you
-  ask for them when you initialise the Event library or not.
+  your task does not need to pass a list of messages to listen for when the
+  Wimp_Initialise SWI is called by the Event library.
 */
 
 
